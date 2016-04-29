@@ -83,7 +83,7 @@ public class ByteUtil {
      * @param i
      * @return
      */
-    protected static byte IntToByte(int i)
+    public static byte IntToByte(int i)
     {
         return (byte)i;
     }
