@@ -1,6 +1,8 @@
 package com.cmos.ipa.pojo;
 
+import com.cmos.ipa.utils.ByteUtil;
 import com.cmos.ipa.utils.DataTool;
+import com.cmos.ipa.utils.DateTimeUtil;
 import io.netty.buffer.ByteBuf;
 import static io.netty.buffer.Unpooled.buffer;
 
@@ -13,10 +15,10 @@ import static io.netty.buffer.Unpooled.buffer;
 public class MsgHeart {
 
 
-    private Header header;//消息头
-    private Byte mId;
-    private Integer eventId;
-    private HeartReqBody heartReqBody;//消息体
+    private Header header = new Header();//消息头
+    private Byte mId = 0;
+    private Integer eventId = 0;
+    private HeartReqBody heartReqBody = new HeartReqBody();//消息体
     private Byte checkSum;//将编码后的报文（Message Header + body）进行异或操作，1个字节长度
 
     public static final int BUFFER_SIZE = 1024;
@@ -25,6 +27,8 @@ public class MsgHeart {
 
     public MsgHeart() {
         this.header.setMessageType((byte) 3);
+        this.header.setSendingTime((int)(DateTimeUtil.getTimeDifference()));
+        this.header.setAgentNum((byte) 10001);
         this.setmId((byte)1);
     }
 

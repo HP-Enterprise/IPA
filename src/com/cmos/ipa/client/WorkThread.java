@@ -1,7 +1,13 @@
 package com.cmos.ipa.client;
 
+import com.cmos.ipa.pojo.MsgHeart;
 import com.cmos.ipa.utils.log.Logger;
 import com.cmos.ipa.utils.log.LoggerConn;
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.PooledByteBufAllocator;
+import io.netty.channel.Channel;
+import io.netty.channel.ChannelHandler;
+import io.netty.channel.ChannelHandlerContext;
 
 /**
  * <code>工作线程</code>
@@ -14,6 +20,7 @@ public class WorkThread {
     private boolean canRun = true;
 
     private Logger log = null;
+
     private LoggerConn logConnErr = null;
 
     private Object mutex = new Object();
@@ -22,6 +29,7 @@ public class WorkThread {
 
     private boolean sendWait = false;
     private boolean recvWait = false;
+
 
     /**
      * <code>定义WorkThread实例</code>
@@ -61,47 +69,48 @@ public class WorkThread {
      * <code></code>开启各个工作线程
      */
     public void work() {
+        NettyClient.init().run();
 
         /**
          * <code>发送消息线程</code>
          */
-        Thread sendThread = new Thread() {
-            @Override
-            public void run() {
-
-                log.log_info("发送消息线程");
-            }
-        };
-        sendThread.setPriority(Thread.MAX_PRIORITY);
-        sendThread.start();
+//        Thread sendThread = new Thread() {
+//            @Override
+//            public void run() {
+//
+//                log.log_info("发送消息线程");
+//            }
+//        };
+//        sendThread.setPriority(Thread.MAX_PRIORITY);
+//        sendThread.start();
 
         //错开启动
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            log.log_error("WorkThread->sendThread->", e);
-        }
+//        try {
+//            Thread.sleep(10000);
+//        } catch (InterruptedException e) {
+//            log.log_error("WorkThread->sendThread->", e);
+//        }
 
         /**
          * <code>接受消息线程</code>
          */
-        Thread receiveThread = new Thread() {
-            @Override
-            public void run() {
-
-                log.log_info("接受消息线程");
-            }
-        };
-        receiveThread.setPriority(Thread.MIN_PRIORITY);
-        receiveThread.start();
-
-
-        //错开启动
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            log.log_error("WorkThread->receiveThread->",e);
-        }
+//        Thread receiveThread = new Thread() {
+//            @Override
+//            public void run() {
+//
+//                log.log_info("接受消息线程");
+//            }
+//        };
+//        receiveThread.setPriority(Thread.MIN_PRIORITY);
+//        receiveThread.start();
+//
+//
+//        //错开启动
+//        try {
+//            Thread.sleep(10000);
+//        } catch (InterruptedException e) {
+//            log.log_error("WorkThread->receiveThread->",e);
+//        }
 
         /**
          * <code>心跳线程</code>
@@ -109,12 +118,25 @@ public class WorkThread {
         Thread checkThread = new Thread() {
             @Override
             public void run() {
+                log.log_info("##############心跳线程##############");
+                MsgHeart mh = new MsgHeart();
+                while (canRun){
+                    ByteBuf buffer= PooledByteBufAllocator.DEFAULT.heapBuffer(10);
+                    buffer.writeBytes(mh.encoded());
+                    NettyClient.channel.writeAndFlush(buffer) ;
 
-                log.log_info("心跳线程");
+                    try {
+                        Thread.sleep(5000);
+                    } catch (InterruptedException e) {
+                        log.log_error("WorkThread->checkThread->",e);
+                    }
+
+                }
             }
         };
         checkThread.setPriority(Thread.MAX_PRIORITY);
         checkThread.start();
 
     }
+
 }

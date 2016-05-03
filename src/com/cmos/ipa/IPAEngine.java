@@ -41,7 +41,7 @@ public class IPAEngine {
         log.turnOn();
 
         //加载工作线程
-        NettyClient.init().run();
+        WorkThread.getInstance().work();
 
     }
 

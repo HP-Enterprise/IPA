@@ -14,6 +14,12 @@ import java.util.Date;
 public class DateTimeUtil {
 	
 	public static String DEFAULTFORMAT = "yyyy-MM-dd HH:mm:ss";
+
+    public static String DEFAULTFORMAT_ONE = "1970/01 00:00";
+
+    public static String DEFAULTFORMAT_TWO = "yyyy/MM hh:mm";
+
+    public static SimpleDateFormat sdf = new SimpleDateFormat(DEFAULTFORMAT_TWO);
 	
 	public static String getCurDateTime() {
 		return getCurDateTime(DEFAULTFORMAT);
@@ -77,6 +83,22 @@ public class DateTimeUtil {
 	public static Calendar parseString(String dateStr)throws ParseException{
 		return parseString(dateStr,DEFAULTFORMAT);
 	}
-	
+
+    public static long getTimeDifference(){
+        long time_one;
+        long time_two;
+        long time = 0;
+        try {
+            time_one = sdf.parse(DEFAULTFORMAT_ONE).getTime();
+            Date date = new Date();
+            time_two = date.getTime();
+            time = (time_two - time_one) / 1000;
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return time;
+    }
+
 	 
 }

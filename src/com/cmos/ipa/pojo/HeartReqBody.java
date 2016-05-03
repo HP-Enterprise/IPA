@@ -9,7 +9,7 @@ package com.cmos.ipa.pojo;
 public class HeartReqBody {
 
     //心跳标识 默认为3
-    private Byte heartBeat;
+    private Byte heartBeat = 3;
 
     public Byte getHeartBeat() {
         return heartBeat;

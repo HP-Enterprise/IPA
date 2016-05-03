@@ -3,6 +3,7 @@ package com.cmos.ipa.client;
 import com.cmos.ipa.service.SocketService;
 import com.cmos.ipa.utils.DataTool;
 import com.cmos.ipa.utils.Global;
+import com.cmos.ipa.utils.log.Logger;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.PooledByteBufAllocator;
@@ -11,6 +12,9 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
+
+import java.net.InetSocketAddress;
+import java.util.concurrent.TimeUnit;
 
 /**
  * <code>Nettyclient</code>
@@ -22,7 +26,15 @@ public class NettyClient {
 
     private DataTool dataTool;
     private SocketService socketService;
+    private volatile EventLoopGroup workerGroup;
+    private volatile Bootstrap bootstrap;
+    private volatile boolean closed = false;
+    private  String remoteWGHost;
+    private  int remoteWGPort;
+    private  int reConnection;
+    protected static Channel channel;
     private static NettyClient nc;
+    private Logger log = Logger.getInstance();
 
     public static NettyClient init(){
         if(nc == null){
@@ -31,51 +43,72 @@ public class NettyClient {
         return nc;
     }
 
+    public NettyClient(){
+        this.remoteWGHost = Global.GWHostAddr;
+        this.remoteWGPort = Global.GWHostPort;
+        this.reConnection = Global.RECONNECTION;
+    }
+
     public void run(){
-        EventLoopGroup workerGroup = new NioEventLoopGroup();
-        try {
-            Bootstrap bootstrap = new Bootstrap();
-            bootstrap.group( workerGroup).channel(NioSocketChannel.class) ;
-
-            bootstrap.option(ChannelOption.SO_KEEPALIVE, true) ;
-            bootstrap.handler(new ChannelInitializer<SocketChannel>() {
-
-                @Override
-                protected void initChannel(SocketChannel ch) throws Exception {
-                    ch.pipeline().addLast(new LengthFieldBasedFrameDecoder(1024, 2, 2, -4, 0));
-                    ch.pipeline().addLast(new NettyClientHandler(socketService,dataTool));
-                }
-            });
-
-            ChannelFuture channelFuture = null;
-            try {
-                channelFuture = bootstrap.connect(Global.GWHostAddr,Global.GWHostPort).sync();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+        closed = false;
+        workerGroup = new NioEventLoopGroup();
+        bootstrap = new Bootstrap();
+        bootstrap.group(workerGroup);
+        bootstrap.channel(NioSocketChannel.class);
+        bootstrap.handler(new ChannelInitializer<SocketChannel>() {
+            @Override
+            public void initChannel(SocketChannel ch) throws Exception {
+                ChannelPipeline pipeline = ch.pipeline();
+                pipeline.addFirst(new ChannelInboundHandlerAdapter() {
+                    @Override
+                    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+                        super.channelInactive(ctx);
+                        ctx.channel().eventLoop().schedule(new Runnable() {
+                            @Override
+                            public void run() {
+                                doConnect();
+                            }
+                        }, reConnection, TimeUnit.SECONDS);
+                    }
+                });
+                //todo: add more handler
             }
+        });
+        doConnect();
+    }
 
-            Channel channel=channelFuture.channel();
-
-//            while (true){
-//                ByteBuf buffer= PooledByteBufAllocator.DEFAULT.heapBuffer(10);
-//                buffer.writeShort(Short.MIN_VALUE);//包长占2字节
-//                buffer.writeByte(1);
-//                buffer.writeByte(0);
-//                buffer.setShort(0,buffer.writerIndex()-0x2);
-//                channel.writeAndFlush(buffer) ;
-//
-//                try {
-//                    Thread.sleep(5000);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-
-
-        }finally {
-            workerGroup.shutdownGracefully();
+    private void doConnect() {
+        if (closed) {
+            return;
         }
+        ChannelFuture future = bootstrap.connect(new InetSocketAddress(remoteWGHost, remoteWGPort));
+        future.addListener(new ChannelFutureListener() {
+            public void operationComplete(ChannelFuture f) throws Exception {
+                if (f.isSuccess()) {
+                    channel=f.channel();
+                    log.log_info("Started Tcp Client: " + getServerInfo());
+                } else {
+                    log.log_info("Started Tcp Client Failed: " + getServerInfo());
+                    f.channel().eventLoop().schedule(new Runnable() {
+                        @Override
+                        public void run() {
+                            doConnect();
+                        }
+                    }, 1, TimeUnit.SECONDS);
+                }
+            }
+        });
+    }
 
+    public void close() {
+        closed = true;
+        workerGroup.shutdownGracefully();
+    }
+
+    private String getServerInfo() {
+        return String.format("RemoteWGHost=%s RemoteWGPort=%d",
+                remoteWGHost,
+                remoteWGPort);
     }
 
 }
