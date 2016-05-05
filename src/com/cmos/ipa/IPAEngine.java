@@ -1,11 +1,9 @@
 package com.cmos.ipa;
 
 import com.cmos.ipa.client.NettyClient;
-import com.cmos.ipa.client.WorkThread;
 import com.cmos.ipa.utils.Global;
 import com.cmos.ipa.utils.PropertyUtil;
 import com.cmos.ipa.utils.log.Logger;
-import com.cmos.ipa.utils.log.LoggerConn;
 
 /**
  * <code>Agent app启动类</code>
@@ -41,7 +39,7 @@ public class IPAEngine {
         log.turnOn();
 
         //加载工作线程
-        WorkThread.getInstance().work();
+        NettyClient.init().run();
 
     }
 

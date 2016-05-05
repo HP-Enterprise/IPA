@@ -110,6 +110,22 @@ public class DataTool {
         return str;
     }
 
+    public String getLengthBytesString(String str,int length){
+        //将给定字符串右补空格为定长字符串
+        if(str==null){
+            return str;
+        }
+
+        if(str.getBytes().length>=length){
+            return str;
+        }
+        while (str.getBytes().length<length){
+            str=str+" ";
+        }
+
+        return str;
+    }
+
 
     public  char[] getBitsFrom2Byte(byte[]  bytes){
         String a=new String(getBitsFromByte(bytes[0]))+new String(getBitsFromByte(bytes[1]));
@@ -179,7 +195,7 @@ public class DataTool {
         bb.flip();
         return bb;
     }
-    public ByteBuf getByteBuf(String str){
+    public  ByteBuf getByteBuf(String str){
         //根据16进制字符串得到ByteBuf对象(netty)
         ByteBuf bb=buffer(1024);
 
@@ -275,5 +291,4 @@ public class DataTool {
         }
         return sum;
     }
-
 }

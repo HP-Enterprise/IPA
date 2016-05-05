@@ -59,6 +59,7 @@ public class NettyClient {
             @Override
             public void initChannel(SocketChannel ch) throws Exception {
                 ChannelPipeline pipeline = ch.pipeline();
+                //重连处理
                 pipeline.addFirst(new ChannelInboundHandlerAdapter() {
                     @Override
                     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
@@ -71,7 +72,17 @@ public class NettyClient {
                         }, reConnection, TimeUnit.SECONDS);
                     }
                 });
-                //todo: add more handler
+
+//                pipeline.addLast(new LengthFieldBasedFrameDecoder(1024, 0, 4, -4, 0));
+                //参数下载处理
+                pipeline.addLast("ParamdownloadHandler",new ParamdownloadHandler());
+                //心跳处理
+                pipeline.addLast("HeartBeatHandler",new HeartBeatHandler());
+                //状态消息处理
+//                pipeline.addLast("StatusHandler",new StatusHandler());
+                //告警消息处理
+//                pipeline.addLast("AlarmHandler",new AlarmHandler());
+
             }
         });
         doConnect();
@@ -85,7 +96,6 @@ public class NettyClient {
         future.addListener(new ChannelFutureListener() {
             public void operationComplete(ChannelFuture f) throws Exception {
                 if (f.isSuccess()) {
-                    channel=f.channel();
                     log.log_info("Started Tcp Client: " + getServerInfo());
                 } else {
                     log.log_info("Started Tcp Client Failed: " + getServerInfo());

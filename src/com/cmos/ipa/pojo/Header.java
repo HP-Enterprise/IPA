@@ -14,8 +14,12 @@ public class Header {
     private Short messageSize;
     //报文消息状态    1：状态消息 2：告警消息 3：心跳 4：参数下发
     private Byte messageType;
+    //消息类型  1:request 2:response
+    private Byte mId;
     //报文发送时间    使用从 1970-01 00:00到现在的秒数来表示
     private Integer sendingTime;
+    //一个事务用一个eventid，建议用sendingtime的值
+    private Integer eventId;
     //代理服务器编号
     private Byte agentNum;
 
@@ -57,5 +61,21 @@ public class Header {
 
     public void setAgentNum(Byte agentNum) {
         this.agentNum = agentNum;
+    }
+
+    public Byte getmId() {
+        return mId;
+    }
+
+    public void setmId(Byte mId) {
+        this.mId = mId;
+    }
+
+    public Integer getEventId() {
+        return eventId;
+    }
+
+    public void setEventId(Integer eventId) {
+        this.eventId = eventId;
     }
 }

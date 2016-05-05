@@ -15,10 +15,12 @@ import static io.netty.buffer.Unpooled.buffer;
 public class MsgHeart {
 
 
-    private Header header = new Header();//消息头
-    private Byte mId = 0;
-    private Integer eventId = 0;
-    private HeartReqBody heartReqBody = new HeartReqBody();//消息体
+    private Header header;//消息头
+    //心跳状态 0 失败  1成功
+    private Byte status;
+    //心跳标识 默认为3
+    private Byte heartBeat;
+
     private Byte checkSum;//将编码后的报文（Message Header + body）进行异或操作，1个字节长度
 
     public static final int BUFFER_SIZE = 1024;
@@ -26,10 +28,13 @@ public class MsgHeart {
     public DataTool dataTool = new DataTool();
 
     public MsgHeart() {
+        this.header = new Header();
         this.header.setMessageType((byte) 3);
+        this.header.setmId((byte) 1);
         this.header.setSendingTime((int)(DateTimeUtil.getTimeDifference()));
+        this.header.setEventId((int)(DateTimeUtil.getTimeDifference()));
         this.header.setAgentNum((byte) 10001);
-        this.setmId((byte)1);
+        this.heartBeat = (byte)3;
     }
 
     public Header getHeader() {
@@ -40,28 +45,20 @@ public class MsgHeart {
         this.header = header;
     }
 
-    public Byte getmId() {
-        return mId;
+    public Byte getStatus() {
+        return status;
     }
 
-    public void setmId(Byte mId) {
-        this.mId = mId;
+    public void setStatus(Byte status) {
+        this.status = status;
     }
 
-    public Integer getEventId() {
-        return eventId;
+    public Byte getHeartBeat() {
+        return heartBeat;
     }
 
-    public void setEventId(Integer eventId) {
-        this.eventId = eventId;
-    }
-
-    public HeartReqBody getHeartReqBody() {
-        return heartReqBody;
-    }
-
-    public void setHeartReqBody(HeartReqBody heartReqBody) {
-        this.heartReqBody = heartReqBody;
+    public void setHeartBeat(Byte heartBeat) {
+        this.heartBeat = heartBeat;
     }
 
     public Byte getCheckSum() {
@@ -72,32 +69,44 @@ public class MsgHeart {
         this.checkSum = checkSum;
     }
 
-    public void decoded(byte[] data){
+    /**
+     * <code>心跳消息解码</code>
+     * @param data
+     * @return
+     */
+    public MsgHeart decoded(byte[] data){
+        MsgHeart mh = new MsgHeart();
         ByteBuf bb = buffer(BUFFER_SIZE);
         bb.writeBytes(data);
-        this.header.setStartCode(bb.readShort());
-        this.header.setMessageSize(bb.readShort());
-        this.header.setMessageType(bb.readByte());
-        this.setmId(bb.readByte());
-        this.header.setSendingTime(bb.readInt());
-        this.setEventId(bb.readInt());
-        this.header.setAgentNum(bb.readByte());
-        this.heartReqBody.setHeartBeat(bb.readByte());
-        this.setCheckSum(bb.readByte());
+        header.setStartCode(bb.readShort());
+        header.setMessageSize(bb.readShort());
+        header.setMessageType(bb.readByte());
+        header.setmId(bb.readByte());
+        header.setSendingTime(bb.readInt());
+        header.setEventId(bb.readInt());
+        header.setAgentNum(bb.readByte());
+        mh.setHeader(header);
+        mh.setStatus(bb.readByte());
+        mh.setCheckSum(bb.readByte());
+        return mh;
     }
 
 
+    /**
+     * <code>心跳消息编码</code>
+     * @return
+     */
     public byte[] encoded(){
         ByteBuf bb = buffer(BUFFER_SIZE);
         bb.writeShort(this.header.getStartCode());
         bb.markWriterIndex();
         bb.writeShort(0);//预先写入length=0占位
         bb.writeByte(this.header.getMessageType());//
-        bb.writeByte(this.getmId());
+        bb.writeByte(this.header.getmId());
         bb.writeInt(this.header.getSendingTime());//
-        bb.writeInt(this.getEventId());//
+        bb.writeInt(this.header.getEventId());//
         bb.writeByte(this.header.getAgentNum());//
-        bb.writeByte(this.heartReqBody.getHeartBeat());//
+        bb.writeByte(getHeartBeat());//
         //回写length段
         int index=bb.writerIndex();
         bb.resetWriterIndex();
@@ -119,11 +128,11 @@ public class MsgHeart {
         sb.append("  StartCode:").append(this.header.getStartCode()).append("\n");
         sb.append("MessageSize:").append(this.header.getMessageSize()).append("\n");
         sb.append("MessageType:").append(this.header.getMessageType()).append("\n");
-        sb.append("        Mid:").append(this.getmId()).append("\n");
+        sb.append("        Mid:").append(this.header.getmId()).append("\n");
         sb.append("SendingTime:").append(this.header.getSendingTime()).append("\n");
-        sb.append("    EventId:").append(this.getEventId()).append("\n");
+        sb.append("    EventId:").append(this.header.getEventId()).append("\n");
         sb.append("   AgentNum:").append(this.header.getAgentNum()).append("\n");
-        sb.append("  HeartBeat:").append(this.heartReqBody.getHeartBeat()).append("\n");
+        sb.append("  HeartBeat:").append(getHeartBeat()).append("\n");
         sb.append("   CheckSum:").append(this.getCheckSum()).append("\n");
         sb.append("------------"+this.getClass().toString()+"------------").append("\n");
         return sb.toString();

@@ -50,9 +50,9 @@ public class NettyClientHandler extends ChannelInboundHandlerAdapter {
                         break;
                     case 0x03://C
                         log.log_info("Heartbeat request");
-                        respStr=socketService.setHeartbeatReq();
-                        buf=dataTool.getByteBuf(respStr);
-                        ch.writeAndFlush(buf);//心跳流程直接回消息
+//                        respStr=socketService.setHeartbeatReq();
+//                        buf=dataTool.getByteBuf(respStr);
+//                        ch.writeAndFlush(buf);//心跳流程直接回消息
                         break;
                     case 0x04://D
                         log.log_info("ParamDownload request");
