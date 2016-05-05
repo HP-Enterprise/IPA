@@ -73,16 +73,8 @@ public class NettyClient {
                     }
                 });
 
-//                pipeline.addLast(new LengthFieldBasedFrameDecoder(1024, 0, 4, -4, 0));
-                //参数下载处理
-                pipeline.addLast("ParamdownloadHandler",new ParamdownloadHandler());
-                //心跳处理
-                pipeline.addLast("HeartBeatHandler",new HeartBeatHandler());
-                //状态消息处理
-//                pipeline.addLast("StatusHandler",new StatusHandler());
-                //告警消息处理
-//                pipeline.addLast("AlarmHandler",new AlarmHandler());
-
+                pipeline.addLast(new LengthFieldBasedFrameDecoder(1024, 2, 2, -4, 0));
+                pipeline.addLast("NettyClientHandler",new NettyClientHandler());
             }
         });
         doConnect();

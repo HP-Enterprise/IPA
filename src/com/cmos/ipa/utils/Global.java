@@ -25,6 +25,10 @@ public class Global {
      */
     public static int RECEIVE_GW_MSG_INTERVAL;
     /**
+     * <code>与GW心跳时间,毫秒</code>
+     */
+    public static int HEART_TIME;
+    /**
      * <code>读取消息超时时间,毫秒</code>
      */
     public static int RECEIVE_TIMEOUT;
@@ -43,6 +47,15 @@ public class Global {
      */
     public static int LOG_MAXSIZE;
 
+    /**
+     * <code>从设备进行数据采集的周期，秒</code>
+     */
+    public static int COLLETCONTAB;
+
+    /**
+     * <code>从设备进行数据采集的协议</code>
+     */
+    public static int COLLECTPROTOCOL;
 
     /**
      * <code>全局打印方法</code>

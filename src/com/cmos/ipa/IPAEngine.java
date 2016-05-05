@@ -27,6 +27,7 @@ public class IPAEngine {
         Global.RECEIVE_GW_MSG_INTERVAL = PropertyUtil.getPropertyInt("ReceiveGwMsgInterval");
         Global.RECEIVE_TIMEOUT = PropertyUtil.getPropertyInt("ReceiveTimeout");
         Global.MAX_AVAILABLE_SOCKETS = PropertyUtil.getPropertyInt("MaxAvailableSockets");
+        Global.HEART_TIME = PropertyUtil.getPropertyInt("HeartTime");
 
         //初始化日志配置
         Global.LOG_LEVEL = PropertyUtil.getPropertyInt("LogLevel");
