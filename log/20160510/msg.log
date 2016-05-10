@@ -1,0 +1,877 @@
+###############################################################
+#
+#	  Server Turn On    05-10 10:25:21.565
+#
+###############################################################
+
+05-10 10:25:23.296 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 10:25:25.300 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 10:25:27.306 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 10:25:29.310 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 10:25:31.313 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 10:25:33.331 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 10:25:34.333 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 10:25:43.278 INFO  ;nioEventLoopGroup-2-1	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+###############################################################
+#
+#	  Server Turn On    05-10 10:30:45.214
+#
+###############################################################
+
+05-10 10:30:45.610 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 10:31:06.605 INFO  ;nioEventLoopGroup-2-1	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+###############################################################
+#
+#	  Server Turn On    05-10 10:31:14.666
+#
+###############################################################
+
+05-10 10:31:15.110 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client: DeviceHost=127.0.0.1 DevicePort=8000
+###############################################################
+#
+#	  Server Turn On    05-10 10:32:35.915
+#
+###############################################################
+
+05-10 10:32:37.230 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 10:32:39.234 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 10:32:41.238 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 10:32:43.242 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 10:32:44.746 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 10:32:44.764 INFO  ;nioEventLoopGroup-3-5	门禁 response >>36 30 30 30 3B 30 30 34 35 3B 31 39 32 2E 31 36 38 2E 32 32 31 2E 32 30 33 3B 30 3B 30 3B 34 3B 32 30 3B 31 39 3B 31 31 30 30 31 32 3B 
+05-10 10:32:57.223 INFO  ;nioEventLoopGroup-2-1	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 10:33:19.225 INFO  ;nioEventLoopGroup-2-2	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+###############################################################
+#
+#	  Server Turn On    05-10 10:35:15.743
+#
+###############################################################
+
+05-10 10:35:16.058 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 10:35:37.054 INFO  ;nioEventLoopGroup-2-1	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+###############################################################
+#
+#	  Server Turn On    05-10 10:52:56.554
+#
+###############################################################
+
+05-10 10:52:56.990 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client: DeviceHost=127.0.0.1 DevicePort=8000
+###############################################################
+#
+#	  Server Turn On    05-10 10:53:21.949
+#
+###############################################################
+
+05-10 10:53:22.260 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 10:53:22.278 INFO  ;nioEventLoopGroup-3-1	门禁 response >>36 30 30 30 3B 30 30 34 35 3B 31 39 32 2E 31 36 38 2E 32 32 31 2E 32 30 33 3B 30 3B 30 3B 34 3B 32 30 3B 31 39 3B 31 31 30 30 31 32 3B 
+###############################################################
+#
+#	  Server Turn On    05-10 10:53:46.212
+#
+###############################################################
+
+05-10 10:53:47.669 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 10:53:49.673 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 10:53:51.678 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+###############################################################
+#
+#	  Server Turn On    05-10 10:54:05.008
+#
+###############################################################
+
+05-10 10:54:06.542 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 10:54:06.569 INFO  ;nioEventLoopGroup-3-1	门禁 response >>36 30 30 30 3B 30 30 34 35 3B 31 39 32 2E 31 36 38 2E 32 32 31 2E 32 30 33 3B 30 3B 30 3B 34 3B 32 30 3B 31 39 3B 31 31 30 30 31 32 3B 
+05-10 10:54:38.127 INFO  ;nioEventLoopGroup-2-1	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+###############################################################
+#
+#	  Server Turn On    05-10 10:57:48.568
+#
+###############################################################
+
+05-10 10:57:48.907 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 10:57:48.926 INFO  ;nioEventLoopGroup-3-1	门禁 response >>36 30 30 30 3B 30 30 34 35 3B 31 39 32 2E 31 36 38 2E 32 32 31 2E 32 30 33 3B 30 3B 30 3B 34 3B 32 30 3B 31 39 3B 31 31 30 30 31 32 3B 
+05-10 10:58:09.901 INFO  ;nioEventLoopGroup-2-1	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 10:58:31.906 INFO  ;nioEventLoopGroup-2-2	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 10:58:35.062 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 10:58:37.066 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 10:58:39.070 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 10:58:39.073 INFO  ;nioEventLoopGroup-3-4	门禁 response >>36 30 30 30 3B 30 30 34 35 3B 31 39 32 2E 31 36 38 2E 32 32 31 2E 32 30 33 3B 30 3B 30 3B 34 3B 32 30 3B 31 39 3B 31 31 30 30 31 32 3B 0D 0A 
+###############################################################
+#
+#	  Server Turn On    05-10 10:58:59.079
+#
+###############################################################
+
+05-10 10:58:59.507 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 10:58:59.528 INFO  ;nioEventLoopGroup-3-1	门禁 response >>36 30 30 30 3B 30 30 34 35 3B 31 39 32 2E 31 36 38 2E 32 32 31 2E 32 30 33 3B 30 3B 30 3B 34 3B 32 30 3B 31 39 3B 31 31 30 30 31 32 3B 0D 0A 
+05-10 10:59:20.502 INFO  ;nioEventLoopGroup-2-1	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 10:59:42.505 INFO  ;nioEventLoopGroup-2-2	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:00:04.508 INFO  ;nioEventLoopGroup-2-3	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:00:25.303 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:00:26.514 INFO  ;nioEventLoopGroup-2-4	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:00:27.309 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+###############################################################
+#
+#	  Server Turn On    05-10 11:10:36.871
+#
+###############################################################
+
+05-10 11:10:37.323 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:10:37.343 INFO  ;nioEventLoopGroup-3-1	门禁 response >>36 30 30 30 3B 30 30 34 35 3B 31 39 32 2E 31 36 38 2E 32 32 31 2E 32 30 33 3B 30 3B 30 3B 34 3B 32 30 3B 31 39 3B 31 31 30 30 31 32 3B 0D 0A 
+05-10 11:10:58.312 INFO  ;nioEventLoopGroup-2-1	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:11:20.320 INFO  ;nioEventLoopGroup-2-2	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:11:42.321 INFO  ;nioEventLoopGroup-2-3	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:12:04.326 INFO  ;nioEventLoopGroup-2-4	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:12:26.331 INFO  ;nioEventLoopGroup-2-5	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:12:48.336 INFO  ;nioEventLoopGroup-2-6	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:13:10.339 INFO  ;nioEventLoopGroup-2-7	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:13:32.342 INFO  ;nioEventLoopGroup-2-8	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:13:54.347 INFO  ;nioEventLoopGroup-2-1	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:14:16.350 INFO  ;nioEventLoopGroup-2-2	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:14:38.355 INFO  ;nioEventLoopGroup-2-3	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:15:00.361 INFO  ;nioEventLoopGroup-2-4	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:15:22.364 INFO  ;nioEventLoopGroup-2-5	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:15:44.370 INFO  ;nioEventLoopGroup-2-6	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:16:06.404 INFO  ;nioEventLoopGroup-2-7	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:16:28.408 INFO  ;nioEventLoopGroup-2-8	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:16:50.413 INFO  ;nioEventLoopGroup-2-1	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:17:12.418 INFO  ;nioEventLoopGroup-2-2	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:17:34.421 INFO  ;nioEventLoopGroup-2-3	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:17:56.426 INFO  ;nioEventLoopGroup-2-4	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:18:18.431 INFO  ;nioEventLoopGroup-2-5	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:18:40.436 INFO  ;nioEventLoopGroup-2-6	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:19:02.438 INFO  ;nioEventLoopGroup-2-7	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:19:24.442 INFO  ;nioEventLoopGroup-2-8	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:19:46.449 INFO  ;nioEventLoopGroup-2-1	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:20:08.453 INFO  ;nioEventLoopGroup-2-2	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:20:30.455 INFO  ;nioEventLoopGroup-2-3	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:20:52.457 INFO  ;nioEventLoopGroup-2-4	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:21:14.467 INFO  ;nioEventLoopGroup-2-5	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:21:36.470 INFO  ;nioEventLoopGroup-2-6	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:21:58.473 INFO  ;nioEventLoopGroup-2-7	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:22:20.487 INFO  ;nioEventLoopGroup-2-8	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:22:42.492 INFO  ;nioEventLoopGroup-2-1	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:23:04.495 INFO  ;nioEventLoopGroup-2-2	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:23:26.498 INFO  ;nioEventLoopGroup-2-3	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:23:30.330 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:23:32.357 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:23:34.382 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:23:36.391 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:23:38.410 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:23:40.419 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:23:42.422 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:23:44.426 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:23:46.446 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:23:48.480 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:23:48.500 INFO  ;nioEventLoopGroup-2-4	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:23:50.504 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:23:52.517 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:23:54.530 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:23:56.551 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:23:58.556 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:24:00.573 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:24:02.595 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:24:04.711 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:24:06.909 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:24:09.197 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:24:10.638 INFO  ;nioEventLoopGroup-2-5	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:24:11.344 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:24:13.497 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:24:15.511 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:24:17.706 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:24:19.932 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:24:22.122 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:24:24.197 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:24:26.305 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:24:28.611 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:24:30.722 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:24:32.899 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:24:32.922 INFO  ;nioEventLoopGroup-2-6	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:24:35.007 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:24:37.134 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:24:39.405 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:24:41.597 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:24:43.722 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:24:45.907 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:24:48.203 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:24:50.209 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:24:52.217 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:24:54.235 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:24:55.136 INFO  ;nioEventLoopGroup-2-7	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:24:56.263 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:24:58.276 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:25:00.281 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:25:02.294 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:25:04.321 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:25:06.329 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:25:08.344 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:25:10.371 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:25:12.377 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:25:14.392 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:25:16.407 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:25:17.162 INFO  ;nioEventLoopGroup-2-8	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:25:18.411 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:25:20.414 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:25:22.425 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:25:24.435 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:25:26.446 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:25:28.450 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:25:30.458 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:25:32.475 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:25:34.488 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:25:36.495 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:25:38.501 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:25:39.178 INFO  ;nioEventLoopGroup-2-1	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:25:40.522 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:25:42.551 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:25:44.582 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:25:46.603 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:25:48.614 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:25:50.640 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:25:52.666 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:25:54.687 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:25:56.702 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:25:58.715 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:26:00.729 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:26:01.220 INFO  ;nioEventLoopGroup-2-2	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:26:02.742 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:26:04.751 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:26:06.769 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:26:08.771 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:26:10.803 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:26:12.812 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:26:14.832 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:26:16.864 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:26:18.886 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:26:20.911 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:26:22.919 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:26:23.246 INFO  ;nioEventLoopGroup-2-3	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:26:24.942 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:26:26.968 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:26:28.978 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:26:30.993 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:26:33.009 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:26:35.041 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:26:37.069 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:26:39.096 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:26:41.114 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:26:43.129 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:26:45.161 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:26:45.270 INFO  ;nioEventLoopGroup-2-4	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:26:47.164 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:26:49.190 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:26:51.217 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:26:53.244 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:26:55.266 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:26:57.303 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:26:59.323 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:27:01.347 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:27:03.355 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:27:05.385 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:27:07.300 INFO  ;nioEventLoopGroup-2-5	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:27:07.393 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:27:09.412 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:27:11.420 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:27:13.437 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:27:15.460 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:27:17.476 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:27:19.480 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:27:21.489 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:27:23.492 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:27:25.511 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:27:27.537 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:27:29.336 INFO  ;nioEventLoopGroup-2-6	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:27:29.555 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:27:31.586 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:27:33.613 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:27:35.628 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:27:37.655 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:27:39.661 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:27:41.668 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:27:43.686 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:27:45.715 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:27:47.724 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:27:49.770 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:27:51.349 INFO  ;nioEventLoopGroup-2-7	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:27:51.786 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:27:53.808 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:27:55.842 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:27:57.848 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:27:59.877 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:28:01.915 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:28:03.934 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:28:05.957 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:28:07.986 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:28:10.004 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:28:12.037 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:28:13.376 INFO  ;nioEventLoopGroup-2-8	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:28:14.063 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:28:16.074 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:28:18.099 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:28:20.130 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:28:22.160 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:28:24.175 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:28:26.205 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:28:28.227 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:28:30.261 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:28:32.285 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:28:34.302 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:28:35.399 INFO  ;nioEventLoopGroup-2-1	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:28:36.331 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:28:38.353 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:28:40.378 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:28:42.392 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:28:44.421 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:28:46.423 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:28:48.426 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:28:50.439 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:28:52.454 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:28:54.467 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:28:56.492 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:28:57.439 INFO  ;nioEventLoopGroup-2-2	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:28:58.504 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:29:00.520 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:29:02.547 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:29:04.557 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:29:06.560 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:29:08.563 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:29:10.566 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:29:12.576 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:29:14.584 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:29:16.597 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:29:18.609 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:29:19.469 INFO  ;nioEventLoopGroup-2-3	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:29:20.619 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:29:22.636 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:29:24.652 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:29:26.659 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:29:28.669 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:29:30.685 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:29:32.719 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:29:34.744 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:29:36.756 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:29:38.766 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:29:40.792 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:29:41.495 INFO  ;nioEventLoopGroup-2-4	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:29:42.816 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:29:44.828 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:29:46.832 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:29:48.845 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:29:50.847 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:29:52.863 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:29:54.874 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:29:56.888 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:29:58.902 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:30:00.923 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:30:02.936 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:30:03.514 INFO  ;nioEventLoopGroup-2-5	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:30:04.946 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:30:06.982 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:30:08.994 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:30:11.007 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:30:13.013 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:30:15.034 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:30:17.057 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:30:19.078 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:30:21.103 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:30:23.133 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:30:25.162 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:30:25.541 INFO  ;nioEventLoopGroup-2-6	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:30:27.193 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:30:29.221 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:30:31.231 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:30:33.257 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:30:35.268 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:30:37.309 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:30:39.337 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:30:41.354 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:30:43.381 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:30:45.384 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:30:47.426 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:30:47.551 INFO  ;nioEventLoopGroup-2-7	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:30:49.444 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:30:51.474 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:30:53.486 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:30:55.512 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:30:57.529 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:30:59.561 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:31:01.590 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:31:03.598 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:31:05.608 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:31:07.634 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:31:09.578 INFO  ;nioEventLoopGroup-2-8	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:31:09.656 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:31:11.663 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:31:13.684 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:31:15.711 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:31:17.743 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:31:19.760 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:31:21.776 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:31:23.813 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:31:25.847 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:31:27.869 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:31:29.900 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:31:31.615 INFO  ;nioEventLoopGroup-2-1	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:31:31.943 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:31:33.958 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:31:35.992 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:31:38.005 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:31:40.028 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:31:42.063 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:31:44.079 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:31:46.127 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:31:48.129 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:31:50.160 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:31:52.177 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:31:53.702 INFO  ;nioEventLoopGroup-2-2	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:31:54.205 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:31:56.207 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:31:58.210 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:32:00.221 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:32:02.244 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:32:04.271 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:32:06.299 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:32:08.330 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:32:10.360 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:32:12.363 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:32:14.400 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:32:15.718 INFO  ;nioEventLoopGroup-2-3	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:32:16.419 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:32:18.451 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:32:20.467 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:32:22.494 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:32:24.517 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:32:26.530 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:32:28.552 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:32:30.560 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:32:30.563 INFO  ;nioEventLoopGroup-3-4	门禁 response >>36 30 30 30 3B 30 30 34 35 3B 31 39 32 2E 31 36 38 2E 32 32 31 2E 32 30 33 3B 30 3B 30 3B 34 3B 32 30 3B 31 39 3B 31 31 30 30 31 32 3B 0D 0A 
+05-10 11:32:37.734 INFO  ;nioEventLoopGroup-2-4	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+###############################################################
+#
+#	  Server Turn On    05-10 11:32:38.165
+#
+###############################################################
+
+05-10 11:32:38.617 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:32:59.747 INFO  ;nioEventLoopGroup-2-5	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:33:21.750 INFO  ;nioEventLoopGroup-2-6	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+###############################################################
+#
+#	  Server Turn On    05-10 11:33:39.335
+#
+###############################################################
+
+05-10 11:33:39.845 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:33:43.754 INFO  ;nioEventLoopGroup-2-7	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:33:50.842 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:33:52.845 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:33:54.848 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:33:56.850 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:33:58.852 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:34:00.853 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:34:02.856 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:34:04.859 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:34:05.756 INFO  ;nioEventLoopGroup-2-8	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:34:06.860 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:34:08.867 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:34:10.870 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:34:12.873 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:34:14.875 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:34:16.876 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:34:18.878 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:34:20.879 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:34:22.882 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:34:24.884 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:34:26.886 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:34:27.759 INFO  ;nioEventLoopGroup-2-1	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:34:28.887 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:34:30.890 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:34:32.892 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:34:34.895 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:34:36.896 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:34:38.898 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:34:40.900 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:34:42.903 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:34:44.904 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:34:46.905 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:34:48.906 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:34:49.761 INFO  ;nioEventLoopGroup-2-2	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:34:50.909 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:34:52.913 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:34:54.915 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:34:56.916 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:34:58.918 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:35:00.921 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:35:02.923 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:35:04.926 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:35:06.928 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:35:08.931 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:35:10.933 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:35:11.763 INFO  ;nioEventLoopGroup-2-3	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:35:12.934 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:35:14.937 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:35:16.939 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:35:18.941 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:35:20.943 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:35:22.947 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:35:24.951 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:35:26.954 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:35:28.958 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:35:30.961 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:35:32.962 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:35:33.766 INFO  ;nioEventLoopGroup-2-4	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:35:34.964 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:35:36.966 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:35:38.969 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:35:40.971 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:35:42.972 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:35:44.974 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:35:46.977 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:35:48.979 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:35:50.982 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:35:52.984 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:35:54.985 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:35:55.768 INFO  ;nioEventLoopGroup-2-5	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:35:56.987 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:35:58.988 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:36:00.990 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:36:02.994 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:36:04.996 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:36:06.999 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:36:09.002 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:36:11.004 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:36:13.006 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:36:15.008 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:36:17.011 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:36:17.771 INFO  ;nioEventLoopGroup-2-6	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:36:19.013 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:36:21.015 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:36:23.018 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:36:25.020 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:36:27.023 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:36:29.026 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:36:31.027 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:36:33.030 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:36:35.031 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:36:37.034 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:36:39.037 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:36:39.774 INFO  ;nioEventLoopGroup-2-7	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:36:41.040 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:36:43.042 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:36:45.044 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:36:47.045 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:36:49.048 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:36:51.051 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:36:53.052 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:36:55.055 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:36:57.057 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:36:59.059 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:37:01.060 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:37:01.777 INFO  ;nioEventLoopGroup-2-8	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:37:03.063 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:37:05.065 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:37:07.067 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:37:09.069 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:37:11.071 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:37:13.075 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:37:15.077 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:37:17.080 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:37:19.082 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:37:21.084 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:37:23.088 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:37:23.779 INFO  ;nioEventLoopGroup-2-1	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:37:25.090 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:37:27.093 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:37:29.096 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:37:31.098 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:37:33.100 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:37:35.103 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:37:37.105 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:37:39.107 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:37:41.109 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:37:43.111 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:37:45.112 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:37:45.781 INFO  ;nioEventLoopGroup-2-2	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:37:47.115 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:37:49.117 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:37:51.120 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:37:53.122 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:37:55.123 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:37:57.125 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:37:59.127 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:38:01.133 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:38:03.135 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:38:05.138 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:38:07.140 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:38:07.782 INFO  ;nioEventLoopGroup-2-3	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:38:09.143 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:38:11.146 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:38:13.148 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:38:15.149 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:38:17.152 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:38:19.154 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:38:21.156 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:38:23.158 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:38:25.160 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:38:27.162 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:38:29.163 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:38:29.785 INFO  ;nioEventLoopGroup-2-4	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:38:31.167 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:38:33.168 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:38:35.170 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:38:37.172 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:38:39.174 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:38:41.177 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:38:43.180 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:38:45.182 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:38:47.184 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:38:49.187 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:38:51.188 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:38:51.787 INFO  ;nioEventLoopGroup-2-5	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:38:53.190 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:38:55.192 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:38:57.194 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:38:59.197 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:39:01.200 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:39:03.203 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:39:05.205 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:39:07.206 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:39:09.208 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:39:11.211 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:39:13.214 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:39:13.793 INFO  ;nioEventLoopGroup-2-6	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:39:15.218 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:39:17.221 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:39:19.223 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:39:21.226 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:39:23.228 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:39:25.230 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:39:27.231 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:39:29.233 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:39:31.235 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:39:33.236 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:39:35.237 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:39:35.796 INFO  ;nioEventLoopGroup-2-7	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:39:37.239 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:39:39.242 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:39:41.244 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:39:43.246 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:39:45.248 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:39:47.250 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:39:49.254 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:39:51.257 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:39:53.261 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:39:55.265 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:39:57.268 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:39:57.799 INFO  ;nioEventLoopGroup-2-8	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:39:59.272 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:40:01.273 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:40:03.277 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:40:05.279 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:40:07.281 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:40:09.284 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:40:11.285 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:40:13.301 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:40:15.302 INFO  ;nioEventLoopGroup-3-5	Started Tcp Client: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:40:15.305 INFO  ;nioEventLoopGroup-3-5	门禁 response >>36 30 30 30 3B 30 30 34 35 3B 31 39 32 2E 31 36 38 2E 32 32 31 2E 32 30 33 3B 30 3B 30 3B 34 3B 32 30 3B 31 39 3B 31 31 30 30 31 32 3B 0D 0A 
+05-10 11:40:19.801 INFO  ;nioEventLoopGroup-2-1	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:40:26.726 INFO  ;nioEventLoopGroup-3-6	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:40:28.729 INFO  ;nioEventLoopGroup-3-7	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:40:30.732 INFO  ;nioEventLoopGroup-3-8	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:40:32.734 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:40:34.736 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:40:36.738 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:40:38.740 INFO  ;nioEventLoopGroup-3-4	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+###############################################################
+#
+#	  Server Turn On    05-10 11:54:48.230
+#
+###############################################################
+
+05-10 11:54:48.732 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:54:48.757 INFO  ;nioEventLoopGroup-3-1	门禁 response >>36 30 30 30 3B 30 30 34 35 3B 31 39 32 2E 31 36 38 2E 32 32 31 2E 32 30 33 3B 30 3B 30 3B 34 3B 32 30 3B 31 39 3B 31 31 30 30 31 32 3B 0D 0A 
+###############################################################
+#
+#	  Server Turn On    05-10 11:57:45.968
+#
+###############################################################
+
+05-10 11:57:46.292 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 11:57:46.312 INFO  ;nioEventLoopGroup-3-1	门禁 response >>36 30 30 30 3B 30 30 34 35 3B 31 39 32 2E 31 36 38 2E 32 32 31 2E 32 30 33 3B 30 3B 30 3B 34 3B 32 30 3B 31 39 3B 31 31 30 30 31 32 3B 0D 0A 
+05-10 11:58:07.287 INFO  ;nioEventLoopGroup-2-1	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:58:29.290 INFO  ;nioEventLoopGroup-2-2	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:58:51.292 INFO  ;nioEventLoopGroup-2-3	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:59:13.295 INFO  ;nioEventLoopGroup-2-4	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:59:35.301 INFO  ;nioEventLoopGroup-2-5	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 11:59:57.305 INFO  ;nioEventLoopGroup-2-6	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 12:00:19.311 INFO  ;nioEventLoopGroup-2-7	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 12:00:41.314 INFO  ;nioEventLoopGroup-2-8	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 12:01:03.318 INFO  ;nioEventLoopGroup-2-1	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 12:01:25.321 INFO  ;nioEventLoopGroup-2-2	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 12:01:47.325 INFO  ;nioEventLoopGroup-2-3	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 12:02:09.327 INFO  ;nioEventLoopGroup-2-4	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 12:02:31.331 INFO  ;nioEventLoopGroup-2-5	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 12:02:53.336 INFO  ;nioEventLoopGroup-2-6	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 12:03:15.343 INFO  ;nioEventLoopGroup-2-7	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+05-10 12:03:37.348 INFO  ;nioEventLoopGroup-2-8	Started Tcp Client Failed: RemoteWGHost=192.168.92.196 RemoteWGPort=8001
+###############################################################
+#
+#	  Server Turn On    05-10 12:05:15.817
+#
+###############################################################
+
+05-10 12:05:16.141 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 12:05:16.164 INFO  ;nioEventLoopGroup-3-1	门禁 response >>36 30 30 30 3B 30 30 34 35 3B 31 39 32 2E 31 36 38 2E 32 32 31 2E 32 30 33 3B 30 3B 30 3B 34 3B 32 30 3B 31 39 3B 31 31 30 30 31 32 3B 0D 0A 
+###############################################################
+#
+#	  Server Turn On    05-10 12:05:52.574
+#
+###############################################################
+
+05-10 12:05:52.985 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 12:05:52.985 INFO  ;nioEventLoopGroup-2-1	Started Tcp Client: RemoteWGHost=127.0.0.1 RemoteWGPort=8001
+05-10 12:05:52.986 INFO  ;nioEventLoopGroup-2-1	Started Paramdownload ......
+05-10 12:05:53.010 INFO  ;nioEventLoopGroup-3-1	门禁 response >>36 30 30 30 3B 30 30 34 35 3B 31 39 32 2E 31 36 38 2E 32 32 31 2E 32 30 33 3B 30 3B 30 3B 34 3B 32 30 3B 31 39 3B 31 31 30 30 31 32 3B 0D 0A 
+05-10 12:05:53.041 INFO  ;nioEventLoopGroup-2-1	Started HeartBeat ......
+05-10 12:05:53.041 INFO  ;nioEventLoopGroup-2-1	Started AlarmTask ......
+05-10 12:05:53.042 INFO  ;nioEventLoopGroup-2-1	Started StatusTask ......
+###############################################################
+#
+#	  Server Turn On    05-10 14:26:25.574
+#
+###############################################################
+
+05-10 14:26:26.069 INFO  ;nioEventLoopGroup-2-1	Started Tcp Client: RemoteWGHost=127.0.0.1 RemoteWGPort=8001
+05-10 14:26:26.069 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 14:26:26.070 INFO  ;nioEventLoopGroup-2-1	Started Paramdownload ......
+05-10 14:26:26.096 INFO  ;nioEventLoopGroup-3-1	门禁 response >>36 30 30 30 3B 30 30 34 35 3B 31 39 32 2E 31 36 38 2E 32 32 31 2E 32 30 33 3B 30 3B 30 3B 34 3B 32 30 3B 31 39 3B 31 31 30 30 31 32 3B 0D 0A 
+05-10 14:26:26.137 INFO  ;nioEventLoopGroup-2-1	Started HeartBeat ......
+05-10 14:26:26.138 INFO  ;nioEventLoopGroup-2-1	Started AlarmTask ......
+05-10 14:26:26.139 INFO  ;nioEventLoopGroup-2-1	Started StatusTask ......
+###############################################################
+#
+#	  Server Turn On    05-10 14:29:13.779
+#
+###############################################################
+
+05-10 14:29:14.165 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 14:29:14.165 INFO  ;nioEventLoopGroup-2-1	Started Tcp Client: RemoteWGHost=127.0.0.1 RemoteWGPort=8001
+05-10 14:29:14.166 INFO  ;nioEventLoopGroup-2-1	Started Paramdownload ......
+05-10 14:29:14.191 INFO  ;nioEventLoopGroup-3-1	门禁 response >>36 30 30 30 3B 30 30 34 35 3B 31 39 32 2E 31 36 38 2E 32 32 31 2E 32 30 33 3B 30 3B 30 3B 34 3B 32 30 3B 31 39 3B 31 31 30 30 31 32 3B 0D 0A 
+05-10 14:29:14.227 INFO  ;nioEventLoopGroup-2-1	Started HeartBeat ......
+05-10 14:29:14.228 INFO  ;nioEventLoopGroup-2-1	Started AlarmTask ......
+05-10 14:29:14.229 INFO  ;nioEventLoopGroup-2-1	Started StatusTask ......
+###############################################################
+#
+#	  Server Turn On    05-10 14:30:36.438
+#
+###############################################################
+
+05-10 14:30:36.752 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 14:30:36.752 INFO  ;nioEventLoopGroup-2-1	Started Tcp Client: RemoteWGHost=127.0.0.1 RemoteWGPort=8001
+05-10 14:30:36.753 INFO  ;nioEventLoopGroup-2-1	Started Paramdownload ......
+05-10 14:30:36.778 INFO  ;nioEventLoopGroup-3-1	门禁 response >>36 30 30 30 3B 30 30 34 35 3B 31 39 32 2E 31 36 38 2E 32 32 31 2E 32 30 33 3B 30 3B 30 3B 34 3B 32 30 3B 31 39 3B 31 31 30 30 31 32 3B 0D 0A 
+05-10 14:30:36.808 INFO  ;nioEventLoopGroup-2-1	Started HeartBeat ......
+05-10 14:30:36.809 INFO  ;nioEventLoopGroup-2-1	Started AlarmTask ......
+05-10 14:30:36.810 INFO  ;nioEventLoopGroup-2-1	Started StatusTask ......
+###############################################################
+#
+#	  Server Turn On    05-10 14:32:08.346
+#
+###############################################################
+
+###############################################################
+#
+#	  Server Turn On    05-10 14:36:41.680
+#
+###############################################################
+
+###############################################################
+#
+#	  Server Turn On    05-10 14:40:05.462
+#
+###############################################################
+
+###############################################################
+#
+#	  Server Turn On    05-10 14:40:31.917
+#
+###############################################################
+
+###############################################################
+#
+#	  Server Turn On    05-10 14:41:59.521
+#
+###############################################################
+
+###############################################################
+#
+#	  Server Turn On    05-10 14:45:25.249
+#
+###############################################################
+
+###############################################################
+#
+#	  Server Turn On    05-10 14:46:14.288
+#
+###############################################################
+
+05-10 14:46:14.724 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 14:46:14.724 INFO  ;nioEventLoopGroup-2-1	Started Tcp Client: RemoteWGHost=127.0.0.1 RemoteWGPort=8001
+05-10 14:46:14.725 INFO  ;nioEventLoopGroup-2-1	Started Paramdownload ......
+05-10 14:46:14.750 INFO  ;nioEventLoopGroup-3-1	门禁 response >>36 30 30 30 3B 30 30 34 35 3B 31 39 32 2E 31 36 38 2E 32 32 31 2E 32 30 33 3B 30 3B 30 3B 34 3B 32 30 3B 31 39 3B 31 31 30 30 31 32 3B 0D 0A 
+05-10 14:46:14.789 INFO  ;nioEventLoopGroup-2-1	Started HeartBeat ......
+05-10 14:46:14.790 INFO  ;nioEventLoopGroup-2-1	Started AlarmTask ......
+05-10 14:46:14.791 INFO  ;nioEventLoopGroup-2-1	Started StatusTask ......
+###############################################################
+#
+#	  Server Turn On    05-10 14:46:54.058
+#
+###############################################################
+
+05-10 14:46:54.406 INFO  ;nioEventLoopGroup-2-1	Started Tcp Client: RemoteWGHost=127.0.0.1 RemoteWGPort=8001
+05-10 14:46:54.406 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 14:46:54.407 INFO  ;nioEventLoopGroup-2-1	Started Paramdownload ......
+05-10 14:46:54.431 INFO  ;nioEventLoopGroup-3-1	门禁 response >>36 30 30 30 3B 30 30 34 35 3B 31 39 32 2E 31 36 38 2E 32 32 31 2E 32 30 33 3B 30 3B 30 3B 34 3B 32 30 3B 31 39 3B 31 31 30 30 31 32 3B 0D 0A 
+05-10 14:46:54.479 INFO  ;nioEventLoopGroup-2-1	Started HeartBeat ......
+05-10 14:46:54.480 INFO  ;nioEventLoopGroup-2-1	Started AlarmTask ......
+05-10 14:46:54.481 INFO  ;nioEventLoopGroup-2-1	Started StatusTask ......
+###############################################################
+#
+#	  Server Turn On    05-10 14:48:29.856
+#
+###############################################################
+
+05-10 14:48:30.164 INFO  ;nioEventLoopGroup-2-1	Started Tcp Client: RemoteWGHost=127.0.0.1 RemoteWGPort=8001
+05-10 14:48:30.164 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 14:48:30.164 INFO  ;nioEventLoopGroup-2-1	Started Paramdownload ......
+05-10 14:48:30.190 INFO  ;nioEventLoopGroup-3-1	门禁 response >>36 30 30 30 3B 30 30 34 35 3B 31 39 32 2E 31 36 38 2E 32 32 31 2E 32 30 33 3B 30 3B 30 3B 34 3B 32 30 3B 31 39 3B 31 31 30 30 31 32 3B 0D 0A 
+05-10 14:48:30.237 INFO  ;nioEventLoopGroup-2-1	Started HeartBeat ......
+05-10 14:48:30.238 INFO  ;nioEventLoopGroup-2-1	Started AlarmTask ......
+05-10 14:48:30.239 INFO  ;nioEventLoopGroup-2-1	Started StatusTask ......
+###############################################################
+#
+#	  Server Turn On    05-10 14:49:26.867
+#
+###############################################################
+
+05-10 14:49:27.285 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 14:49:27.285 INFO  ;nioEventLoopGroup-2-1	Started Tcp Client: RemoteWGHost=127.0.0.1 RemoteWGPort=8001
+05-10 14:49:27.285 INFO  ;nioEventLoopGroup-2-1	Started Paramdownload ......
+05-10 14:49:27.309 INFO  ;nioEventLoopGroup-3-1	门禁 response >>36 30 30 30 3B 30 30 34 35 3B 31 39 32 2E 31 36 38 2E 32 32 31 2E 32 30 33 3B 30 3B 30 3B 34 3B 32 30 3B 31 39 3B 31 31 30 30 31 32 3B 0D 0A 
+05-10 14:49:27.351 INFO  ;nioEventLoopGroup-2-1	Started HeartBeat ......
+05-10 14:49:27.352 INFO  ;nioEventLoopGroup-2-1	Started AlarmTask ......
+05-10 14:49:27.353 INFO  ;nioEventLoopGroup-2-1	Started StatusTask ......
+###############################################################
+#
+#	  Server Turn On    05-10 14:50:15.910
+#
+###############################################################
+
+05-10 14:50:16.361 INFO  ;nioEventLoopGroup-2-1	Started Tcp Client: RemoteWGHost=127.0.0.1 RemoteWGPort=8001
+05-10 14:50:16.361 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client: DeviceHost=127.0.0.1 DevicePort=8000
+05-10 14:50:16.361 INFO  ;nioEventLoopGroup-2-1	Started Paramdownload ......
+05-10 14:50:16.385 INFO  ;nioEventLoopGroup-3-1	门禁 response >>36 30 30 30 3B 30 30 34 35 3B 31 39 32 2E 31 36 38 2E 32 32 31 2E 32 30 33 3B 30 3B 30 3B 34 3B 32 30 3B 31 39 3B 33 30 30 30 31 33 3B 0D 0A 
+05-10 14:50:16.422 INFO  ;nioEventLoopGroup-2-1	Started HeartBeat ......
+05-10 14:50:16.422 INFO  ;nioEventLoopGroup-2-1	Started AlarmTask ......
+05-10 14:50:16.423 INFO  ;nioEventLoopGroup-2-1	Started StatusTask ......

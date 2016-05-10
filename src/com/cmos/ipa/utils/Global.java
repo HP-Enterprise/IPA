@@ -1,5 +1,11 @@
 package com.cmos.ipa.utils;
 
+import com.cmos.ipa.pojo.MsgAlarm;
+import com.cmos.ipa.pojo.MsgStatus;
+
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.atomic.AtomicLong;
+
 /**
  * <code>全局常量定义类</code>
  * @author Hardy
@@ -16,6 +22,16 @@ public class Global {
      * <code>GW端口</code>
      */
     public static int GWHostPort;
+
+    /**
+     * <code>设备地址</code>
+     */
+    public static String DeviceAddr;
+    /**
+     * <code>设备端口</code>
+     */
+    public static int DevicePort;
+
     /**
      * <code>与GW断开重连时间间隔，秒</code>
      */
@@ -48,14 +64,42 @@ public class Global {
     public static int LOG_MAXSIZE;
 
     /**
-     * <code>从设备进行数据采集的周期，秒</code>
+     * <code>从设备进行数据采集的周期，毫秒,默认10秒</code>
      */
-    public static int COLLETCONTAB;
+    public static int COLLETCONTAB = 1000;
 
     /**
      * <code>从设备进行数据采集的协议</code>
      */
     public static int COLLECTPROTOCOL;
+
+    /**
+     * <code>告警消息，消息队列</code>
+     */
+    public static LinkedBlockingQueue<MsgAlarm> alarmQueue =  new LinkedBlockingQueue<MsgAlarm>();
+
+    /**
+     * <code>状态消息，消息队列</code>
+     */
+    public static  LinkedBlockingQueue<MsgStatus> statusQueue =  new LinkedBlockingQueue<MsgStatus>();
+
+    /**
+     * <code>消息队列能缓存的最大数量</code>
+     */
+    public static int QUEUE_CACHE_NUM;
+
+    /**
+     * <code>告警消息入队列计数器</code>
+     */
+    public static int AlarmQueueIn;
+    /**
+     * <code>状态消息入队列计数器</code>
+     */
+    public static int StatusQueueIn;
+    /**
+     * <code>#设备类型 1 门禁 2 楼宇 3 视频监控</code>
+     */
+    public static int DeviceType;
 
     /**
      * <code>全局打印方法</code>

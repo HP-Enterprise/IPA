@@ -1,6 +1,9 @@
 package com.cmos.ipa;
 
 import com.cmos.ipa.client.NettyClient;
+import com.cmos.ipa.deviceclient.TCPClient;
+import com.cmos.ipa.deviceclient.UDPClient;
+import com.cmos.ipa.utils.DataPropertyUtil;
 import com.cmos.ipa.utils.Global;
 import com.cmos.ipa.utils.PropertyUtil;
 import com.cmos.ipa.utils.log.Logger;
@@ -23,11 +26,19 @@ public class IPAEngine {
         Global.GWHostAddr = PropertyUtil.getProperty("GWHostAddr");
         Global.GWHostPort = PropertyUtil.getPropertyInt("GWHostPort");
 
+        //初始化设备地址，端口
+        Global.DeviceAddr = PropertyUtil.getProperty("DeviceAddr");
+        Global.DevicePort = PropertyUtil.getPropertyInt("DevicePort");
+
         //初始化线程配置
         Global.RECEIVE_GW_MSG_INTERVAL = PropertyUtil.getPropertyInt("ReceiveGwMsgInterval");
         Global.RECEIVE_TIMEOUT = PropertyUtil.getPropertyInt("ReceiveTimeout");
         Global.MAX_AVAILABLE_SOCKETS = PropertyUtil.getPropertyInt("MaxAvailableSockets");
         Global.HEART_TIME = PropertyUtil.getPropertyInt("HeartTime");
+        Global.QUEUE_CACHE_NUM = PropertyUtil.getPropertyInt("QueueCacheNum");
+
+        //初始化设备类型
+        Global.DeviceType = PropertyUtil.getPropertyInt("DeviceType");
 
         //初始化日志配置
         Global.LOG_LEVEL = PropertyUtil.getPropertyInt("LogLevel");
@@ -41,6 +52,8 @@ public class IPAEngine {
 
         //加载工作线程
         NettyClient.init().run();
+//        UDPClient.init().start();
+        TCPClient.getInstance().run();
 
     }
 

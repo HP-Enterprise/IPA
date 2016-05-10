@@ -2,7 +2,10 @@ package com.cmos.ipa.pojo;
 
 import com.cmos.ipa.utils.DataTool;
 import com.cmos.ipa.utils.DateTimeUtil;
+import com.cmos.ipa.utils.log.Logger;
 import io.netty.buffer.ByteBuf;
+
+import java.io.UnsupportedEncodingException;
 
 import static io.netty.buffer.Unpooled.buffer;
 
@@ -20,6 +23,8 @@ public class MsgStatus {
     private static int deviceNameSize=100;
     //设备位置最大长度为200
     private static int deviceLocateSize=200;
+    //设备参数名称最大长度为100
+    private static int deviceParaSize=100;
 
     //报文个数 最大 255
     private Byte packageNum;
@@ -27,6 +32,8 @@ public class MsgStatus {
     private String[] deviceName;
     //设备位置
     private String[] deviceLocate;
+    //设备参数名称
+    private String[] devicePara;
     //设备状态1
     private Integer[]  status1;
     //设备状态2
@@ -40,18 +47,21 @@ public class MsgStatus {
 
     private Byte checkSum;//将编码后的报文（Message Header + body）进行异或操作，1个字节长度
 
-    public static final int BUFFER_SIZE = 1024;
+    private static final int BUFFER_SIZE = 1024;
 
-    public DataTool dataTool;
+    private DataTool dataTool;
+
+    private Logger log;
 
     public MsgStatus(){
         this.header = new Header();
         this.header.setMessageType((byte) 1);
         this.header.setmId((byte) 1);
-        this.header.setSendingTime((int)(DateTimeUtil.getTimeDifference()));
-        this.header.setEventId((int)(DateTimeUtil.getTimeDifference()));
+        this.header.setSendingTime(new DataTool().getCurrentSeconds());
+        this.header.setEventId(new DataTool().getCurrentSeconds());
         this.header.setAgentNum((byte) 10001);
         this.dataTool = new DataTool();
+        this.log = Logger.getInstance();
     }
 
     public Header getHeader() {
@@ -134,6 +144,14 @@ public class MsgStatus {
         this.checkSum = checkSum;
     }
 
+    public String[] getDevicePara() {
+        return devicePara;
+    }
+
+    public void setDevicePara(String[] devicePara) {
+        this.devicePara = devicePara;
+    }
+
     /**
      * <code>状态消息编码</code>
      * @return
@@ -150,8 +168,14 @@ public class MsgStatus {
         bb.writeByte(this.header.getAgentNum());
         bb.writeByte(this.getPackageNum());
         for (int i = 0; i <this.getPackageNum() ; i++) {
-            bb.writeBytes(dataTool.getLengthBytesString(deviceName[i], deviceNameSize).getBytes());
-            bb.writeBytes(dataTool.getLengthBytesString(deviceLocate[i], deviceLocateSize).getBytes());
+            try {
+                bb.writeBytes(dataTool.getLengthBytesString(deviceName[i], deviceNameSize).getBytes("utf-8"));
+                bb.writeBytes(dataTool.getLengthBytesString(deviceLocate[i], deviceLocateSize).getBytes("utf-8"));
+                bb.writeBytes(dataTool.getLengthBytesString(devicePara[i], deviceParaSize).getBytes("utf-8"));
+            } catch (UnsupportedEncodingException e) {
+                log.log_error("MsgStatus>>encoded>>UnsupportedEncodingException>>",e);
+                continue;
+            }
             bb.writeInt(status1[i]);
             bb.writeInt(status2[i]);
             bb.writeInt(status3[i]);

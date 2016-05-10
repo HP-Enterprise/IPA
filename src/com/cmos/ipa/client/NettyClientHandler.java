@@ -26,6 +26,7 @@ import java.util.concurrent.TimeUnit;
 public class NettyClientHandler extends ChannelInboundHandlerAdapter {
 
     private boolean canDo;
+    private boolean flag;
     private Logger log;
     private DataTool dataTool;
     private MsgHeart mh;
@@ -34,6 +35,7 @@ public class NettyClientHandler extends ChannelInboundHandlerAdapter {
 
     public NettyClientHandler() {
         this.canDo = true;
+        this.flag = true;
         this.log = Logger.getInstance();
         this.dataTool = new DataTool();
         this.mh  = new MsgHeart();
@@ -85,9 +87,12 @@ public class NettyClientHandler extends ChannelInboundHandlerAdapter {
                     // 第一次心跳成功，启动心跳发送任务
                     if(msgh != null && msgh.getStatus() == 1){
                         log.log_info("Started HeartBeatTask ......");
-                        heartBeat = ctx.executor().scheduleAtFixedRate(
-                                new HeartBeatHandler(ctx), 0, Global.HEART_TIME,
-                                TimeUnit.MILLISECONDS);
+                        if(flag) {
+                            heartBeat = ctx.executor().scheduleAtFixedRate(
+                                    new HeartBeatHandler(ctx), 0, Global.HEART_TIME,
+                                    TimeUnit.MILLISECONDS);
+                            flag = false;
+                        }
                     }
                     break;
                 case 0x04://D

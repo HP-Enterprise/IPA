@@ -3,6 +3,7 @@ package com.cmos.ipa.client;
 
 import com.cmos.ipa.pojo.MsgAlarm;
 import com.cmos.ipa.utils.DataTool;
+import com.cmos.ipa.utils.Global;
 import com.cmos.ipa.utils.log.Logger;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.PooledByteBufAllocator;
@@ -34,20 +35,18 @@ public class AlarmHandler extends Thread {
 
         System.out.println("警告任务开启了。。。。");
         while(true) {
-            ByteBuf buffer = PooledByteBufAllocator.DEFAULT.heapBuffer(10);
-            ma.setAlarmDeviceName("测试设备");
-            ma.setAlarmTitle("测试告警");
-            ma.setAlarmContent("告警,告警,告警");
-            ma.setAlarmLevel((byte)1);
+            MsgAlarm msgAlarm = new MsgAlarm();
 
-
-            buffer.writeBytes(ma.encoded());
-            ctx.channel().writeAndFlush(buffer);
-
-            try {
-                Thread.sleep(10000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            if(!Global.alarmQueue.isEmpty()){
+                try {
+                    msgAlarm = Global.alarmQueue.take();
+                    Global.print(msgAlarm.toString());
+                    ByteBuf buffer=dataTool.getByteBuf(dataTool.bytes2hex(msgAlarm.encoded()));
+                    ctx.channel().writeAndFlush(buffer);
+                } catch (InterruptedException e) {
+                    log.log_error("AlarmHandler>>run>>InterruptedException",e);
+                    continue;
+                }
             }
         }
     }

@@ -34,8 +34,8 @@ public class MsgParamdownload {
         this.header = new Header();
         this.header.setMessageType((byte) 4);
         this.header.setmId((byte) 1);
-        this.header.setSendingTime((int) (DateTimeUtil.getTimeDifference()));
-        this.header.setEventId((int) (DateTimeUtil.getTimeDifference()));
+        this.header.setSendingTime(new DataTool().getCurrentSeconds());
+        this.header.setEventId(new DataTool().getCurrentSeconds());
         this.header.setAgentNum((byte) 10001);
         this.setParaDownload((byte) 4);
     }

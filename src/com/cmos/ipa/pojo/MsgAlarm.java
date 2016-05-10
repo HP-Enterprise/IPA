@@ -2,7 +2,10 @@ package com.cmos.ipa.pojo;
 
 import com.cmos.ipa.utils.DataTool;
 import com.cmos.ipa.utils.DateTimeUtil;
+import com.cmos.ipa.utils.log.Logger;
 import io.netty.buffer.ByteBuf;
+
+import java.io.UnsupportedEncodingException;
 
 import static io.netty.buffer.Unpooled.buffer;
 
@@ -33,18 +36,22 @@ public class MsgAlarm {
 
     private Byte checkSum;//将编码后的报文（Message Header + body）进行异或操作，1个字节长度
 
-    public static final int BUFFER_SIZE = 1024;
+    private static final int BUFFER_SIZE = 1024;
 
-    public DataTool dataTool;
+    private DataTool dataTool;
+
+    private Logger log;
+
 
     public MsgAlarm(){
         this.header = new Header();
         this.header.setMessageType((byte) 2);
         this.header.setmId((byte) 1);
-        this.header.setSendingTime((int)(DateTimeUtil.getTimeDifference()));
-        this.header.setEventId((int)(DateTimeUtil.getTimeDifference()));
+        this.header.setSendingTime(new DataTool().getCurrentSeconds());
+        this.header.setEventId(new DataTool().getCurrentSeconds());
         this.header.setAgentNum((byte) 10001);
         this.dataTool = new DataTool();
+        this.log = Logger.getInstance();
     }
 
     public Header getHeader() {
@@ -110,10 +117,13 @@ public class MsgAlarm {
         bb.writeInt(this.header.getEventId());
         bb.writeByte(this.header.getAgentNum());
 
-        bb.writeBytes(dataTool.getLengthBytesString(this.getAlarmDeviceName(), alarmDeviceNameSize).getBytes());
-        bb.writeBytes(dataTool.getLengthBytesString(this.getAlarmTitle(), alarmTitleSize).getBytes());
-        bb.writeBytes(dataTool.getLengthBytesString(this.getAlarmContent(), alarmContentSize).getBytes());
-
+        try {
+            bb.writeBytes(dataTool.getLengthBytesString(this.getAlarmDeviceName(), alarmDeviceNameSize).getBytes("utf-8"));
+            bb.writeBytes(dataTool.getLengthBytesString(this.getAlarmTitle(), alarmTitleSize).getBytes("utf-8"));
+            bb.writeBytes(dataTool.getLengthBytesString(this.getAlarmContent(), alarmContentSize).getBytes("utf-8"));
+        } catch (UnsupportedEncodingException e) {
+            log.log_error("MsgAlarm>>encoded>>UnsupportedEncodingException>>",e);
+        }
         bb.writeByte(alarmLevel);
         //回写length段
         int index=bb.writerIndex();

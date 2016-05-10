@@ -184,11 +184,12 @@ public class ByteUtil {
 
     /**
      * <code>16进制解码成字符串</code>
-     * @param bytes
+     * @param bytess
      * @return
      */
-    public static String decode(String bytes)
+    public static String decode(String bytess)
     {
+        String bytes = removeSpaceHex(bytess);
         ByteArrayOutputStream baos=new ByteArrayOutputStream(bytes.length()/2);
         // 将每2位16进制整数组装成一个字节
         for(int i=0;i<bytes.length();i+=2)
@@ -213,5 +214,17 @@ public class ByteUtil {
             sb.append(hexString.charAt((bytes[i]&0x0f)>>0));
         }
         return sb.toString();
+    }
+
+    /**
+     * <code>将16进制字符串去掉空格</code>
+     * @param str
+     * @return
+     */
+    public static  String removeSpaceHex(String str){
+        //去掉16进制字符串含有的空格
+        String re="";
+        re = str.replaceAll("\\s*", "");
+        return re;
     }
 }

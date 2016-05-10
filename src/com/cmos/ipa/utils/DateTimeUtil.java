@@ -15,7 +15,7 @@ public class DateTimeUtil {
 	
 	public static String DEFAULTFORMAT = "yyyy-MM-dd HH:mm:ss";
 
-    public static String DEFAULTFORMAT_ONE = "1970/01 00:00";
+    public static String DEFAULTFORMAT_ONE = "1970-01 00:00";
 
     public static String DEFAULTFORMAT_TWO = "yyyy/MM hh:mm";
 
