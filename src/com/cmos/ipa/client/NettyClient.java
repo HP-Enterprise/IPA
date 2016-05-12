@@ -1,12 +1,9 @@
 package com.cmos.ipa.client;
 
-import com.cmos.ipa.service.SocketService;
 import com.cmos.ipa.utils.DataTool;
 import com.cmos.ipa.utils.Global;
 import com.cmos.ipa.utils.log.Logger;
 import io.netty.bootstrap.Bootstrap;
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.PooledByteBufAllocator;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
@@ -25,7 +22,6 @@ import java.util.concurrent.TimeUnit;
 public class NettyClient {
 
     private DataTool dataTool;
-    private SocketService socketService;
     private volatile EventLoopGroup workerGroup;
     private volatile Bootstrap bootstrap;
     private volatile boolean closed = false;

@@ -1,0 +1,12 @@
+###############################################################
+#
+#	  Server Turn On    05-12 14:56:48.670
+#
+###############################################################
+
+05-12 14:56:50.632 INFO  ;nioEventLoopGroup-3-1	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-12 14:56:50.662 INFO  ;nioEventLoopGroup-2-1	Started Tcp Client Failed: RemoteWGHost=127.0.0.1 RemoteWGPort=8001
+05-12 14:56:52.635 INFO  ;nioEventLoopGroup-3-2	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-12 14:56:52.668 INFO  ;nioEventLoopGroup-2-2	Started Tcp Client Failed: RemoteWGHost=127.0.0.1 RemoteWGPort=8001
+05-12 14:56:54.639 INFO  ;nioEventLoopGroup-3-3	Started Tcp Client Failed: DeviceHost=127.0.0.1 DevicePort=8000
+05-12 14:56:54.671 INFO  ;nioEventLoopGroup-2-3	Started Tcp Client Failed: RemoteWGHost=127.0.0.1 RemoteWGPort=8001

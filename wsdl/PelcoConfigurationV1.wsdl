@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="wsdl-viewer.xsl"?>
+
+<wsdl:definitions
+	name="PelcoConfiguration"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="urn:schemas-pelco-com:service:PelcoConfiguration:1"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	targetNamespace="urn:schemas-pelco-com:service:PelcoConfiguration:1">
+
+	<wsdl:documentation>
+		$Id: PelcoConfigurationV1.wsdl 602 2011-07-06 21:05:43Z $
+	</wsdl:documentation>
+
+	<!-- Types -->
+
+	<wsdl:types>
+		<xsd:schema
+			targetNamespace="urn:schemas-pelco-com:service:PelcoConfiguration:1"
+			xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+			<xsd:complexType name="PelcoConfig">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						A device's current UPnP configuration.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="renewInterval" type="xsd:int">
+						<xsd:annotation>
+							<xsd:documentation xml:lang="en">
+								The advertising renewal interval, in seconds.
+								Determines how often a device must retransmit
+								its device and service advertisements.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="startupInterval" type="xsd:int">
+						<xsd:annotation>
+							<xsd:documentation xml:lang="en">
+								The startup interval, in seconds. Determines the
+								random backoff interval for devices on startup.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element minOccurs="0" name="ntpAddress" type="xsd:string">
+						<xsd:annotation>
+							<xsd:documentation xml:lang="en">
+								IP address of the NTP server to be used for time
+								synchronization.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="shutdownWatchdogTimeout" type="xsd:boolean">
+						<xsd:annotation>
+							<xsd:documentation xml:lang="en">
+								Set to 1 (true) to enable a timeout for the
+								device's watchdog, 0 (false) otherwise.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element minOccurs="0" name="isDefault" type="xsd:boolean">
+						<xsd:annotation>
+							<xsd:documentation xml:lang="en">
+								Set 1 (true) if default NTP configuration, 0
+								(false) otherwise.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element minOccurs="0" name="allowSystemUpdate" type="xsd:boolean">
+						<xsd:annotation>
+							<xsd:documentation xml:lang="en">
+								Set to 1 (true) if this device allows time
+								updates from the System Manager, set to 0
+								(false) otherwise.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element minOccurs="0" name="isSynced" type="xsd:boolean">
+						<xsd:annotation>
+							<xsd:documentation xml:lang="en">
+								Set to 1 (true) if this device allows time
+								updates from the System Manager, set to 0
+								(false) otherwise.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element minOccurs="0" name="dstChangeTime" type="xsd:boolean">
+						<xsd:annotation>
+							<xsd:documentation xml:lang="en">
+								Set to 1 (true) if this device allows time
+								updates from the System Manager, set to 0
+								(false) otherwise.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element minOccurs="0"  name="dstOffset" type="xsd:int">
+						<xsd:annotation>
+							<xsd:documentation xml:lang="en">
+								Represents the difference between the current
+								DST and the device's current time.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element minOccurs="0" name="gmtOffset" type="xsd:int">
+						<xsd:annotation>
+							<xsd:documentation xml:lang="en">
+								Represents the difference between the current
+								DST and the device's current time.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="ssdp" type="tns:SSDP" minOccurs="0"/>
+					<xsd:element name="threadPool" type="tns:ThreadPool" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:complexType name="Port">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						A representation of the device's port.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleContent>
+					<xsd:extension base="xsd:string">
+						<xsd:attribute name="in" type="xsd:boolean" required="true">
+							<xsd:annotation>
+								<xsd:documentation xml:lang="en">
+									Set to true to enable receiving advertisements; 
+									set to false otherwise.
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:attribute>
+						<xsd:attribute name="out" type="xsd:boolean" required="true">
+							<xsd:annotation>
+								<xsd:documentation xml:lang="en">
+									Set to true to enable sending advertisements; 
+									set to false otherwise.
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:attribute>
+						<xsd:attribute name="search" type="xsd:boolean" required="true">
+							<xsd:annotation>
+								<xsd:documentation xml:lang="en">
+									Set to true to enable accepting search
+									requests; set to false otherwise.
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:attribute>
+					</xsd:extension>
+				</xsd:simpleContent>
+			</xsd:complexType>
+
+			<xsd:complexType name="SSDP">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						A port supporting the SSDP protocol, along with
+						accompanying bit flags identifying the port usage.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleContent>
+					<xsd:extension base="tns:Port">
+						<xsd:attribute name="ttl" type="xsd:int">
+							<xsd:annotation>
+								<xsd:documentation xml:lang="en">
+									The time to live for packets related to this SSDP.
+									Valid possible values range from 1 to 255.
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:attribute>
+					</xsd:extension>
+				</xsd:simpleContent>
+			</xsd:complexType>
+
+			<xsd:complexType name="ThreadPool">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						A thread pool's configuration.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="minThreads" type="xsd:int">
+						<xsd:annotation>
+							<xsd:documentation xml:lang="en">
+								The minimum number of available threads in the
+								pool.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="maxThreads" type="xsd:int">
+						<xsd:annotation>
+							<xsd:documentation xml:lang="en">
+								The maximum number of available threads in the
+								pool.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="jobsPerThread" type="xsd:int">
+						<xsd:annotation>
+							<xsd:documentation xml:lang="en">
+								The maximum number of jobs that can be assigned
+								to each thread.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="threadIdleTime" type="xsd:int">
+						<xsd:annotation>
+							<xsd:documentation xml:lang="en">
+								The amount of time in seconds that a thread
+								sleeps.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<!-- GetLocation -->
+			<xsd:element name="GetLocation">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						A request to the GetLocation action.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType/>
+			</xsd:element>
+
+			<xsd:element name="GetLocationResponse">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						A response to a GetLocation request.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="location" type="xsd:anyURI">
+							<xsd:annotation>
+								<xsd:documentation xml:lang="en">
+									The location of the device's UPnP device
+									description file (DDF).
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<!-- GetConfiguration -->
+			<xsd:element name="GetConfiguration">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						A request to the GetConfiguration action.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType/>
+			</xsd:element>
+
+			<xsd:element name="GetConfigurationResponse">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						A response to a GetConfiguration request.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="pelcoConfig" type="tns:PelcoConfig"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<!-- GetModelName -->
+			<xsd:element name="GetModelName">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						A request to the GetModelName action.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType/>
+			</xsd:element>
+
+			<xsd:element name="GetModelNameResponse">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						A response to a GetModelName request.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="modelName" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<!-- GetModelNumber -->
+			<xsd:element name="GetModelNumber">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						A request to the GetModelNumber action.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType/>
+			</xsd:element>
+
+			<xsd:element name="GetModelNumberResponse">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						A response to a GetModelNumber request.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="modelNumber" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<!-- IsRegistered -->
+			<xsd:element name="IsRegistered">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						A request to the IsRegistered action.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType/>
+			</xsd:element>
+
+			<xsd:element name="IsRegisteredResponse">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						A response to a IsRegistered request.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="isRegistered" type="xsd:int">
+							<xsd:annotation>
+								<xsd:documentation xml:lang="en">
+									A value denoting either that this device has
+									already registered itself to the System
+									Manager (1), or it has not registered yet (0).
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+		</xsd:schema>
+	</wsdl:types>
+
+	<!-- Messages -->
+
+	<!-- GetLocation -->
+	<wsdl:message name="GetLocation">
+		<wsdl:part name="parameters" element="tns:GetLocation"/>
+	</wsdl:message>
+
+	<wsdl:message name="GetLocationResponse">
+		<wsdl:part name="parameters" element="tns:GetLocationResponse" />
+	</wsdl:message>
+
+	<!-- GetConfiguration -->
+	<wsdl:message name="GetConfiguration">
+		<wsdl:part name="parameters" element="tns:GetConfiguration"/>
+	</wsdl:message>
+	<wsdl:message name="GetConfigurationResponse">
+		<wsdl:part name="parameters" element="tns:GetConfigurationResponse" />
+	</wsdl:message>
+
+	<!-- GetModelName -->
+	<wsdl:message name="GetModelName">
+		<wsdl:part name="parameters" element="tns:GetModelName"/>
+	</wsdl:message>
+	<wsdl:message name="GetModelNameResponse">
+		<wsdl:part name="parameters" element="tns:GetModelNameResponse" />
+	</wsdl:message>
+
+	<!-- GetModelNumber -->
+	<wsdl:message name="GetModelNumber">
+		<wsdl:part name="parameters" element="tns:GetModelNumber"/>
+	</wsdl:message>
+	<wsdl:message name="GetModelNumberResponse">
+		<wsdl:part name="parameters" element="tns:GetModelNumberResponse" />
+	</wsdl:message>
+
+	<!-- IsRegistered -->
+	<wsdl:message name="IsRegistered">
+		<wsdl:part name="parameters" element="tns:IsRegistered"/>
+	</wsdl:message>
+	<wsdl:message name="IsRegisteredResponse">
+		<wsdl:part name="parameters" element="tns:IsRegisteredResponse" />
+	</wsdl:message>
+
+	<!-- Ports -->
+	<wsdl:portType name="PelcoConfigurationPortType">
+		<wsdl:operation name="GetLocation">
+			<wsdl:documentation>
+				Returns the URL of the Upnp device description file for the device.
+			</wsdl:documentation>
+			<wsdl:input message="tns:GetLocation" />
+			<wsdl:output message="tns:GetLocationResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="GetConfiguration">
+			<wsdl:documentation>
+				Returns the current configuration state of the device.
+				
+				<div class="notice">
+					Configuration will only be returned if the device matches the
+					given model name.
+				</div>
+			</wsdl:documentation>
+			<wsdl:input message="tns:GetConfiguration" />
+			<wsdl:output message="tns:GetConfigurationResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="GetModelName">
+			<wsdl:documentation>
+				Returns the device's model name.
+			</wsdl:documentation>
+			<wsdl:input message="tns:GetModelName" />
+			<wsdl:output message="tns:GetModelNameResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="GetModelNumber">
+			<wsdl:documentation>
+				Returns the device's model number.
+			</wsdl:documentation>
+			<wsdl:input message="tns:GetModelNumber" />
+			<wsdl:output message="tns:GetModelNumberResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="IsRegistered">
+			<wsdl:documentation>
+				Indicates whether or not the device has registered with the
+				System Manager.
+			</wsdl:documentation>
+			<wsdl:input message="tns:IsRegistered" />
+			<wsdl:output message="tns:IsRegisteredResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<!-- Bindings -->
+	<wsdl:binding name="PelcoConfiguration" type="tns:PelcoConfigurationPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+
+		<wsdl:operation name="GetLocation">
+			<soap:operation soapAction="urn:schemas-pelco-com:service:PelcoConfiguration:1#GetLocation" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+
+		<wsdl:operation name="GetConfiguration">
+			<soap:operation soapAction="urn:schemas-pelco-com:service:PelcoConfiguration:1#GetConfiguration" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+
+		<wsdl:operation name="GetModelName">
+			<soap:operation soapAction="urn:schemas-pelco-com:service:PelcoConfiguration:1#GetModelName" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+
+		<wsdl:operation name="GetModelNumber">
+			<soap:operation soapAction="urn:schemas-pelco-com:service:PelcoConfiguration:1#GetModelNumber" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+
+		<wsdl:operation name="IsRegistered">
+			<soap:operation soapAction="urn:schemas-pelco-com:service:PelcoConfiguration:1#IsRegistered" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<!-- Services -->
+
+	<wsdl:service name="PelcoConfiguration">
+		<wsdl:port name="PelcoConfiguration" binding="tns:PelcoConfiguration">
+			<soap:address location="http://localhost:49152/control/PelcoConfiguration-1"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

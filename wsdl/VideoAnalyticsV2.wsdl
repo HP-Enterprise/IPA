@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="wsdl-viewer.xsl"?>
+
+<wsdl:definitions
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:tns="urn:schemas-pelco-com:service:VideoAnalytics:2"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="urn:schemas-pelco-com:service:VideoAnalytics:2">
+
+	<wsdl:documentation>
+		The Video Analytics service provides developers with functionality related 
+		to video analytics functionality such as configuration and alarms notification.
+	</wsdl:documentation>
+
+	<!-- Types -->
+
+	<wsdl:types>
+		<xsd:schema
+			targetNamespace="urn:schemas-pelco-com:service:VideoAnalytics:2"
+			xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="urn:schemas-pelco-com:service:VideoAnalytics:2" schemaLocation="AnalyticsTypes.xsd"/>
+
+			<!-- GetActiveProfile & GetActiveProfileResponse types -->
+			<xsd:element name="GetActiveProfile">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This represents a request to GetActiveProfile action.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType/>
+			</xsd:element>
+
+			<xsd:element name="GetActiveProfileResponse">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This represents a response to a GetActiveProfile request.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="profileId" type="xsd:int">
+							<xsd:annotation>
+								<xsd:documentation xml:lang="en">
+									The identifer of the profile that is currently active.
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<!-- ExecuteProfile & ExecuteProfileResponse types -->
+			<xsd:element name="ExecuteProfile">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This represents a request to the ExecuteProfile action.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="id" type="xsd:int">
+							<xsd:annotation>
+								<xsd:documentation xml:lang="en">
+									The identifer of the profile with the desired behavior to make active.
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<xsd:element name="ExecuteProfileResponse">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This represents a response to a ExecuteProfile request.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType/>
+			</xsd:element>
+
+			<!-- GetProfileList & GetProfileListResponse types -->
+			<xsd:element name="GetProfileList">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This represents a request to the GetProfileList action.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType/>
+			</xsd:element>
+
+			<xsd:element name="GetProfileListResponse">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This represents a response to a GetProfileList request.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="profileList" type="tns:ProfileList">
+							<xsd:annotation>
+								<xsd:documentation xml:lang="en">
+									This is a ProfileList data type.
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<!-- StopProfile & StopProfileResponse types -->
+			<xsd:element name="StopProfile">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This represents a request to the StopProfile action.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="profileId" type="xsd:int" use="optional" default="-1">
+							<xsd:annotation>
+								<xsd:documentation xml:lang="en">
+									The identifer of the profile to make inactive. This is an optional parameter. By default, 
+									the currently active profile will be made inactive.
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<xsd:element name="StopProfileResponse">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This represents a response to a StopProfile request.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType/>
+			</xsd:element>
+
+		</xsd:schema>
+	</wsdl:types>
+
+	<!-- Messages -->
+
+	<!-- ExecuteProfile -->
+	<wsdl:message name="ExecuteProfileRequest">
+		<wsdl:part name="parameters" element="tns:ExecuteProfile"/>
+	</wsdl:message>
+
+	<wsdl:message name="ExecuteProfileResponse">
+		<wsdl:part name="parameters" element="tns:ExecuteProfileResponse"/>
+	</wsdl:message>
+
+	<!-- GetActiveProfile -->
+	<wsdl:message name="GetActiveProfileRequest">
+		<wsdl:part name="parameters" element="tns:GetActiveProfile"/>
+	</wsdl:message>
+
+	<wsdl:message name="GetActiveProfileResponse">
+		<wsdl:part name="parameters" element="tns:GetActiveProfileResponse"/>
+	</wsdl:message>
+
+	<!-- GetProfileList -->
+	<wsdl:message name="GetProfileListRequest">
+		<wsdl:part name="parameters" element="tns:GetProfileList"/>
+	</wsdl:message>
+
+	<wsdl:message name="GetProfileListResponse">
+		<wsdl:part name="parameters" element="tns:GetProfileListResponse"/>
+	</wsdl:message>
+
+	<!-- StopProfile -->
+	<wsdl:message name="StopProfileRequest">
+		<wsdl:part name="parameters" element="tns:StopProfile"/>
+	</wsdl:message>
+
+	<wsdl:message name="StopProfileResponse">
+		<wsdl:part name="parameters" element="tns:StopProfileResponse"/>
+	</wsdl:message>
+
+	<!-- Ports -->
+
+	<wsdl:portType name="VideoAnalyticsPortType">
+
+		<wsdl:operation name="ExecuteProfile">
+			<wsdl:input message="tns:ExecuteProfileRequest"/>
+			<wsdl:output message="tns:ExecuteProfileResponse"/>
+		</wsdl:operation>
+
+		<wsdl:operation name="GetActiveProfile">
+			<wsdl:input message="tns:GetActiveProfileRequest"/>
+			<wsdl:output message="tns:GetActiveProfileResponse"/>
+		</wsdl:operation>
+
+		<wsdl:operation name="GetProfileList">
+			<wsdl:input message="tns:GetProfileListRequest"/>
+			<wsdl:output message="tns:GetProfileListResponse"/>
+		</wsdl:operation>
+
+		<wsdl:operation name="StopProfile">
+			<wsdl:input message="tns:StopProfileRequest"/>
+			<wsdl:output message="tns:StopProfileResponse"/>
+		</wsdl:operation>
+
+	</wsdl:portType>
+
+	<!-- Bindings -->
+
+	<wsdl:binding name="VideoAnalytics" type="tns:VideoAnalyticsPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+
+		<wsdl:operation name="ExecuteProfile">
+			<soap:operation soapAction="urn:schemas-pelco-com:service:VideoAnalytics:2#ExecuteProfile" />
+			<wsdl:input><soap:body use="literal"/></wsdl:input>
+			<wsdl:output><soap:body use="literal"/></wsdl:output>
+		</wsdl:operation>
+
+		<wsdl:operation name="GetActiveProfile">
+			<soap:operation soapAction="urn:schemas-pelco-com:service:VideoAnalytics:2#GetActiveProfile" />
+			<wsdl:input><soap:body use="literal"/></wsdl:input>
+			<wsdl:output><soap:body use="literal"/></wsdl:output>
+		</wsdl:operation>
+
+		<wsdl:operation name="GetProfileList">
+			<soap:operation soapAction="urn:schemas-pelco-com:service:VideoAnalytics:2#GetProfileList" />
+			<wsdl:input><soap:body use="literal"/></wsdl:input>
+			<wsdl:output><soap:body use="literal"/></wsdl:output>
+		</wsdl:operation>
+
+		<wsdl:operation name="StopProfile">
+			<soap:operation soapAction="urn:schemas-pelco-com:service:VideoAnalytics:2#StopProfile" />
+			<wsdl:input><soap:body use="literal"/></wsdl:input>
+			<wsdl:output><soap:body use="literal"/></wsdl:output>
+		</wsdl:operation>
+
+	</wsdl:binding>
+
+	<!-- Services -->
+
+	<wsdl:service name="VideoAnalytics">
+		<wsdl:port binding="tns:VideoAnalytics" name="VideoAnalytics2">
+			<soap:address location="localhost:80/control/VideoAnalytics-2" />
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>

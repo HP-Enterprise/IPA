@@ -2,7 +2,6 @@ package com.cmos.ipa.client;
 
 import com.cmos.ipa.pojo.MsgHeart;
 import com.cmos.ipa.pojo.MsgParamdownload;
-import com.cmos.ipa.service.SocketService;
 import com.cmos.ipa.utils.DataTool;
 import com.cmos.ipa.utils.Global;
 import com.cmos.ipa.utils.log.Logger;
@@ -11,10 +10,8 @@ import io.netty.buffer.PooledByteBufAllocator;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
-import io.netty.util.ReferenceCountUtil;
 import io.netty.util.concurrent.ScheduledFuture;
 
-import java.net.InetSocketAddress;
 import java.util.concurrent.TimeUnit;
 
 /**

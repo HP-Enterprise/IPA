@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="wsdl-viewer.xsl"?>
+
+<wsdl:definitions xmlns:tns="urn:schemas-pelco-com:service:UserAndRole:1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="UserAndRole" targetNamespace="urn:schemas-pelco-com:service:UserAndRole:1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:documentation>
+	    The UserAndRole Service provides the following operations:
+        <ul>
+            <li>Login to the System Manager</li>
+            <li>Logout of the System Manager</li>
+		</ul>
+	</wsdl:documentation>
+    
+    <!-- Types -->
+    
+    <wsdl:types>
+        <xsd:schema xmlns:ns0="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="urn:schemas-pelco-com:service:UserAndRole:1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:complexType name="User">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        Represents a user account
+					</xsd:documentation>
+				</xsd:annotation>
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="name" nillable="true" type="xsd:string">
+                        <xsd:annotation>
+                            <xsd:documentation>
+                                Represents the user name
+							</xsd:documentation>
+						</xsd:annotation>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="dbId" nillable="true" type="xsd:int">
+                        <xsd:annotation>
+                            <xsd:documentation>
+                                Represents the user's unique identifier in the database
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:simpleType name="PASSWORD-TYPES">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        Represents the available types of passwords
+					</xsd:documentation>
+				</xsd:annotation>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="0">
+                        <xsd:annotation>
+                            <xsd:documentation>
+                                UNDEFINED
+							</xsd:documentation>
+						</xsd:annotation>    
+                    </xsd:enumeration>
+                    <xsd:enumeration value="1">
+                        <xsd:annotation>
+                            <xsd:documentation>
+                                DMPT_PRIMARY
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:enumeration>
+                    <xsd:enumeration value="2">
+                        <xsd:annotation>
+                            <xsd:documentation>
+                                DMPT_PIN_NUM
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:enumeration>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="Pswd">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        Represents a password
+					</xsd:documentation>
+				</xsd:annotation>
+                <xsd:sequence>
+                    <xsd:element name="type" type="tns:PASSWORD-TYPES">
+                        <xsd:annotation>
+                            <xsd:documentation>
+                                Represents a PASSWORD-TYPES data type
+					        </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="data" type="xsd:string">
+                        <xsd:annotation>
+                            <xsd:documentation>
+                                Represents the actual value of the pasword.  250 max character count
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="UserLogin">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="user" type="tns:User" />
+                        <xsd:element name="pswd" type="tns:Pswd" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="UserLoginResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="loginId" type="xsd:int" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="UserLogout">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="loginId" type="xsd:int" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="UserLogoutResponse">
+                <xsd:complexType>
+                    <xsd:sequence />
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </wsdl:types>
+    
+    <!-- Messages -->
+    
+    <wsdl:message name="UserLogin">
+        <wsdl:part name="parameters" element="tns:UserLogin" />
+    </wsdl:message>
+    <wsdl:message name="UserLoginResponse">
+        <wsdl:part name="parameters" element="tns:UserLoginResponse" />
+    </wsdl:message>
+    <wsdl:message name="UserLogout">
+        <wsdl:part name="parameters" element="tns:UserLogout" />
+    </wsdl:message>
+    <wsdl:message name="UserLogoutResponse">
+        <wsdl:part name="parameters" element="tns:UserLogoutResponse" />
+    </wsdl:message>
+    
+    <!-- Ports -->
+    
+    <wsdl:portType name="UserAndRolePortType">
+        <wsdl:operation name="UserLogin">
+            <wsdl:documentation>
+                Logs into the System Manager
+			</wsdl:documentation>
+            <wsdl:input message="tns:UserLogin" />
+            <wsdl:output message="tns:UserLoginResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="UserLogout">
+            <wsdl:documentation>
+                Logs out of the System Manager
+			</wsdl:documentation>
+            <wsdl:input message="tns:UserLogout" />
+            <wsdl:output message="tns:UserLogoutResponse" />
+        </wsdl:operation>
+    </wsdl:portType>
+    
+    <!-- Bindings -->
+    
+    <wsdl:binding name="UserAndRole" type="tns:UserAndRolePortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="UserLogin">
+            <soap:operation soapAction="urn:schemas-pelco-com:service:UserAndRole:1#UserLogin" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="UserLogout">
+            <soap:operation soapAction="urn:schemas-pelco-com:service:UserAndRole:1#UserLogout" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="UserAndRole">
+        <wsdl:port name="UserAndRole" binding="tns:UserAndRole">
+            <soap:address location="http://localhost:60001/control/UserAndRole-1" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
