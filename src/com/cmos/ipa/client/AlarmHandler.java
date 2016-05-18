@@ -34,9 +34,9 @@ public class AlarmHandler extends Thread {
     public void run() {
 
         System.out.println("警告任务开启了。。。。");
-        while(true) {
+        while(Global.ThreadFlag) {
+//            System.out.println("开始执行警告任务。。。。");
             MsgAlarm msgAlarm = new MsgAlarm();
-
             if(!Global.alarmQueue.isEmpty()){
                 try {
                     msgAlarm = Global.alarmQueue.take();
@@ -45,6 +45,7 @@ public class AlarmHandler extends Thread {
                     ctx.channel().writeAndFlush(buffer);
                 } catch (InterruptedException e) {
                     log.log_error("AlarmHandler>>run>>InterruptedException",e);
+                    Global.ThreadFlag = false;
                     continue;
                 }
             }

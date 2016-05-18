@@ -2,6 +2,7 @@ package com.cmos.ipa.pojo;
 
 import com.cmos.ipa.utils.DataTool;
 import com.cmos.ipa.utils.DateTimeUtil;
+import com.cmos.ipa.utils.Global;
 import com.cmos.ipa.utils.log.Logger;
 import io.netty.buffer.ByteBuf;
 
@@ -49,7 +50,7 @@ public class MsgAlarm {
         this.header.setmId((byte) 1);
         this.header.setSendingTime(new DataTool().getCurrentSeconds());
         this.header.setEventId(new DataTool().getCurrentSeconds());
-        this.header.setAgentNum((byte) 10001);
+        this.header.setAgentNum((byte) Global.AgentNum);
         this.dataTool = new DataTool();
         this.log = Logger.getInstance();
     }

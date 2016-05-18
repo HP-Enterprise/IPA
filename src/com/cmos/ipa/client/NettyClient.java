@@ -11,6 +11,8 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 
 import java.net.InetSocketAddress;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -32,6 +34,10 @@ public class NettyClient {
     private static NettyClient nc;
     private Logger log = Logger.getInstance();
 
+    private ScheduledExecutorService executor = Executors
+            .newScheduledThreadPool(1);
+    EventLoopGroup group = new NioEventLoopGroup();
+
     public static NettyClient init(){
         if(nc == null){
             nc = new NettyClient();
@@ -45,63 +51,51 @@ public class NettyClient {
         this.reConnection = Global.RECONNECTION;
     }
 
-    public void run(){
-        closed = false;
-        workerGroup = new NioEventLoopGroup();
-        bootstrap = new Bootstrap();
-        bootstrap.group(workerGroup);
-        bootstrap.channel(NioSocketChannel.class);
-        bootstrap.handler(new ChannelInitializer<SocketChannel>() {
-            @Override
-            public void initChannel(SocketChannel ch) throws Exception {
-                ChannelPipeline pipeline = ch.pipeline();
-                //重连处理
-                pipeline.addFirst(new ChannelInboundHandlerAdapter() {
-                    @Override
-                    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-                        super.channelInactive(ctx);
-                        ctx.channel().eventLoop().schedule(new Runnable() {
-                            @Override
-                            public void run() {
-                                doConnect();
-                            }
-                        }, reConnection, TimeUnit.SECONDS);
-                    }
-                });
-
-                pipeline.addLast(new LengthFieldBasedFrameDecoder(1024, 2, 2, -4, 0));
-                pipeline.addLast("NettyClientHandler",new NettyClientHandler());
-            }
-        });
-        doConnect();
-    }
-
-    private void doConnect() {
-        if (closed) {
-            return;
-        }
-        ChannelFuture future = bootstrap.connect(new InetSocketAddress(remoteWGHost, remoteWGPort));
-        future.addListener(new ChannelFutureListener() {
-            public void operationComplete(ChannelFuture f) throws Exception {
-                if (f.isSuccess()) {
-                    log.log_info("Started Tcp Client: " + getServerInfo());
-                } else {
-                    log.log_info("Started Tcp Client Failed: " + getServerInfo());
-                    f.channel().eventLoop().schedule(new Runnable() {
+    public void connect() {
+        // 配置客户端NIO线程组
+        log.log_info("try connect to server @" + remoteWGHost + ":"+remoteWGPort);
+        Global.ThreadFlag = false;
+        try {
+            Bootstrap b = new Bootstrap();
+            b.group(group).channel(NioSocketChannel.class)
+                    .option(ChannelOption.TCP_NODELAY, true)
+                    .handler(new ChannelInitializer<SocketChannel>() {
                         @Override
-                        public void run() {
-                            doConnect();
+                        public void initChannel(SocketChannel ch)
+                                throws Exception {
+                            Global.ThreadFlag = true;
+                            ch.pipeline().addLast(new LengthFieldBasedFrameDecoder(1024, 2, 2, -4, 0));
+                            ch.pipeline().addLast("NettyClientHandler", new NettyClientHandler());
+
                         }
-                    }, 1, TimeUnit.SECONDS);
+                    });
+            // 发起异步连接操作
+            ChannelFuture future = b.connect(
+                    new InetSocketAddress(remoteWGHost, remoteWGPort)).sync();
+            future.channel().closeFuture().sync();
+        } catch (InterruptedException e) {
+            Global.ThreadFlag = false;
+            connect();// 发起重连操作
+        } finally {
+            // 所有资源释放完成之后，清空资源，再次发起重连操作
+            executor.execute(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        TimeUnit.SECONDS.sleep(reConnection);
+                        try {
+                            connect();// 发起重连操作
+                        } catch (Exception e) {
+                            Global.ThreadFlag = false;
+                        }
+                    } catch (InterruptedException e) {
+                        Global.ThreadFlag = false;
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 
-    public void close() {
-        closed = true;
-        workerGroup.shutdownGracefully();
-    }
 
     private String getServerInfo() {
         return String.format("RemoteWGHost=%s RemoteWGPort=%d",

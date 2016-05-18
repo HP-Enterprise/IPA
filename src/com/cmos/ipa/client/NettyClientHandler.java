@@ -1,6 +1,7 @@
 package com.cmos.ipa.client;
 
 import com.cmos.ipa.pojo.MsgHeart;
+import com.cmos.ipa.pojo.MsgOrder;
 import com.cmos.ipa.pojo.MsgParamdownload;
 import com.cmos.ipa.utils.DataTool;
 import com.cmos.ipa.utils.Global;
@@ -22,8 +23,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class NettyClientHandler extends ChannelInboundHandlerAdapter {
 
-    private boolean canDo;
-    private boolean flag;
+    private boolean canDo = true;
     private Logger log;
     private DataTool dataTool;
     private MsgHeart mh;
@@ -31,8 +31,6 @@ public class NettyClientHandler extends ChannelInboundHandlerAdapter {
     private volatile ScheduledFuture<?> heartBeat;
 
     public NettyClientHandler() {
-        this.canDo = true;
-        this.flag = true;
         this.log = Logger.getInstance();
         this.dataTool = new DataTool();
         this.mh  = new MsgHeart();
@@ -55,13 +53,6 @@ public class NettyClientHandler extends ChannelInboundHandlerAdapter {
             buffer_two.writeBytes(mh.encoded());
             channel.writeAndFlush(buffer_two);
 
-            //开启告警报告任务
-            log.log_info("Started AlarmTask ......");
-            new AlarmHandler(ctx).start();
-
-            //开启状态报告任务
-            log.log_info("Started StatusTask ......");
-            new StatusHandler(ctx).start();
             canDo = false;
         }
     }
@@ -69,8 +60,12 @@ public class NettyClientHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public synchronized void channelRead(ChannelHandlerContext ctx, Object msg) { // (2)
+        Channel ch=ctx.channel();
         ByteBuf m = (ByteBuf) msg;
+        ByteBuf buf =  PooledByteBufAllocator.DEFAULT.heapBuffer(10);
+
         byte[] receiveData = dataTool.getBytesFromByteBuf(m);
+        Global.print("response >>" + dataTool.bytes2hex(receiveData));
         if (!dataTool.checkByteArray(receiveData)) {
             log.log_info(">>>>>bytes data is invalid,we will not handle them");
         } else {
@@ -83,12 +78,21 @@ public class NettyClientHandler extends ChannelInboundHandlerAdapter {
 
                     // 第一次心跳成功，启动心跳发送任务
                     if(msgh != null && msgh.getStatus() == 1){
-                        log.log_info("Started HeartBeatTask ......");
-                        if(flag) {
+                        if(Global.ThreadStart) {
+                            log.log_info("Started HeartBeatTask ......");
                             heartBeat = ctx.executor().scheduleAtFixedRate(
                                     new HeartBeatHandler(ctx), 0, Global.HEART_TIME,
                                     TimeUnit.MILLISECONDS);
-                            flag = false;
+
+                            //开启告警报告任务
+                            log.log_info("Started AlarmTask ......");
+                            new AlarmHandler(ctx).start();
+
+                            //开启状态报告任务
+                            log.log_info("Started StatusTask ......");
+                            new StatusHandler(ctx).start();
+
+                            Global.ThreadStart = false;
                         }
                     }
                     break;
@@ -105,8 +109,24 @@ public class NettyClientHandler extends ChannelInboundHandlerAdapter {
                         Global.COLLECTPROTOCOL = msgpl.getCollectProtocol();
                     }
                     break;
+                case 0x05:
+                    log.log_info("Order response >>" + dataTool.bytes2hex(receiveData));
+                    MsgOrder msgOrder;
+                    msgOrder = new MsgOrder().decoded(receiveData);
+                    //获取到指令消息后，往设备进行指令下发
+                    System.err.print("msgOrder:"+msgOrder.getOrderPara());
+
+
+                    //回写成功消息
+                    MsgOrder mo = new MsgOrder();
+                    mo.getHeader().setEventId(msgOrder.getHeader().getEventId());
+                    mo.getHeader().setmId((byte)2);
+                    mo.setStatus((byte)1);
+                    buf.writeBytes(mo.encoded());
+                    ch.writeAndFlush(buf);
+                    break;
                 default:
-                    log.log_info(">>unknown request >>" + dataTool.bytes2hex(receiveData));
+                    log.log_info(">>unknown response >>" + dataTool.bytes2hex(receiveData));
                     break;
 
             }

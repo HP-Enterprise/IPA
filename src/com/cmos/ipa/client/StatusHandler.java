@@ -32,9 +32,9 @@ public class StatusHandler extends Thread {
 
     @Override
     public void run() {
-
         System.out.println("状态任务开启了。。。。");
-        while(true) {
+        while(Global.ThreadFlag) {
+//            System.out.println("开始执行状态任务。。。。");
             MsgStatus ms = new MsgStatus();
 
             if(!Global.statusQueue.isEmpty()){
@@ -44,6 +44,7 @@ public class StatusHandler extends Thread {
                     ctx.channel().writeAndFlush(buffer);
                 } catch (InterruptedException e) {
                     log.log_error("AlarmHandler>>run>>InterruptedException",e);
+                    Global.ThreadFlag = false;
                     continue;
                 }
             }

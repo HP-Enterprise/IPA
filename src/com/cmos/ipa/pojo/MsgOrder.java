@@ -1,41 +1,53 @@
 package com.cmos.ipa.pojo;
 
-import com.cmos.ipa.utils.ByteUtil;
 import com.cmos.ipa.utils.DataTool;
-import com.cmos.ipa.utils.DateTimeUtil;
 import com.cmos.ipa.utils.Global;
+import com.cmos.ipa.utils.log.Logger;
 import io.netty.buffer.ByteBuf;
+
+import java.io.UnsupportedEncodingException;
+
 import static io.netty.buffer.Unpooled.buffer;
 
 /**
- * <code>心跳报文</code>
+ * <code>指令消息</code>
  * @author Hardy
- * @date 2016/4/29 15:40
+ * @date 2016/5/18 11:12
  * @version 1.0
  */
-public class MsgHeart {
-
+public class MsgOrder {
 
     private Header header;//消息头
-    //心跳状态 0 失败  1成功
+
+    //指令类型最大长度为20
+    private static int orderTypeSize=20;
+    //指令参数最大长度为100
+    private static int orderParaSize=100;
+
+    //指令类型
+    private String orderType;
+    //指令参数
+    private String orderPara;
+    //返回的指令状态
     private Byte status;
-    //心跳标识 默认为3
-    private Byte heartBeat;
 
     private Byte checkSum;//将编码后的报文（Message Header + body）进行异或操作，1个字节长度
 
-    public static final int BUFFER_SIZE = 1024;
+    private static final int BUFFER_SIZE = 1024;
 
-    public DataTool dataTool = new DataTool();
+    private DataTool dataTool;
 
-    public MsgHeart() {
+    private Logger log;
+
+    public MsgOrder(){
         this.header = new Header();
-        this.header.setMessageType((byte) 3);
+        this.header.setMessageType((byte) 5);
         this.header.setmId((byte) 1);
         this.header.setSendingTime(new DataTool().getCurrentSeconds());
         this.header.setEventId(new DataTool().getCurrentSeconds());
         this.header.setAgentNum((byte) Global.AgentNum);
-        this.heartBeat = (byte)3;
+        this.dataTool = new DataTool();
+        this.log = Logger.getInstance();
     }
 
     public Header getHeader() {
@@ -46,20 +58,20 @@ public class MsgHeart {
         this.header = header;
     }
 
-    public Byte getStatus() {
-        return status;
+    public String getOrderType() {
+        return orderType;
     }
 
-    public void setStatus(Byte status) {
-        this.status = status;
+    public void setOrderType(String orderType) {
+        this.orderType = orderType;
     }
 
-    public Byte getHeartBeat() {
-        return heartBeat;
+    public String getOrderPara() {
+        return orderPara;
     }
 
-    public void setHeartBeat(Byte heartBeat) {
-        this.heartBeat = heartBeat;
+    public void setOrderPara(String orderPara) {
+        this.orderPara = orderPara;
     }
 
     public Byte getCheckSum() {
@@ -70,13 +82,22 @@ public class MsgHeart {
         this.checkSum = checkSum;
     }
 
+    public Byte getStatus() {
+        return status;
+    }
+
+    public void setStatus(Byte status) {
+        this.status = status;
+    }
+
     /**
-     * <code>心跳消息解码</code>
+     * <code>指令消息解码</code>
      * @param data
      * @return
      */
-    public MsgHeart decoded(byte[] data){
-        MsgHeart mh = new MsgHeart();
+    public MsgOrder decoded(byte[] data){
+        MsgOrder mo = new MsgOrder();
+        try {
         ByteBuf bb = buffer(BUFFER_SIZE);
         bb.writeBytes(data);
         header.setStartCode(bb.readShort());
@@ -86,15 +107,24 @@ public class MsgHeart {
         header.setSendingTime(bb.readInt());
         header.setEventId(bb.readInt());
         header.setAgentNum(bb.readByte());
-        mh.setHeader(header);
-        mh.setStatus(bb.readByte());
-        mh.setCheckSum(bb.readByte());
-        return mh;
+        mo.setHeader(header);
+            byte[] orderTypeBytes = new byte[orderTypeSize];
+            bb.readBytes(orderTypeBytes);
+            String _orderType= new String(orderTypeBytes,"UTF-8").trim();
+            mo.setOrderType(_orderType);
+        byte[] orderParaBytes = new byte[orderParaSize];
+        bb.readBytes(orderParaBytes);
+            String _orderPara= new String(orderParaBytes,"UTF-8").trim();
+            mo.setOrderPara(_orderPara);
+            mo.setCheckSum(bb.readByte());
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return mo;
     }
 
-
     /**
-     * <code>心跳消息编码</code>
+     * <code>指令消息编码</code>
      * @return
      */
     public byte[] encoded(){
@@ -107,7 +137,7 @@ public class MsgHeart {
         bb.writeInt(this.header.getSendingTime());//
         bb.writeInt(this.header.getEventId());//
         bb.writeByte(this.header.getAgentNum());//
-        bb.writeByte(getHeartBeat());//
+        bb.writeByte(getStatus());//
         //回写length段
         int index=bb.writerIndex();
         bb.resetWriterIndex();
@@ -123,19 +153,5 @@ public class MsgHeart {
         return dataTool.getBytesFromByteBuf(bb);
     }
 
-    public String toString(){
-        StringBuilder sb=new StringBuilder();
-        sb.append("------------"+this.getClass().toString()+"------------").append("\n");
-        sb.append("  StartCode:").append(this.header.getStartCode()).append("\n");
-        sb.append("MessageSize:").append(this.header.getMessageSize()).append("\n");
-        sb.append("MessageType:").append(this.header.getMessageType()).append("\n");
-        sb.append("        Mid:").append(this.header.getmId()).append("\n");
-        sb.append("SendingTime:").append(this.header.getSendingTime()).append("\n");
-        sb.append("    EventId:").append(this.header.getEventId()).append("\n");
-        sb.append("   AgentNum:").append(this.header.getAgentNum()).append("\n");
-        sb.append("  HeartBeat:").append(getHeartBeat()).append("\n");
-        sb.append("   CheckSum:").append(this.getCheckSum()).append("\n");
-        sb.append("------------"+this.getClass().toString()+"------------").append("\n");
-        return sb.toString();
-    }
+
 }

@@ -36,9 +36,12 @@ public class IPAEngine {
         Global.MAX_AVAILABLE_SOCKETS = PropertyUtil.getPropertyInt("MaxAvailableSockets");
         Global.HEART_TIME = PropertyUtil.getPropertyInt("HeartTime");
         Global.QUEUE_CACHE_NUM = PropertyUtil.getPropertyInt("QueueCacheNum");
+        Global.RECONNECTION =PropertyUtil.getPropertyInt("RECONNECTION");
 
         //初始化设备类型
         Global.DeviceType = PropertyUtil.getPropertyInt("DeviceType");
+        //初始化设备编号
+        Global.AgentNum = PropertyUtil.getPropertyInt("AgentNum");
 
         //初始化日志配置
         Global.LOG_LEVEL = PropertyUtil.getPropertyInt("LogLevel");
@@ -51,9 +54,9 @@ public class IPAEngine {
         log.turnOn();
 
         //加载工作线程
-        NettyClient.init().run();
-//        UDPClient.init().start();
-        TCPClient.getInstance().run();
+        NettyClient.init().connect();
+        UDPClient.init().start();
+//        TCPClient.getInstance().run();
 
     }
 

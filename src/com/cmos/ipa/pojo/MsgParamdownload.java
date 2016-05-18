@@ -2,6 +2,7 @@ package com.cmos.ipa.pojo;
 
 import com.cmos.ipa.utils.DataTool;
 import com.cmos.ipa.utils.DateTimeUtil;
+import com.cmos.ipa.utils.Global;
 import io.netty.buffer.ByteBuf;
 
 import static io.netty.buffer.Unpooled.buffer;
@@ -36,7 +37,7 @@ public class MsgParamdownload {
         this.header.setmId((byte) 1);
         this.header.setSendingTime(new DataTool().getCurrentSeconds());
         this.header.setEventId(new DataTool().getCurrentSeconds());
-        this.header.setAgentNum((byte) 10001);
+        this.header.setAgentNum((byte) Global.AgentNum);
         this.setParaDownload((byte) 4);
     }
 

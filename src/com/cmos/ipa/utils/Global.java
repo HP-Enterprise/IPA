@@ -31,7 +31,10 @@ public class Global {
      * <code>设备端口</code>
      */
     public static int DevicePort;
-
+    /**
+     * <code>设备编号</code>
+     */
+    public static int AgentNum;
     /**
      * <code>与GW断开重连时间间隔，秒</code>
      */
@@ -100,6 +103,14 @@ public class Global {
      * <code>#设备类型 1 门禁 2 楼宇 3 视频监控</code>
      */
     public static int DeviceType;
+    /**
+     * <code>线程状态开关</code>
+     */
+    public static boolean ThreadFlag = false;
+    /**
+     * <code>线程开关</code>
+     */
+    public static boolean ThreadStart = true;
 
     /**
      * <code>全局打印方法</code>
