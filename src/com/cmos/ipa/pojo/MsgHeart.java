@@ -32,8 +32,8 @@ public class MsgHeart {
         this.header = new Header();
         this.header.setMessageType((byte) 3);
         this.header.setmId((byte) 1);
-        this.header.setSendingTime(new DataTool().getCurrentSeconds());
-        this.header.setEventId(new DataTool().getCurrentSeconds());
+//        this.header.setSendingTime(new DataTool().getCurrentSeconds());
+//        this.header.setEventId(new DataTool().getCurrentSeconds());
         this.header.setAgentNum((byte) Global.AgentNum);
         this.heartBeat = (byte)3;
     }
@@ -104,8 +104,8 @@ public class MsgHeart {
         bb.writeShort(0);//预先写入length=0占位
         bb.writeByte(this.header.getMessageType());//
         bb.writeByte(this.header.getmId());
-        bb.writeInt(this.header.getSendingTime());//
-        bb.writeInt(this.header.getEventId());//
+        bb.writeInt(new DataTool().getCurrentSeconds());//
+        bb.writeInt(new DataTool().getCurrentSeconds());//
         bb.writeByte(this.header.getAgentNum());//
         bb.writeByte(getHeartBeat());//
         //回写length段

@@ -129,7 +129,7 @@ public class UDPClient{
      */
     public synchronized void start(){
         //重置并建立连接
-        reset();
+//        reset();
 
         //启动发送消息线程[-->设备服务端]
         Thread senderT = new Thread() {
@@ -148,6 +148,7 @@ public class UDPClient{
             public void run() {
 
                 while(true){
+                    Global.print("****************************");
                     //接收到告警消息
                     MsgAlarm ma = new MsgAlarm();
                     ma.setAlarmDeviceName("测试设备");

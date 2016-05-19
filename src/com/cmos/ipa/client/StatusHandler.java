@@ -34,8 +34,14 @@ public class StatusHandler extends Thread {
     public void run() {
         System.out.println("状态任务开启了。。。。");
         while(Global.ThreadFlag) {
-//            System.out.println("开始执行状态任务。。。。");
-            MsgStatus ms = new MsgStatus();
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println("开始执行状态任务。。。。");
+            System.out.println(Global.statusQueue.size());
+            MsgStatus ms;
 
             if(!Global.statusQueue.isEmpty()){
                 try {

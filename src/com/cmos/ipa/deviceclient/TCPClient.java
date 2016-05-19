@@ -1,5 +1,6 @@
 package com.cmos.ipa.deviceclient;
 
+import com.cmos.ipa.client.NettyClientHandler;
 import com.cmos.ipa.utils.Global;
 import com.cmos.ipa.utils.log.Logger;
 import io.netty.bootstrap.Bootstrap;
@@ -9,8 +10,11 @@ import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 
 import java.net.InetSocketAddress;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -19,7 +23,7 @@ import java.util.concurrent.TimeUnit;
  * @date 2016/5/9 4:17
  * @version 1.0
  */
-public class TCPClient {
+public class TCPClient extends  Thread{
 
     private volatile EventLoopGroup workerGroup;
     private volatile Bootstrap bootstrap;
@@ -30,6 +34,10 @@ public class TCPClient {
     private Logger log;
     private  int reConnection;
     private static TCPClient tcpClient;
+
+    private ScheduledExecutorService executor = Executors
+            .newScheduledThreadPool(1);
+    EventLoopGroup group = new NioEventLoopGroup();
 
     public TCPClient(){
         this.deviceHost = Global.DeviceAddr;
@@ -50,62 +58,49 @@ public class TCPClient {
     }
 
     public void run(){
-        closed = false;
-        workerGroup = new NioEventLoopGroup();
-        bootstrap = new Bootstrap();
-        bootstrap.group(workerGroup);
-        bootstrap.channel(NioSocketChannel.class);
-        bootstrap.handler(new ChannelInitializer<SocketChannel>() {
-            @Override
-            public void initChannel(SocketChannel ch) throws Exception {
-                ChannelPipeline pipeline = ch.pipeline();
-                //重连处理
-                pipeline.addFirst(new ChannelInboundHandlerAdapter() {
-                    @Override
-                    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-                        super.channelInactive(ctx);
-                        ctx.channel().eventLoop().schedule(new Runnable() {
-                            @Override
-                            public void run() {
-                                doConnect();
-                            }
-                        }, reConnection, TimeUnit.SECONDS);
-                    }
-                });
-
-                pipeline.addLast("TCPClientHandler",new TCPClientHandler());
-
-            }
-        });
-        doConnect();
+        connect();
     }
 
-    private void doConnect() {
-        if (closed) {
-            return;
-        }
-        ChannelFuture future = bootstrap.connect(new InetSocketAddress(deviceHost, devicePort));
-        future.addListener(new ChannelFutureListener() {
-            public void operationComplete(ChannelFuture f) throws Exception {
-                if (f.isSuccess()) {
-                    log.log_info("Started Tcp Client: " + getServerInfo());
-                } else {
-                    log.log_info("Started Tcp Client Failed: " + getServerInfo());
-                    f.channel().eventLoop().schedule(new Runnable() {
+
+    public void connect() {
+        // 配置客户端NIO线程组
+        log.log_info("try connect to deviceServer @" + deviceHost + ":"+devicePort);
+        try {
+            Bootstrap b = new Bootstrap();
+            b.group(group).channel(NioSocketChannel.class)
+                    .option(ChannelOption.TCP_NODELAY, true)
+                    .handler(new ChannelInitializer<SocketChannel>() {
                         @Override
-                        public void run() {
-                            doConnect();
+                        public void initChannel(SocketChannel ch)
+                                throws Exception {
+                            ch.pipeline().addLast("TCPClientHandler", new TCPClientHandler());
+
                         }
-                    }, 1, TimeUnit.SECONDS);
+                    });
+            // 发起异步连接操作
+            ChannelFuture future = b.connect(
+                    new InetSocketAddress(deviceHost, devicePort)).sync();
+            future.channel().closeFuture().sync();
+        } catch (InterruptedException e) {
+            connect();// 发起重连操作
+        } finally {
+            // 所有资源释放完成之后，清空资源，再次发起重连操作
+            executor.execute(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        TimeUnit.SECONDS.sleep(reConnection);
+                        try {
+                            connect();// 发起重连操作
+                        } catch (Exception e) {
+                        }
+                    } catch (InterruptedException e) {
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 
-    public void close() {
-        closed = true;
-        workerGroup.shutdownGracefully();
-    }
 
     private String getServerInfo() {
         return String.format("DeviceHost=%s DevicePort=%d",

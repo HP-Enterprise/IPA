@@ -1,5 +1,6 @@
 package com.cmos.ipa.client;
 
+import com.cmos.ipa.deviceclient.TCPClient;
 import com.cmos.ipa.pojo.MsgHeart;
 import com.cmos.ipa.pojo.MsgOrder;
 import com.cmos.ipa.pojo.MsgParamdownload;
@@ -76,6 +77,8 @@ public class NettyClientHandler extends ChannelInboundHandlerAdapter {
                     MsgHeart msgh;
                     msgh = new MsgHeart().decoded(receiveData);
 
+                    System.err.println(Global.ThreadFlag);
+                    System.err.println(Global.ThreadStart);
                     // 第一次心跳成功，启动心跳发送任务
                     if(msgh != null && msgh.getStatus() == 1){
                         if(Global.ThreadStart) {

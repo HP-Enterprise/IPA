@@ -68,14 +68,19 @@ public class TCPClientHandler extends ChannelInboundHandlerAdapter {
         byte[] receiveData = dataTool.getBytesFromByteBuf(m);
         switch (Global.DeviceType) {
                 case 0x01:
+                    System.err.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
                     log.log_info("门禁 response >>" + dataTool.bytes2hex(receiveData));
+                    System.err.println("门禁 response >>" + dataTool.bytes2hex(receiveData));
                     String[] dataInfo = null;
                     int num = 0;
                     AccessControlBean acb = new AccessControlBean();
                     MsgAlarm ma = new MsgAlarm();
                     String info = ByteUtil.decode(dataTool.bytes2hex(receiveData));
+                    System.err.println("门禁 response info>>" + info);
                     dataInfo = info.split(";");
+                    System.err.println("门禁 response length>>" + dataInfo.length);
                     if(dataInfo.length > 0) {
+                        System.err.println("解析门禁 response》》》》》》》》》》》》》》");
                         acb.setStartCode(dataInfo[num++]);
                         acb.setPackageLength(Integer.valueOf(dataInfo[num++]));
                         acb.setControllerIp(dataInfo[num++]);
@@ -91,6 +96,7 @@ public class TCPClientHandler extends ChannelInboundHandlerAdapter {
                         ma.setAlarmLevel((byte)4);
                     }
 
+                    System.err.println(Global.alarmQueue.size());
                     //判断警告消息队列是否已经满额 满额先进行移除再添加
                     if(Global.AlarmQueueIn <= Global.QUEUE_CACHE_NUM){
                         enAlarmQueue(ma);

@@ -64,6 +64,7 @@ public class NettyClient {
                         public void initChannel(SocketChannel ch)
                                 throws Exception {
                             Global.ThreadFlag = true;
+                            Global.ThreadStart = true;
                             ch.pipeline().addLast(new LengthFieldBasedFrameDecoder(1024, 2, 2, -4, 0));
                             ch.pipeline().addLast("NettyClientHandler", new NettyClientHandler());
 
