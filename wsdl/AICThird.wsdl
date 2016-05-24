@@ -1,0 +1,2000 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.sdp.com.cn/wsdl/sag/sms/notification/v2_1/interface" xmlns:s0="http://www.sdp.com.cn/schema/sag/sms/notification/v2_1/local" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://www.sdp.com.cn/wsdl/sag/sms/notification/v2_1/interface" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sdp.com.cn/schema/sag/sms/notification/v2_1/local">
+      <s:element name="QueryEmployeeBalance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PeCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BnCode" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryEmployeeBalanceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryEmployeeBalanceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddDepart">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parentCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="extParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddDepartResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddDepartResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteDepart">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteDepartResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteDepartResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditDepart">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parentCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="extParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditDepartResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EditDepartResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddPeople">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Sex" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="DepartCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="extParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddPeopleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddPeopleResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletePeople">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletePeopleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeletePeopleResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditPeople">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Sex" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="DepartCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="extParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditPeopleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EditPeopleResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddAccessGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="extParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddAccessGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddAccessGroupResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteAccessGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteAccessGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteAccessGroupResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditAccessGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="extParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditAccessGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EditAccessGroupResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddAccessGroupItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccessGroupGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DoorGroupGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SchedulesGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="extParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddAccessGroupItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddAccessGroupItemResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteAccessGroupItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteAccessGroupItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteAccessGroupItemResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditAccessGroupItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DoorGroupGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SchedulesGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="extParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditAccessGroupItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EditAccessGroupItemResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddDoorGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="extParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddDoorGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddDoorGroupResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteDoorGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteDoorGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteDoorGroupResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditDoorGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="extParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditDoorGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EditDoorGroupResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddElevatorGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="extParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddElevatorGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddElevatorGroupResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteElevatorGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteElevatorGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteElevatorGroupResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditElevatorGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="extParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditElevatorGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EditElevatorGroupResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddElevatorGroupItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ElevatorGroupGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReaderGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OutputGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="extParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddElevatorGroupItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddElevatorGroupItemResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteElevatorGroupItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteElevatorGroupItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteElevatorGroupItemResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditElevatorGroupItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReaderGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OutputGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="extParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditElevatorGroupItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EditElevatorGroupItemResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddDoorGroupItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DoorGroupGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReadGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="extParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddDoorGroupItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddDoorGroupItemResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteDoorGroupItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteDoorGroupItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteDoorGroupItemResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditDoorGroupItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReadGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="extParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditDoorGroupItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EditDoorGroupItemResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddSchedules">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="extParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddSchedulesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddSchedulesResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSchedules">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSchedulesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteSchedulesResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditSchedules">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="extParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditSchedulesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EditSchedulesResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddSchedulesItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SchedulesGuid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Day" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IntervalID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Begintime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Endtime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="extParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddSchedulesItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddSchedulesItemResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSchedulesItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSchedulesItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteSchedulesItemResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditSchedulesItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SchedulesGuid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Day" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IntervalID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Begintime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Endtime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="extParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditSchedulesItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EditSchedulesItemResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddHolidays">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="extParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddHolidaysResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddHolidaysResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteHolidays">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteHolidaysResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteHolidaysResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditHolidays">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="extParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditHolidaysResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EditHolidaysResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddHolidayItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="HolidayGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="HolidayTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="extParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddHolidayItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddHolidayItemResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteHolidayItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteHolidayItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteHolidayItemResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditHolidayItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="HolidayGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="HolidayTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="extParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditHolidayItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EditHolidayItemResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownLoadConfig">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AccessGroup" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="DoorGroup" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Schedules" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ElevatorGroup" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Holiday" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExtParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownLoadConfigResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DownLoadConfigResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddCredential">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PeopleGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BeginDatetime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EndDatetime" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Wiegand" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="AccessType" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PassWord" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccessGroup1ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccessGroup2ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccessGroup3ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccessGroup4ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccessGroup5ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccessGroup6ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccessGroup7ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccessGroup8ID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PassbackExempt" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ExtendedAccess" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PinCmds" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PinExempt" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="InScheduleElevatorGroup" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OutScheduleElevatorGroup" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExtParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddCredentialResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddCredentialResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCredential">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCredentialResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteCredentialResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditCredential">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PeopleGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BeginDatetime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EndDatetime" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Wiegand" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="AccessType" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PassWord" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccessGroup1ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccessGroup2ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccessGroup3ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccessGroup4ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccessGroup5ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccessGroup6ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccessGroup7ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccessGroup8ID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PassbackExempt" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ExtendedAccess" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PinCmds" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PinExempt" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="InScheduleElevatorGroup" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OutScheduleElevatorGroup" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExtParam" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditCredentialResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EditCredentialResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Query">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Type" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QuerySocketMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StartID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="EndID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QuerySocketMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QuerySocketMessageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CmdOutput">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ipAddr" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="target" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="functioncode" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="state" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CmdOutputResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CmdOutputResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="QueryEmployeeBalanceSoapIn">
+    <wsdl:part name="parameters" element="s0:QueryEmployeeBalance" />
+  </wsdl:message>
+  <wsdl:message name="QueryEmployeeBalanceSoapOut">
+    <wsdl:part name="parameters" element="s0:QueryEmployeeBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddDepartSoapIn">
+    <wsdl:part name="parameters" element="s0:AddDepart" />
+  </wsdl:message>
+  <wsdl:message name="AddDepartSoapOut">
+    <wsdl:part name="parameters" element="s0:AddDepartResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDepartSoapIn">
+    <wsdl:part name="parameters" element="s0:DeleteDepart" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDepartSoapOut">
+    <wsdl:part name="parameters" element="s0:DeleteDepartResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditDepartSoapIn">
+    <wsdl:part name="parameters" element="s0:EditDepart" />
+  </wsdl:message>
+  <wsdl:message name="EditDepartSoapOut">
+    <wsdl:part name="parameters" element="s0:EditDepartResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddPeopleSoapIn">
+    <wsdl:part name="parameters" element="s0:AddPeople" />
+  </wsdl:message>
+  <wsdl:message name="AddPeopleSoapOut">
+    <wsdl:part name="parameters" element="s0:AddPeopleResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeletePeopleSoapIn">
+    <wsdl:part name="parameters" element="s0:DeletePeople" />
+  </wsdl:message>
+  <wsdl:message name="DeletePeopleSoapOut">
+    <wsdl:part name="parameters" element="s0:DeletePeopleResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditPeopleSoapIn">
+    <wsdl:part name="parameters" element="s0:EditPeople" />
+  </wsdl:message>
+  <wsdl:message name="EditPeopleSoapOut">
+    <wsdl:part name="parameters" element="s0:EditPeopleResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddAccessGroupSoapIn">
+    <wsdl:part name="parameters" element="s0:AddAccessGroup" />
+  </wsdl:message>
+  <wsdl:message name="AddAccessGroupSoapOut">
+    <wsdl:part name="parameters" element="s0:AddAccessGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteAccessGroupSoapIn">
+    <wsdl:part name="parameters" element="s0:DeleteAccessGroup" />
+  </wsdl:message>
+  <wsdl:message name="DeleteAccessGroupSoapOut">
+    <wsdl:part name="parameters" element="s0:DeleteAccessGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditAccessGroupSoapIn">
+    <wsdl:part name="parameters" element="s0:EditAccessGroup" />
+  </wsdl:message>
+  <wsdl:message name="EditAccessGroupSoapOut">
+    <wsdl:part name="parameters" element="s0:EditAccessGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddAccessGroupItemSoapIn">
+    <wsdl:part name="parameters" element="s0:AddAccessGroupItem" />
+  </wsdl:message>
+  <wsdl:message name="AddAccessGroupItemSoapOut">
+    <wsdl:part name="parameters" element="s0:AddAccessGroupItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteAccessGroupItemSoapIn">
+    <wsdl:part name="parameters" element="s0:DeleteAccessGroupItem" />
+  </wsdl:message>
+  <wsdl:message name="DeleteAccessGroupItemSoapOut">
+    <wsdl:part name="parameters" element="s0:DeleteAccessGroupItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditAccessGroupItemSoapIn">
+    <wsdl:part name="parameters" element="s0:EditAccessGroupItem" />
+  </wsdl:message>
+  <wsdl:message name="EditAccessGroupItemSoapOut">
+    <wsdl:part name="parameters" element="s0:EditAccessGroupItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddDoorGroupSoapIn">
+    <wsdl:part name="parameters" element="s0:AddDoorGroup" />
+  </wsdl:message>
+  <wsdl:message name="AddDoorGroupSoapOut">
+    <wsdl:part name="parameters" element="s0:AddDoorGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDoorGroupSoapIn">
+    <wsdl:part name="parameters" element="s0:DeleteDoorGroup" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDoorGroupSoapOut">
+    <wsdl:part name="parameters" element="s0:DeleteDoorGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditDoorGroupSoapIn">
+    <wsdl:part name="parameters" element="s0:EditDoorGroup" />
+  </wsdl:message>
+  <wsdl:message name="EditDoorGroupSoapOut">
+    <wsdl:part name="parameters" element="s0:EditDoorGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddElevatorGroupSoapIn">
+    <wsdl:part name="parameters" element="s0:AddElevatorGroup" />
+  </wsdl:message>
+  <wsdl:message name="AddElevatorGroupSoapOut">
+    <wsdl:part name="parameters" element="s0:AddElevatorGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteElevatorGroupSoapIn">
+    <wsdl:part name="parameters" element="s0:DeleteElevatorGroup" />
+  </wsdl:message>
+  <wsdl:message name="DeleteElevatorGroupSoapOut">
+    <wsdl:part name="parameters" element="s0:DeleteElevatorGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditElevatorGroupSoapIn">
+    <wsdl:part name="parameters" element="s0:EditElevatorGroup" />
+  </wsdl:message>
+  <wsdl:message name="EditElevatorGroupSoapOut">
+    <wsdl:part name="parameters" element="s0:EditElevatorGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddElevatorGroupItemSoapIn">
+    <wsdl:part name="parameters" element="s0:AddElevatorGroupItem" />
+  </wsdl:message>
+  <wsdl:message name="AddElevatorGroupItemSoapOut">
+    <wsdl:part name="parameters" element="s0:AddElevatorGroupItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteElevatorGroupItemSoapIn">
+    <wsdl:part name="parameters" element="s0:DeleteElevatorGroupItem" />
+  </wsdl:message>
+  <wsdl:message name="DeleteElevatorGroupItemSoapOut">
+    <wsdl:part name="parameters" element="s0:DeleteElevatorGroupItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditElevatorGroupItemSoapIn">
+    <wsdl:part name="parameters" element="s0:EditElevatorGroupItem" />
+  </wsdl:message>
+  <wsdl:message name="EditElevatorGroupItemSoapOut">
+    <wsdl:part name="parameters" element="s0:EditElevatorGroupItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddDoorGroupItemSoapIn">
+    <wsdl:part name="parameters" element="s0:AddDoorGroupItem" />
+  </wsdl:message>
+  <wsdl:message name="AddDoorGroupItemSoapOut">
+    <wsdl:part name="parameters" element="s0:AddDoorGroupItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDoorGroupItemSoapIn">
+    <wsdl:part name="parameters" element="s0:DeleteDoorGroupItem" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDoorGroupItemSoapOut">
+    <wsdl:part name="parameters" element="s0:DeleteDoorGroupItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditDoorGroupItemSoapIn">
+    <wsdl:part name="parameters" element="s0:EditDoorGroupItem" />
+  </wsdl:message>
+  <wsdl:message name="EditDoorGroupItemSoapOut">
+    <wsdl:part name="parameters" element="s0:EditDoorGroupItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddSchedulesSoapIn">
+    <wsdl:part name="parameters" element="s0:AddSchedules" />
+  </wsdl:message>
+  <wsdl:message name="AddSchedulesSoapOut">
+    <wsdl:part name="parameters" element="s0:AddSchedulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSchedulesSoapIn">
+    <wsdl:part name="parameters" element="s0:DeleteSchedules" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSchedulesSoapOut">
+    <wsdl:part name="parameters" element="s0:DeleteSchedulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditSchedulesSoapIn">
+    <wsdl:part name="parameters" element="s0:EditSchedules" />
+  </wsdl:message>
+  <wsdl:message name="EditSchedulesSoapOut">
+    <wsdl:part name="parameters" element="s0:EditSchedulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddSchedulesItemSoapIn">
+    <wsdl:part name="parameters" element="s0:AddSchedulesItem" />
+  </wsdl:message>
+  <wsdl:message name="AddSchedulesItemSoapOut">
+    <wsdl:part name="parameters" element="s0:AddSchedulesItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSchedulesItemSoapIn">
+    <wsdl:part name="parameters" element="s0:DeleteSchedulesItem" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSchedulesItemSoapOut">
+    <wsdl:part name="parameters" element="s0:DeleteSchedulesItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditSchedulesItemSoapIn">
+    <wsdl:part name="parameters" element="s0:EditSchedulesItem" />
+  </wsdl:message>
+  <wsdl:message name="EditSchedulesItemSoapOut">
+    <wsdl:part name="parameters" element="s0:EditSchedulesItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddHolidaysSoapIn">
+    <wsdl:part name="parameters" element="s0:AddHolidays" />
+  </wsdl:message>
+  <wsdl:message name="AddHolidaysSoapOut">
+    <wsdl:part name="parameters" element="s0:AddHolidaysResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteHolidaysSoapIn">
+    <wsdl:part name="parameters" element="s0:DeleteHolidays" />
+  </wsdl:message>
+  <wsdl:message name="DeleteHolidaysSoapOut">
+    <wsdl:part name="parameters" element="s0:DeleteHolidaysResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditHolidaysSoapIn">
+    <wsdl:part name="parameters" element="s0:EditHolidays" />
+  </wsdl:message>
+  <wsdl:message name="EditHolidaysSoapOut">
+    <wsdl:part name="parameters" element="s0:EditHolidaysResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddHolidayItemSoapIn">
+    <wsdl:part name="parameters" element="s0:AddHolidayItem" />
+  </wsdl:message>
+  <wsdl:message name="AddHolidayItemSoapOut">
+    <wsdl:part name="parameters" element="s0:AddHolidayItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteHolidayItemSoapIn">
+    <wsdl:part name="parameters" element="s0:DeleteHolidayItem" />
+  </wsdl:message>
+  <wsdl:message name="DeleteHolidayItemSoapOut">
+    <wsdl:part name="parameters" element="s0:DeleteHolidayItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditHolidayItemSoapIn">
+    <wsdl:part name="parameters" element="s0:EditHolidayItem" />
+  </wsdl:message>
+  <wsdl:message name="EditHolidayItemSoapOut">
+    <wsdl:part name="parameters" element="s0:EditHolidayItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownLoadConfigSoapIn">
+    <wsdl:part name="parameters" element="s0:DownLoadConfig" />
+  </wsdl:message>
+  <wsdl:message name="DownLoadConfigSoapOut">
+    <wsdl:part name="parameters" element="s0:DownLoadConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddCredentialSoapIn">
+    <wsdl:part name="parameters" element="s0:AddCredential" />
+  </wsdl:message>
+  <wsdl:message name="AddCredentialSoapOut">
+    <wsdl:part name="parameters" element="s0:AddCredentialResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCredentialSoapIn">
+    <wsdl:part name="parameters" element="s0:DeleteCredential" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCredentialSoapOut">
+    <wsdl:part name="parameters" element="s0:DeleteCredentialResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditCredentialSoapIn">
+    <wsdl:part name="parameters" element="s0:EditCredential" />
+  </wsdl:message>
+  <wsdl:message name="EditCredentialSoapOut">
+    <wsdl:part name="parameters" element="s0:EditCredentialResponse" />
+  </wsdl:message>
+  <wsdl:message name="QuerySoapIn">
+    <wsdl:part name="parameters" element="s0:Query" />
+  </wsdl:message>
+  <wsdl:message name="QuerySoapOut">
+    <wsdl:part name="parameters" element="s0:QueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="QuerySocketMessageSoapIn">
+    <wsdl:part name="parameters" element="s0:QuerySocketMessage" />
+  </wsdl:message>
+  <wsdl:message name="QuerySocketMessageSoapOut">
+    <wsdl:part name="parameters" element="s0:QuerySocketMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="CmdOutputSoapIn">
+    <wsdl:part name="parameters" element="s0:CmdOutput" />
+  </wsdl:message>
+  <wsdl:message name="CmdOutputSoapOut">
+    <wsdl:part name="parameters" element="s0:CmdOutputResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SmsNotificationPort">
+    <wsdl:operation name="QueryEmployeeBalance">
+      <wsdl:input message="tns:QueryEmployeeBalanceSoapIn" />
+      <wsdl:output message="tns:QueryEmployeeBalanceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDepart">
+      <wsdl:input message="tns:AddDepartSoapIn" />
+      <wsdl:output message="tns:AddDepartSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDepart">
+      <wsdl:input message="tns:DeleteDepartSoapIn" />
+      <wsdl:output message="tns:DeleteDepartSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditDepart">
+      <wsdl:input message="tns:EditDepartSoapIn" />
+      <wsdl:output message="tns:EditDepartSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPeople">
+      <wsdl:input message="tns:AddPeopleSoapIn" />
+      <wsdl:output message="tns:AddPeopleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePeople">
+      <wsdl:input message="tns:DeletePeopleSoapIn" />
+      <wsdl:output message="tns:DeletePeopleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditPeople">
+      <wsdl:input message="tns:EditPeopleSoapIn" />
+      <wsdl:output message="tns:EditPeopleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAccessGroup">
+      <wsdl:input message="tns:AddAccessGroupSoapIn" />
+      <wsdl:output message="tns:AddAccessGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAccessGroup">
+      <wsdl:input message="tns:DeleteAccessGroupSoapIn" />
+      <wsdl:output message="tns:DeleteAccessGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditAccessGroup">
+      <wsdl:input message="tns:EditAccessGroupSoapIn" />
+      <wsdl:output message="tns:EditAccessGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAccessGroupItem">
+      <wsdl:input message="tns:AddAccessGroupItemSoapIn" />
+      <wsdl:output message="tns:AddAccessGroupItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAccessGroupItem">
+      <wsdl:input message="tns:DeleteAccessGroupItemSoapIn" />
+      <wsdl:output message="tns:DeleteAccessGroupItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditAccessGroupItem">
+      <wsdl:input message="tns:EditAccessGroupItemSoapIn" />
+      <wsdl:output message="tns:EditAccessGroupItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDoorGroup">
+      <wsdl:input message="tns:AddDoorGroupSoapIn" />
+      <wsdl:output message="tns:AddDoorGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDoorGroup">
+      <wsdl:input message="tns:DeleteDoorGroupSoapIn" />
+      <wsdl:output message="tns:DeleteDoorGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditDoorGroup">
+      <wsdl:input message="tns:EditDoorGroupSoapIn" />
+      <wsdl:output message="tns:EditDoorGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddElevatorGroup">
+      <wsdl:input message="tns:AddElevatorGroupSoapIn" />
+      <wsdl:output message="tns:AddElevatorGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteElevatorGroup">
+      <wsdl:input message="tns:DeleteElevatorGroupSoapIn" />
+      <wsdl:output message="tns:DeleteElevatorGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditElevatorGroup">
+      <wsdl:input message="tns:EditElevatorGroupSoapIn" />
+      <wsdl:output message="tns:EditElevatorGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddElevatorGroupItem">
+      <wsdl:input message="tns:AddElevatorGroupItemSoapIn" />
+      <wsdl:output message="tns:AddElevatorGroupItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteElevatorGroupItem">
+      <wsdl:input message="tns:DeleteElevatorGroupItemSoapIn" />
+      <wsdl:output message="tns:DeleteElevatorGroupItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditElevatorGroupItem">
+      <wsdl:input message="tns:EditElevatorGroupItemSoapIn" />
+      <wsdl:output message="tns:EditElevatorGroupItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDoorGroupItem">
+      <wsdl:input message="tns:AddDoorGroupItemSoapIn" />
+      <wsdl:output message="tns:AddDoorGroupItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDoorGroupItem">
+      <wsdl:input message="tns:DeleteDoorGroupItemSoapIn" />
+      <wsdl:output message="tns:DeleteDoorGroupItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditDoorGroupItem">
+      <wsdl:input message="tns:EditDoorGroupItemSoapIn" />
+      <wsdl:output message="tns:EditDoorGroupItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSchedules">
+      <wsdl:input message="tns:AddSchedulesSoapIn" />
+      <wsdl:output message="tns:AddSchedulesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSchedules">
+      <wsdl:input message="tns:DeleteSchedulesSoapIn" />
+      <wsdl:output message="tns:DeleteSchedulesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditSchedules">
+      <wsdl:input message="tns:EditSchedulesSoapIn" />
+      <wsdl:output message="tns:EditSchedulesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSchedulesItem">
+      <wsdl:input message="tns:AddSchedulesItemSoapIn" />
+      <wsdl:output message="tns:AddSchedulesItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSchedulesItem">
+      <wsdl:input message="tns:DeleteSchedulesItemSoapIn" />
+      <wsdl:output message="tns:DeleteSchedulesItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditSchedulesItem">
+      <wsdl:input message="tns:EditSchedulesItemSoapIn" />
+      <wsdl:output message="tns:EditSchedulesItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddHolidays">
+      <wsdl:input message="tns:AddHolidaysSoapIn" />
+      <wsdl:output message="tns:AddHolidaysSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteHolidays">
+      <wsdl:input message="tns:DeleteHolidaysSoapIn" />
+      <wsdl:output message="tns:DeleteHolidaysSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditHolidays">
+      <wsdl:input message="tns:EditHolidaysSoapIn" />
+      <wsdl:output message="tns:EditHolidaysSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddHolidayItem">
+      <wsdl:input message="tns:AddHolidayItemSoapIn" />
+      <wsdl:output message="tns:AddHolidayItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteHolidayItem">
+      <wsdl:input message="tns:DeleteHolidayItemSoapIn" />
+      <wsdl:output message="tns:DeleteHolidayItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditHolidayItem">
+      <wsdl:input message="tns:EditHolidayItemSoapIn" />
+      <wsdl:output message="tns:EditHolidayItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownLoadConfig">
+      <wsdl:input message="tns:DownLoadConfigSoapIn" />
+      <wsdl:output message="tns:DownLoadConfigSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCredential">
+      <wsdl:input message="tns:AddCredentialSoapIn" />
+      <wsdl:output message="tns:AddCredentialSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCredential">
+      <wsdl:input message="tns:DeleteCredentialSoapIn" />
+      <wsdl:output message="tns:DeleteCredentialSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditCredential">
+      <wsdl:input message="tns:EditCredentialSoapIn" />
+      <wsdl:output message="tns:EditCredentialSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Query">
+      <wsdl:input message="tns:QuerySoapIn" />
+      <wsdl:output message="tns:QuerySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QuerySocketMessage">
+      <wsdl:input message="tns:QuerySocketMessageSoapIn" />
+      <wsdl:output message="tns:QuerySocketMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CmdOutput">
+      <wsdl:input message="tns:CmdOutputSoapIn" />
+      <wsdl:output message="tns:CmdOutputSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SmsNotificationPort" type="tns:SmsNotificationPort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="QueryEmployeeBalance">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDepart">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDepart">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditDepart">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPeople">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePeople">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditPeople">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAccessGroup">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAccessGroup">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditAccessGroup">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAccessGroupItem">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAccessGroupItem">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditAccessGroupItem">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDoorGroup">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDoorGroup">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditDoorGroup">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddElevatorGroup">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteElevatorGroup">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditElevatorGroup">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddElevatorGroupItem">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteElevatorGroupItem">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditElevatorGroupItem">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDoorGroupItem">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDoorGroupItem">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditDoorGroupItem">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSchedules">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSchedules">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditSchedules">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSchedulesItem">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSchedulesItem">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditSchedulesItem">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddHolidays">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteHolidays">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditHolidays">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddHolidayItem">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteHolidayItem">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditHolidayItem">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownLoadConfig">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCredential">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCredential">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditCredential">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Query">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuerySocketMessage">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CmdOutput">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SmsNotificationPort1" type="tns:SmsNotificationPort">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="QueryEmployeeBalance">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDepart">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDepart">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditDepart">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPeople">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePeople">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditPeople">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAccessGroup">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAccessGroup">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditAccessGroup">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAccessGroupItem">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAccessGroupItem">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditAccessGroupItem">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDoorGroup">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDoorGroup">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditDoorGroup">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddElevatorGroup">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteElevatorGroup">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditElevatorGroup">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddElevatorGroupItem">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteElevatorGroupItem">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditElevatorGroupItem">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDoorGroupItem">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDoorGroupItem">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditDoorGroupItem">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSchedules">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSchedules">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditSchedules">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSchedulesItem">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSchedulesItem">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditSchedulesItem">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddHolidays">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteHolidays">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditHolidays">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddHolidayItem">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteHolidayItem">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditHolidayItem">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownLoadConfig">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCredential">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCredential">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditCredential">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Query">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuerySocketMessage">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CmdOutput">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SmsNotificationService">
+    <wsdl:port name="SmsNotificationPort" binding="tns:SmsNotificationPort">
+      <soap:address location="http://192.168.92.229:8088/cc/AICThird.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SmsNotificationPort1" binding="tns:SmsNotificationPort1">
+      <soap12:address location="http://192.168.92.229:8088/cc/AICThird.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
