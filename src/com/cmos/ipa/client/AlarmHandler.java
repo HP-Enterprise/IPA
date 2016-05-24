@@ -33,15 +33,13 @@ public class AlarmHandler extends Thread {
     @Override
     public void run() {
 
-        System.out.println("警告任务开启了。。。。");
         while(Global.ThreadFlag) {
             try {
                 Thread.sleep(5000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println("开始执行警告任务。。。。");
-            System.out.println(Global.alarmQueue.size());
+
             MsgAlarm msgAlarm;
             if(!Global.alarmQueue.isEmpty()){
                 try {

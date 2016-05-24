@@ -46,6 +46,7 @@ public class IPAEngine {
         //初始化日志配置
         Global.LOG_LEVEL = PropertyUtil.getPropertyInt("LogLevel");
         Global.LOG_MAXSIZE = PropertyUtil.getPropertyInt("LogMaxSize");
+        Global.LogSaveMonth = PropertyUtil.getPropertyInt("LogSaveMonth");
 
         Global.print("Agent Engine Load Config OK...");
 

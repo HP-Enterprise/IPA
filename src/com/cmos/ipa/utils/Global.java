@@ -111,6 +111,10 @@ public class Global {
      * <code>线程开关</code>
      */
     public static boolean ThreadStart = true;
+    /**
+     * <code>日志保存月数</code>
+     */
+    public static int LogSaveMonth = 1;
 
     /**
      * <code>全局打印方法</code>

@@ -66,7 +66,6 @@ public class NettyClientHandler extends ChannelInboundHandlerAdapter {
         ByteBuf buf =  PooledByteBufAllocator.DEFAULT.heapBuffer(10);
 
         byte[] receiveData = dataTool.getBytesFromByteBuf(m);
-        Global.print("response >>" + dataTool.bytes2hex(receiveData));
         if (!dataTool.checkByteArray(receiveData)) {
             log.log_info(">>>>>bytes data is invalid,we will not handle them");
         } else {
@@ -102,12 +101,11 @@ public class NettyClientHandler extends ChannelInboundHandlerAdapter {
                 case 0x04://D
                     log.log_info("ParamDownload response >>" + dataTool.bytes2hex(receiveData));
                     MsgParamdownload msgpl;
-                    Global.print(dataTool.bytes2hex(receiveData));
 
                     msgpl = new MsgParamdownload().decoded(receiveData);
                     if(msgpl != null && msgpl.getStatus() == 1){
-                        Global.print("COLLETCONTAB:"+msgpl.getColletcontab()+"/COLLECTPROTOCOL:"
-                                +msgpl.getCollectProtocol());
+                        log.log_info("COLLETCONTAB:" + msgpl.getColletcontab() + "/COLLECTPROTOCOL:"
+                                + msgpl.getCollectProtocol());
                         Global.COLLETCONTAB = msgpl.getColletcontab();
                         Global.COLLECTPROTOCOL = msgpl.getCollectProtocol();
                     }
@@ -117,7 +115,7 @@ public class NettyClientHandler extends ChannelInboundHandlerAdapter {
                     MsgOrder msgOrder;
                     msgOrder = new MsgOrder().decoded(receiveData);
                     //获取到指令消息后，往设备进行指令下发
-                    System.err.print("msgOrder:"+msgOrder.getOrderPara());
+                    log.log_info("msgOrder:"+msgOrder.getOrderPara());
 
 
                     //回写成功消息
