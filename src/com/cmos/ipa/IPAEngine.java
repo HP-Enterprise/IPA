@@ -57,7 +57,7 @@ public class IPAEngine {
         //加载工作线程
 
 //        UDPClient.init().start();
-        TCPClient.getInstance().start();
+//        TCPClient.getInstance().start();
         NettyClient.init().connect();
 //        TCPClient.getInstance().connect();
 
