@@ -1,6 +1,7 @@
 package com.cmos.ipa;
 
 import com.cmos.ipa.client.NettyClient;
+import com.cmos.ipa.deviceclient.ModbusClient;
 import com.cmos.ipa.deviceclient.TCPClient;
 import com.cmos.ipa.deviceclient.UDPClient;
 import com.cmos.ipa.utils.DataPropertyUtil;
@@ -58,7 +59,12 @@ public class IPAEngine {
 
 //        UDPClient.init().start();
 //        TCPClient.getInstance().start();
+<<<<<<< Updated upstream
         NettyClient.init().connect();
+=======
+        ModbusClient.init().start();
+//        NettyClient.init().connect();
+>>>>>>> Stashed changes
 //        TCPClient.getInstance().connect();
 
 

@@ -13,8 +13,8 @@ import java.util.ResourceBundle;
  */
 public class DataPropertyUtil {
 
-	//定义配置文件名称
-	public static final String DEFAULTSET = "data";
+	//定义配置文件名称  //data:门禁  modbusdata:楼控
+	public static final String DEFAULTSET = "modbusdata";
 
 	//初始化一个Hashmap集合
 	protected static HashMap<String,Properties> propertiesSets = new HashMap<String, Properties>();
