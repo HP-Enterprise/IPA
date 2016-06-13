@@ -193,14 +193,7 @@ public class BacnetClient extends Thread{
 //            sendData(d.getObjectIdentifier(), pvs);//设备名称
 
             //得到设备名称
-            String name=null;
-            for (ObjectPropertyReference opr : pvs) {
-                if(opr.getObjectIdentifier().equals(d.getObjectIdentifier())){
-                    if(opr.getPropertyIdentifier().toString().startsWith("Object")){
-                        name = pvs.getNoErrorCheck(opr).toString();
-                    }
-                }
-            }
+            String name=pvs.getNoErrorCheck(d.getObjectIdentifier(),PropertyIdentifier.objectName).toString();;
             int i =0;
             //填充参数和值
             for(ObjectIdentifier oid : oids){ //循环输入类型  iod { Analog Input 0 ,Binary Input 1, Device 0}
