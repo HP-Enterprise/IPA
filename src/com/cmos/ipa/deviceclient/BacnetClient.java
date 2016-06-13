@@ -19,6 +19,7 @@ import com.cmos.ipa.protocol.bacnet.type.primitive.ObjectIdentifier;
 import com.cmos.ipa.protocol.bacnet.type.primitive.UnsignedInteger;
 import com.cmos.ipa.protocol.bacnet.util.PropertyReferences;
 import com.cmos.ipa.protocol.bacnet.util.PropertyValues;
+import com.cmos.ipa.service.video_surveillance.deviceCapability.GOPStructure;
 import com.cmos.ipa.utils.Global;
 import com.cmos.ipa.utils.log.Logger;
 
@@ -42,9 +43,9 @@ public class BacnetClient extends Thread{
     private Logger log;
     private static BacnetClient bacnetClient;
     /**
-     * 启动30秒后开始任务
+     * 启动1秒后开始任务
      */
-    private static long readconfDelay = 1*30 * 1000;
+    private static long readconfDelay = 1*1 * 1000;
 
     /**
      * 上一个任务结束后1秒钟继续下一个任务
@@ -80,7 +81,7 @@ public class BacnetClient extends Thread{
      */
     public void init(){
         //上一个任务执行完 执行下一个
-        executor.scheduleWithFixedDelay(BacnetClient.getBacnetClient(),readconfDelay,readconfperiod,TimeUnit.MILLISECONDS);
+        executor.scheduleWithFixedDelay(BacnetClient.getBacnetClient(), readconfDelay, readconfperiod, TimeUnit.MILLISECONDS);
     }
     @Override
     public void run(){
@@ -92,10 +93,18 @@ public class BacnetClient extends Thread{
      */
     public void connect() {
         log.log_info("try connect to deviceServer @" + deviceHost + ":"+devicePort);
+        Global.print("try connect to deviceServer @" + deviceHost + ":" + devicePort);
         try {
             localDevice = new LocalDevice(deviceCode, deviceHost);
-            localDevice.setPort(devicePort);
-            localDevice.getEventHandler().addListener(new BacnetDeviceEventListenerImp());
+            localDevice.setPort(devicePort+1);
+            localDevice.getEventHandler().addListener(new BacnetDeviceEventListenerImp(){
+                public void iAmReceived(RemoteDevice d) {
+                    remoteDevices.add(d);
+                    synchronized (BacnetClient.this) {
+                        BacnetClient.this.notifyAll();
+                    }
+                }
+            });
             localDevice.initialize();
 
             try {
@@ -108,6 +117,8 @@ public class BacnetClient extends Thread{
             try {
                 doDiscover();
                 handleData();
+            }catch (Exception e){
+                Global.print(e.getMessage());
             }
             finally {
                 localDevice.terminate();
@@ -116,6 +127,7 @@ public class BacnetClient extends Thread{
             }
 
         } catch (Exception e) {
+            Global.print(e.getMessage());
             log.log_info(e.getMessage());
             connect();// 发起重连操作
         }
@@ -149,7 +161,13 @@ public class BacnetClient extends Thread{
     private void handleData() throws BACnetException {
 
         MsgStatus ms = new MsgStatus();
-
+        ms.setPackageNum(Byte.MAX_VALUE);
+        //设备名称
+        String[] deviceName = new String[ms.getPackageNum()];
+        //设备参数名称
+        String[] devicePara = new String[ms.getPackageNum()];
+        //设备状态1
+        Integer[]  status1  = new Integer[ms.getPackageNum()];
         for (RemoteDevice d : remoteDevices) {//循环远程设备
             localDevice.getExtendedDeviceInformation(d);
             //读取所有属性的标识
@@ -173,40 +191,39 @@ public class BacnetClient extends Thread{
             log.log_info(String.format("Properties read done in %d ms", System.currentTimeMillis() - start));
 
 //            sendData(d.getObjectIdentifier(), pvs);//设备名称
-            //设备名称
-            String[] deviceName = new String[ms.getPackageNum()];
-            //设备参数名称
-            String[] devicePara = new String[ms.getPackageNum()];
-            //设备状态1
-            Integer[]  status1  = new Integer[ms.getPackageNum()];
-            int i =0;
-            for(ObjectIdentifier oid : oids){ //循环输入类型
-                log.log_info(String.format("\t%s", oid));
-                int j = 0;
-                for (ObjectPropertyReference opr : pvs) { //循环各类型属性 （目前只是过滤2个属性 Object name = temp ， Present value = 2240.5）
-                    String name=null;
-                    if(oid.equals(d.getObjectIdentifier())){//获取设备名称
+
+            //得到设备名称
+            String name=null;
+            for (ObjectPropertyReference opr : pvs) {
+                if(opr.getObjectIdentifier().equals(d.getObjectIdentifier())){
+                    if(opr.getPropertyIdentifier().toString().startsWith("Object")){
                         name = pvs.getNoErrorCheck(opr).toString();
                     }
-                    if (oid.equals(opr.getObjectIdentifier())) {
-                        log.log_info(String.format("\t\t%s = %s", opr.getPropertyIdentifier().toString(), pvs
-                                .getNoErrorCheck(opr)));
-                        deviceName[j]=name;
-                        if(j==0){ //第一次循环 是属性名
-                            devicePara[j]= pvs.getNoErrorCheck(opr).toString();
-                        }else{
-                            status1[j]=new Integer(pvs.getNoErrorCheck(opr).toString());
-                        }
-                        i++;
-                        j++;
-                    }
-
                 }
+            }
+            int i =0;
+            //填充参数和值
+            for(ObjectIdentifier oid : oids){ //循环输入类型  iod { Analog Input 0 ,Binary Input 1, Device 0}
+                Global.print(String.format("\t%s", oid));
+                deviceName[i]=name;
+                devicePara[i]= pvs.getNoErrorCheck(oid,PropertyIdentifier.objectName).toString();
+//                status1[i]=new Integer(pvs.getNoErrorCheck(oid,PropertyIdentifier.presentValue).toString());
+                for (ObjectPropertyReference opr : pvs) { //循环各类型属性 （目前只是过滤2个属性 Object name = temp ， Present value = 2240.5）
+                    if (oid.equals(opr.getObjectIdentifier())) {
+                        Global.print(String.format("\t\t%s = %s", opr.getPropertyIdentifier().toString(), pvs
+                                .getNoErrorCheck(opr)));
+                    }
+                }
+                i++;
             }
 
         }
+        ms.setDeviceName(deviceName);
+        ms.setDevicePara(devicePara);
+        ms.setStatus1(status1);
         //消息加入队列
         enStatusQueue(ms);
+       System.out.println(ms.toString());
         log.log_info("Remote devices done...");
         log.log_info("Remote devices count=" + remoteDevices.size());
     }

@@ -1,5 +1,6 @@
 package com.cmos.ipa.deviceclient;
 
+
 import com.cmos.ipa.protocol.bacnet.RemoteDevice;
 import com.cmos.ipa.protocol.bacnet.RemoteObject;
 import com.cmos.ipa.protocol.bacnet.event.DeviceEventListener;
@@ -17,17 +18,13 @@ import com.cmos.ipa.protocol.bacnet.type.primitive.*;
 /**
  * Created by Administrator on 2016/6/12.
  */
-public class BacnetDeviceEventListenerImp implements DeviceEventListener {
+public abstract class BacnetDeviceEventListenerImp implements DeviceEventListener {
 
     @Override
     public void listenerException(Throwable e) {
 
     }
 
-    @Override
-    public void iAmReceived(RemoteDevice d) {
-
-    }
 
     @Override
     public boolean allowPropertyWrite(BACnetObject obj, PropertyValue pv) {
@@ -74,4 +71,3 @@ public class BacnetDeviceEventListenerImp implements DeviceEventListener {
 
     }
 }
-
