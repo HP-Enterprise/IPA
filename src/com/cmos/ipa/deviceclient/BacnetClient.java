@@ -53,7 +53,7 @@ public class BacnetClient extends Thread{
     private ScheduledExecutorService executor = Executors
             .newSingleThreadScheduledExecutor();
 
-    public BacnetClient(){
+    private BacnetClient(){
         this.deviceHost=Global.DeviceAddr;
         this.devicePort=Global.DevicePort;
         this.deviceCode=Global.AgentNum;
@@ -61,7 +61,9 @@ public class BacnetClient extends Thread{
         log= Logger.getInstance();
 
     }
-
+    /**
+     *  保证状态数据顺序执行
+     */
     public static BacnetClient getBacnetClient() {
         if(bacnetClient==null){
             synchronized(BacnetClient.class){
@@ -77,6 +79,7 @@ public class BacnetClient extends Thread{
      * 初始化任务
      */
     public void init(){
+        //上一个任务执行完 执行下一个
         executor.scheduleWithFixedDelay(BacnetClient.getBacnetClient(),readconfDelay,readconfperiod,TimeUnit.MILLISECONDS);
     }
     @Override
