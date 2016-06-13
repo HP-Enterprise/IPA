@@ -9,7 +9,7 @@ import com.cmos.ipa.protocol.bacnet.exception.BACnetException;
 import com.cmos.ipa.protocol.bacnet.obj.BACnetObject;
 import com.cmos.ipa.protocol.bacnet.service.confirmed.ReinitializeDeviceRequest;
 import com.cmos.ipa.protocol.bacnet.service.unconfirmed.WhoIsRequest;
-import com.cmos.ipa.protocol.bacnet.test.LoopDevice;
+import com.cmos.ipa.protocol.bacnet.LoopDevice;
 import com.cmos.ipa.protocol.bacnet.type.Encodable;
 import com.cmos.ipa.protocol.bacnet.type.constructed.*;
 import com.cmos.ipa.protocol.bacnet.type.enumerated.*;
