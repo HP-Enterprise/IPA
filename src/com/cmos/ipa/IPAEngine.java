@@ -59,12 +59,8 @@ public class IPAEngine {
 
 //        UDPClient.init().start();
 //        TCPClient.getInstance().start();
-<<<<<<< Updated upstream
-        NettyClient.init().connect();
-=======
         ModbusClient.init().start();
-//        NettyClient.init().connect();
->>>>>>> Stashed changes
+        NettyClient.init().connect();
 //        TCPClient.getInstance().connect();
 
 

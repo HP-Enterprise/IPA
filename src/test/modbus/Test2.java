@@ -22,16 +22,15 @@ public class Test2 {
 
         ModbusMaster master = new ModbusFactory().createTcpMaster(params, false);
         master.init();
-
         //测试是否有当前点位
-        System.out.println(master.testSlaveNode(0));
+        System.out.println(master.testSlaveNode(2));
 //        System.out.println(master);
         //根据不同的点位得到不同的值
         // Define the point locator.
-        ModbusLocator loc = new ModbusLocator(1, RegisterRange.HOLDING_REGISTER, 13, DataType.TWO_BYTE_INT_UNSIGNED);
+        ModbusLocator loc = new ModbusLocator(1, RegisterRange.HOLDING_REGISTER, 20, DataType.TWO_BYTE_INT_UNSIGNED);
         ModbusLocator loc1 = new ModbusLocator(1, RegisterRange.HOLDING_REGISTER,1, DataType.TWO_BYTE_INT_UNSIGNED);
         // Set the point value
-        master.setValue(loc, 100);
+//        master.setValue(loc, 100);
         // Get the point value
         System.out.println(master.getValue(loc));
         System.out.println(master.getValue(loc1));

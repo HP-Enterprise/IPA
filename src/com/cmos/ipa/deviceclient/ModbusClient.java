@@ -143,47 +143,23 @@ public class ModbusClient{
             @Override
             public void run() {
                 while(true){
-                    MsgStatus mstatus = new MsgStatus();
-                    String[] deviceName = {"能耗设备"};
-                    String[] deviceLocate = {"1栋2号楼"};
-                    String[] devicePara = {};
-                    Integer[]  status1 = {};
-                    Integer[]  status2 = {};
-                    Integer[]  status3 = {};
-                    Integer[]  status4 = {};
-                    Integer[]  status5 = {};
 
-                    mstatus.setPackageNum((byte) 1);
-                    mstatus.setDeviceName(deviceName);
-                    mstatus.setDeviceLocate(deviceLocate);
+                    MsgStatus mstatus = assembled();
 
-
-                    for(int i=0;i<1000;i++){
-                        if(master.testSlaveNode(i)){
-                            try {
-                            //根据不同的点位得到不同的值
-                            ModbusLocator loc = new ModbusLocator(1, RegisterRange.HOLDING_REGISTER, i, DataType.TWO_BYTE_INT_UNSIGNED);
-                                devicePara[i]=DataPropertyUtil.getProperty(String.valueOf(i));
-                                // Get the point value
-                                status1[i] = (Integer)master.getValue(loc);
-
-                            } catch (ModbusTransportException e) {
-                                e.printStackTrace();
-                            } catch (ErrorResponseException e) {
-                                e.printStackTrace();
-                            }
+                    //判断状态消息队列是否已经满额 满额先进行移除再添加
+                    if(Global.StatusQueueIn <= Global.QUEUE_CACHE_NUM){
+                        enStatusQueue(mstatus);
+                    }else{
+                        try {
+                            outStatusQueue();
+                            enStatusQueue(mstatus);
+                        } catch (InterruptedException e) {
+                            log.log_error("ModbusClient>>start>>InterruptedException>>",e);
                         }
                     }
 
-                    mstatus.setDevicePara(devicePara);
-                    mstatus.setStatus1(status1);
-                    mstatus.setStatus2(status2);
-                    mstatus.setStatus3(status3);
-                    mstatus.setStatus4(status4);
-                    mstatus.setStatus5(status5);
-
                     try {
-                        Thread.sleep(Global.COLLETCONTAB);
+                        Thread.sleep(Global.COLLETCONTAB * 10);
                     } catch (InterruptedException e) {
                         log.log_error("ModbusClient>>start>>Thread>>InterruptedException>>", e);
                     }
@@ -193,5 +169,61 @@ public class ModbusClient{
         receiverT.setPriority(Thread.MAX_PRIORITY);
         receiverT.start();
 
+    }
+
+    /**
+     * <code>根据设备返回信息，组装状态消息</code>
+     * @return
+     */
+    public MsgStatus assembled(){
+        int count = 0;
+        MsgStatus mstatus = new MsgStatus();
+        String[] deviceName = new String[255];
+        String[] deviceLocate = new String[255];
+        String[] devicePara = new String[255];
+        String[]  status1 = new String[255];
+        String[]  status2 = new String[255];
+        String[]  status3 = new String[255];
+        String[]  status4 = new String[255];
+        String[]  status5 = new String[255];
+
+        for(int i=0;i<255;i++){
+            try {
+                //根据不同的点位得到不同的值
+                ModbusLocator loc = new ModbusLocator(1, RegisterRange.HOLDING_REGISTER, i, DataType.TWO_BYTE_INT_UNSIGNED);
+                if(loc != null){
+                    String s = DataPropertyUtil.getProperty(String.valueOf(i));
+                    if(s != null && s.length() > 0) {
+                        String[] s1 = s.split("_");
+                        deviceName[i] = s1[0];
+                        String[] s2 = s1[1].split("#");
+                        deviceLocate[i] = s2[0];
+                        devicePara[i] = s2[1];
+                        // Get the point value
+                        status1[i] = String.valueOf(master.getValue(loc));
+                        status2[i] = "0";
+                        status3[i] = "0";
+                        status4[i] = "0";
+                        status5[i] = "0";
+                        count++;
+                    }
+                }
+            } catch (ModbusTransportException e) {
+                log.log_error("ModbusClient>>start>>Thread>>ModbusTransportException>>", e);
+            } catch (ErrorResponseException e) {
+                log.log_error("ModbusClient>>start>>Thread>>ErrorResponseException>>", e);
+            }
+        }
+
+        mstatus.setDeviceName(deviceName);
+        mstatus.setDeviceLocate(deviceLocate);
+        mstatus.setPackageNum((byte) count);
+        mstatus.setDevicePara(devicePara);
+        mstatus.setStatus1(status1);
+        mstatus.setStatus2(status2);
+        mstatus.setStatus3(status3);
+        mstatus.setStatus4(status4);
+        mstatus.setStatus5(status5);
+        return mstatus;
     }
 }
