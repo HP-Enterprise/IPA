@@ -26,6 +26,8 @@ public class MsgStatus {
     private static int deviceLocateSize=200;
     //设备参数名称最大长度为100
     private static int deviceParaSize=100;
+    //设备参数状态（值）固定长度10 用空格填充
+    private static int statusSize=10;
 
     //报文个数 最大 255
     private Byte packageNum;
@@ -36,15 +38,15 @@ public class MsgStatus {
     //设备参数名称
     private String[] devicePara;
     //设备状态1
-    private Integer[]  status1;
+    private String[]  status1;
     //设备状态2
-    private Integer[]  status2;
+    private String[]  status2;
     //设备状态3
-    private Integer[]  status3;
+    private String[]  status3;
     //设备状态4
-    private Integer[]  status4;
+    private String[]  status4;
     //设备状态5
-    private Integer[]  status5;
+    private String[]  status5;
 
     private Byte checkSum;//将编码后的报文（Message Header + body）进行异或操作，1个字节长度
 
@@ -97,43 +99,43 @@ public class MsgStatus {
         this.deviceLocate = deviceLocate;
     }
 
-    public Integer[] getStatus1() {
+    public String[] getStatus1() {
         return status1;
     }
 
-    public void setStatus1(Integer[] status1) {
+    public void setStatus1(String[] status1) {
         this.status1 = status1;
     }
 
-    public Integer[] getStatus2() {
+    public String[] getStatus2() {
         return status2;
     }
 
-    public void setStatus2(Integer[] status2) {
+    public void setStatus2(String[] status2) {
         this.status2 = status2;
     }
 
-    public Integer[] getStatus3() {
+    public String[] getStatus3() {
         return status3;
     }
 
-    public void setStatus3(Integer[] status3) {
+    public void setStatus3(String[] status3) {
         this.status3 = status3;
     }
 
-    public Integer[] getStatus4() {
+    public String[] getStatus4() {
         return status4;
     }
 
-    public void setStatus4(Integer[] status4) {
+    public void setStatus4(String[] status4) {
         this.status4 = status4;
     }
 
-    public Integer[] getStatus5() {
+    public String[] getStatus5() {
         return status5;
     }
 
-    public void setStatus5(Integer[] status5) {
+    public void setStatus5(String[] status5) {
         this.status5 = status5;
     }
 
@@ -173,15 +175,16 @@ public class MsgStatus {
                 bb.writeBytes(dataTool.getLengthBytesString(deviceName[i], deviceNameSize).getBytes("utf-8"));
                 bb.writeBytes(dataTool.getLengthBytesString(deviceLocate[i], deviceLocateSize).getBytes("utf-8"));
                 bb.writeBytes(dataTool.getLengthBytesString(devicePara[i], deviceParaSize).getBytes("utf-8"));
+                bb.writeBytes(dataTool.getLengthBytesString(status1[i],statusSize).getBytes("utf-8"));
+                bb.writeBytes(dataTool.getLengthBytesString(status2[i],statusSize).getBytes("utf-8"));
+                bb.writeBytes(dataTool.getLengthBytesString(status3[i],statusSize).getBytes("utf-8"));
+                bb.writeBytes(dataTool.getLengthBytesString(status4[i],statusSize).getBytes("utf-8"));
+                bb.writeBytes(dataTool.getLengthBytesString(status5[i],statusSize).getBytes("utf-8"));
             } catch (UnsupportedEncodingException e) {
                 log.log_error("MsgStatus>>encoded>>UnsupportedEncodingException>>",e);
                 continue;
             }
-            bb.writeInt(status1[i]);
-            bb.writeInt(status2[i]);
-            bb.writeInt(status3[i]);
-            bb.writeInt(status4[i]);
-            bb.writeInt(status5[i]);
+
         }
         //回写length段
         int index=bb.writerIndex();

@@ -164,10 +164,12 @@ public class BacnetClient extends Thread{
         ms.setPackageNum(Byte.MAX_VALUE);
         //设备名称
         String[] deviceName = new String[ms.getPackageNum()];
+        //设备名称
+        String[] deviceLocate = new String[ms.getPackageNum()];
         //设备参数名称
         String[] devicePara = new String[ms.getPackageNum()];
         //设备状态1
-        Integer[]  status1  = new Integer[ms.getPackageNum()];
+        String[]  status1  = new String[ms.getPackageNum()];
         for (RemoteDevice d : remoteDevices) {//循环远程设备
             localDevice.getExtendedDeviceInformation(d);
             //读取所有属性的标识
@@ -182,6 +184,7 @@ public class BacnetClient extends Thread{
             for (ObjectIdentifier oid : oids) {
                 refs.add(oid, PropertyIdentifier.presentValue); //添加要接收显示的值类型
                 refs.add(oid, PropertyIdentifier.objectName);
+                refs.add(oid, PropertyIdentifier.location);
             }
 
             log.log_info("Start read properties");
@@ -193,14 +196,17 @@ public class BacnetClient extends Thread{
 //            sendData(d.getObjectIdentifier(), pvs);//设备名称
 
             //得到设备名称
-            String name=pvs.getNoErrorCheck(d.getObjectIdentifier(),PropertyIdentifier.objectName).toString();;
+            String name=pvs.getNoErrorCheck(d.getObjectIdentifier(),PropertyIdentifier.objectName).toString();
+            //设备地址
+            String location=pvs.getNoErrorCheck(d.getObjectIdentifier(),PropertyIdentifier.location).toString();
             int i =0;
             //填充参数和值
             for(ObjectIdentifier oid : oids){ //循环输入类型  iod { Analog Input 0 ,Binary Input 1, Device 0}
                 Global.print(String.format("\t%s", oid));
                 deviceName[i]=name;
+                deviceLocate[i]=location;
                 devicePara[i]= pvs.getNoErrorCheck(oid,PropertyIdentifier.objectName).toString();
-//                status1[i]=new Integer(pvs.getNoErrorCheck(oid,PropertyIdentifier.presentValue).toString());
+                status1[i]=pvs.getNoErrorCheck(oid,PropertyIdentifier.presentValue).toString();
                 for (ObjectPropertyReference opr : pvs) { //循环各类型属性 （目前只是过滤2个属性 Object name = temp ， Present value = 2240.5）
                     if (oid.equals(opr.getObjectIdentifier())) {
                         Global.print(String.format("\t\t%s = %s", opr.getPropertyIdentifier().toString(), pvs
@@ -212,6 +218,7 @@ public class BacnetClient extends Thread{
 
         }
         ms.setDeviceName(deviceName);
+        ms.setDeviceLocate(deviceLocate);
         ms.setDevicePara(devicePara);
         ms.setStatus1(status1);
         //消息加入队列

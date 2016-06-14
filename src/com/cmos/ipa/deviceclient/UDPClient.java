@@ -174,11 +174,11 @@ public class UDPClient{
                     String[] deviceName = {"设备1"};
                     String[] deviceLocate = {"1栋2号楼"};
                     String[] devicePara = {"参数1"};
-                    Integer[]  status1 = {1};
-                    Integer[]  status2 = {2};
-                    Integer[]  status3 = {3};
-                    Integer[]  status4 = {4};
-                    Integer[]  status5 = {5};
+                    String[]  status1 = {"1"};
+                    String[]  status2 = {"2"};
+                    String[]  status3 = {"3"};
+                    String[]  status4 = {"4"};
+                    String[]  status5 = {"5"};
 
                     mstatus.setPackageNum((byte) 1);
                     mstatus.setDeviceName(deviceName);
