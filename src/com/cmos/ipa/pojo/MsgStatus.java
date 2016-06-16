@@ -24,6 +24,7 @@ public class MsgStatus {
     private static int deviceNameSize=100;
     //设备位置最大长度为200
     private static int deviceLocateSize=100;
+
     //设备参数名称最大长度为100
     private static int deviceParaSize=100;
 
