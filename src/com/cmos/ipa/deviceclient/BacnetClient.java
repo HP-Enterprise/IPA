@@ -237,9 +237,9 @@ public class BacnetClient extends Thread{
         ms.setStatus5(status5);
         //消息加入队列
         enStatusQueue(ms);
-       System.out.println("状态参数数量--"+ms.getPackageNum());
+        Global.print("状态参数数量--" + ms.getPackageNum());
         log.log_info("Remote devices done...");
-        log.log_info("Remote devices count=" + remoteDevices.size());
+        Global.print("Remote devices count=" + remoteDevices.size());
     }
 
    /* private void sendData(ObjectIdentifier oid, PropertyValues pvs) {
