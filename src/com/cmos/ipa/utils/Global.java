@@ -36,6 +36,10 @@ public class Global {
      */
     public static int AgentNum;
     /**
+     * <code>园区识别码</code>
+     */
+    public static String ParkCode;
+    /**
      * <code>与GW断开重连时间间隔，秒</code>
      */
     public static int RECONNECTION;

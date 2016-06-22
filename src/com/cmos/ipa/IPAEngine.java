@@ -43,6 +43,8 @@ public class IPAEngine {
         Global.DeviceType = PropertyUtil.getPropertyInt("DeviceType");
         //初始化设备编号
         Global.AgentNum = PropertyUtil.getPropertyInt("AgentNum");
+        //初始化园区识别码
+        Global.ParkCode = PropertyUtil.getProperty("PackCode");
 
         //初始化日志配置
         Global.LOG_LEVEL = PropertyUtil.getPropertyInt("LogLevel");

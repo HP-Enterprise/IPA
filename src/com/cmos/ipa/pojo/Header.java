@@ -8,6 +8,9 @@ package com.cmos.ipa.pojo;
  */
 public class Header {
 
+    //园区识别码长度 10
+    private  int parkCodeSize=10;
+
     //报文起始字符
     private Short startCode=9252;
     //报文消息长度
@@ -22,6 +25,16 @@ public class Header {
     private Integer eventId;
     //代理服务器编号
     private Byte agentNum;
+    //园区识别码
+    private String parkCode;
+
+    public int getParkCodeSize() {
+        return parkCodeSize;
+    }
+
+    public void setParkCodeSize(int parkCodeSize) {
+        this.parkCodeSize = parkCodeSize;
+    }
 
     public Short getStartCode() {
         return startCode;
@@ -77,5 +90,13 @@ public class Header {
 
     public void setEventId(Integer eventId) {
         this.eventId = eventId;
+    }
+
+    public String getParkCode() {
+        return parkCode;
+    }
+
+    public void setParkCode(String parkCode) {
+        this.parkCode = parkCode;
     }
 }

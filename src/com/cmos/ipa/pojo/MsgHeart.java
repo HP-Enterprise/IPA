@@ -4,7 +4,11 @@ import com.cmos.ipa.utils.ByteUtil;
 import com.cmos.ipa.utils.DataTool;
 import com.cmos.ipa.utils.DateTimeUtil;
 import com.cmos.ipa.utils.Global;
+import com.cmos.ipa.utils.log.Logger;
 import io.netty.buffer.ByteBuf;
+
+import java.io.UnsupportedEncodingException;
+
 import static io.netty.buffer.Unpooled.buffer;
 
 /**
@@ -28,6 +32,8 @@ public class MsgHeart {
 
     public DataTool dataTool = new DataTool();
 
+    private Logger log;
+
     public MsgHeart() {
         this.header = new Header();
         this.header.setMessageType((byte) 3);
@@ -35,7 +41,9 @@ public class MsgHeart {
 //        this.header.setSendingTime(new DataTool().getCurrentSeconds());
 //        this.header.setEventId(new DataTool().getCurrentSeconds());
         this.header.setAgentNum((byte) Global.AgentNum);
+        this.header.setParkCode(Global.ParkCode);
         this.heartBeat = (byte)3;
+        this.log = Logger.getInstance();
     }
 
     public Header getHeader() {
@@ -86,6 +94,13 @@ public class MsgHeart {
         header.setSendingTime(bb.readInt());
         header.setEventId(bb.readInt());
         header.setAgentNum(bb.readByte());
+        byte[] parkCodeBytes = new byte[header.getParkCodeSize()];
+        bb.readBytes(parkCodeBytes);
+        try {
+            header.setParkCode(new String(parkCodeBytes,"UTF-8").trim());
+        } catch (UnsupportedEncodingException e) {
+            log.log_error("MsgHeart>>decoded>>UnsupportedEncodingException>>", e);
+        }
         mh.setHeader(header);
         mh.setStatus(bb.readByte());
         mh.setCheckSum(bb.readByte());
@@ -107,6 +122,11 @@ public class MsgHeart {
         bb.writeInt(new DataTool().getCurrentSeconds());//
         bb.writeInt(new DataTool().getCurrentSeconds());//
         bb.writeByte(this.header.getAgentNum());//
+        try {
+            bb.writeBytes(dataTool.getLengthBytesString(this.header.getParkCode(),this.header.getParkCodeSize()).getBytes("utf-8"));
+        } catch (UnsupportedEncodingException e) {
+            log.log_error("MsgHeart>>encoded>>UnsupportedEncodingException>>", e);
+        }
         bb.writeByte(getHeartBeat());//
         //回写length段
         int index=bb.writerIndex();
