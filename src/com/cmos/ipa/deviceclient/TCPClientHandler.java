@@ -97,10 +97,19 @@ public class TCPClientHandler extends ChannelInboundHandlerAdapter {
                         acb.setCardNum(dataInfo[num++]);
                         acb.setJobNum(dataInfo[num++]);
                         acb.setStaffName(dataInfo[num++]);
-                        ma.setAlarmDeviceName(acb.getControllerIp());
-                        ma.setAlarmTitle("门禁报警");
-                        ma.setAlarmContent(acb.toString());
-                        ma.setAlarmLevel((byte)4);
+
+                        if(acb.getIolinkerNum() == null && acb.getIolinkerNum().trim().equals("")){
+                            ma.setAlarmDeviceName(acb.getControllerName()+","+acb.getPanelName()+","+acb.getCardReaderName());
+                            ma.setAlarmTitle("门禁报警");
+                            ma.setAlarmContent(acb.getIODescription()+acb.getDescription());
+                            ma.setAlarmLevel((byte)2);
+                        }else{
+                            ma.setAlarmDeviceName(acb.getControllerName()+","+acb.getPanelName()+","+acb.getCardReaderName());
+                            ma.setAlarmTitle("门禁通行");
+                            ma.setAlarmContent("工号为："+acb.getJobNum()+"的员工"+acb.getStaffName()
+                                              +",卡号为："+acb.getCardNum()+"发生了如下事件："+acb.getEventName());
+                            ma.setAlarmLevel((byte)4);
+                        }
                     }
 
                     //判断警告消息队列是否已经满额 满额先进行移除再添加
