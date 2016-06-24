@@ -160,20 +160,23 @@ public class BacnetClient extends Thread{
      */
     private void handleData() throws BACnetException {
 
-        MsgStatus ms = new MsgStatus();
-        //设备名称
-        String[] deviceName = new String[255];
-        //设备名称
-        String[] deviceLocate = new String[255];
-        //设备参数名称
-        String[] devicePara = new String[255];
-        //设备状态1
-        String[]  status1  = new String[255];
-        String[]  status2  = new String[255];
-        String[]  status3  = new String[255];
-        String[]  status4  = new String[255];
-        String[]  status5  = new String[255];
         for (RemoteDevice d : remoteDevices) {//循环远程设备
+            MsgStatus ms = new MsgStatus();
+            ms.setPackageNum((byte)0);
+            //设备名称
+            String[] deviceName = new String[255];
+            //设备名称
+            String[] deviceLocate = new String[255];
+            //设备名称
+            String[] deviceCode = new String[255];
+            //设备参数名称
+            String[] devicePara = new String[255];
+            //设备状态1
+            String[]  status1  = new String[255];
+            String[]  status2  = new String[255];
+            String[]  status3  = new String[255];
+            String[]  status4  = new String[255];
+            String[]  status5  = new String[255];
             localDevice.getExtendedDeviceInformation(d);
             //读取所有属性的标识
             List<ObjectIdentifier> oids = ((SequenceOf<ObjectIdentifier>) localDevice.sendReadPropertyAllowNull(d, d
@@ -188,6 +191,7 @@ public class BacnetClient extends Thread{
                 refs.add(oid, PropertyIdentifier.presentValue); //添加要接收显示的值类型
                 refs.add(oid, PropertyIdentifier.objectName);
                 refs.add(oid, PropertyIdentifier.location);
+                refs.add(oid, PropertyIdentifier.description);
             }
 
             log.log_info("Start read properties");
@@ -200,24 +204,32 @@ public class BacnetClient extends Thread{
 
             //得到设备名称
             String name=pvs.getNoErrorCheck(d.getObjectIdentifier(),PropertyIdentifier.objectName).toString();
+            //编号
+            String code=pvs.getNoErrorCheck(d.getObjectIdentifier(),PropertyIdentifier.description).toString();
             //设备地址
             String location=pvs.getNoErrorCheck(d.getObjectIdentifier(),PropertyIdentifier.location).toString();
-            int i =0;
+            int j = 0;
             //填充参数和值
             for(ObjectIdentifier oid : oids){ //循环输入类型  iod { Analog Input 0 ,Binary Input 1, Device 0}
                 if(oid.getObjectType().equals(ObjectType.device)){
                    continue;
                 }
+                if(oid.getObjectType().equals(ObjectType.binaryInput)) {
+                    if(pvs.getNoErrorCheck(oid,PropertyIdentifier.objectName).toString().equals("")){
+
+                    }
+                }
                 Global.print(String.format("\t%s", oid));
-                deviceName[i]=name;
-                deviceLocate[i]=location;
-                devicePara[i]= pvs.getNoErrorCheck(oid,PropertyIdentifier.objectName).toString();
-                status1[i]=pvs.getNoErrorCheck(oid,PropertyIdentifier.presentValue).toString();
-                status2[i] = "0";
-                status3[i] = "0";
-                status4[i] = "0";
-                status5[i] = "0";
-                i++;
+                deviceName[j]=name;
+                deviceCode[j]=code;
+                deviceLocate[j]=location;
+                devicePara[j]= pvs.getNoErrorCheck(oid,PropertyIdentifier.objectName).toString();
+                status1[j]=pvs.getNoErrorCheck(oid,PropertyIdentifier.presentValue).toString();
+                status2[j] = "0";
+                status3[j] = "0";
+                status4[j] = "0";
+                status5[j] = "0";
+                j++;
                 for (ObjectPropertyReference opr : pvs) { //循环各类型属性 （目前只是过滤2个属性 Object name = temp ， Present value = 2240.5）
                     if (oid.equals(opr.getObjectIdentifier())) {
                         Global.print(String.format("\t\t%s = %s", opr.getPropertyIdentifier().toString(), pvs
@@ -225,20 +237,23 @@ public class BacnetClient extends Thread{
                     }
                 }
             }
-            ms.setPackageNum((byte)i);
+            ms.setPackageNum((byte)j);
+            ms.setDeviceName(deviceName);
+            ms.setDeviceCode(deviceCode);
+            ms.setDeviceLocate(deviceLocate);
+            ms.setDevicePara(devicePara);
+            ms.setStatus1(status1);
+            ms.setStatus2(status2);
+            ms.setStatus3(status3);
+            ms.setStatus4(status4);
+            ms.setStatus5(status5);
+            //消息加入队列
+            if(ms.getPackageNum()>0){
+                enStatusQueue(ms);
+            }
+            Global.print("状态参数数量--" + ms.getPackageNum());
         }
-        ms.setDeviceName(deviceName);
-        ms.setDeviceLocate(deviceLocate);
-        ms.setDevicePara(devicePara);
-        ms.setStatus1(status1);
-        ms.setStatus2(status2);
-        ms.setStatus3(status3);
-        ms.setStatus4(status4);
-        ms.setStatus5(status5);
-        //消息加入队列
-        enStatusQueue(ms);
 
-        Global.print("状态参数数量--" + ms.getPackageNum());
         log.log_info("Remote devices done...");
         Global.print("Remote devices count=" + remoteDevices.size());
     }

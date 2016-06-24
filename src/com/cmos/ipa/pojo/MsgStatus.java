@@ -23,8 +23,10 @@ public class MsgStatus {
     //设备名称最大长度为100
     private static int deviceNameSize=100;
     //设备位置最大长度为200
-    private static int deviceLocateSize=100;
+    private static int deviceLocateSize=200;
 
+    //设备编号
+    private static int deviceCodeSize=100;
     //设备参数名称最大长度为100
     private static int deviceParaSize=100;
 
@@ -35,6 +37,8 @@ public class MsgStatus {
     private Byte packageNum;
     //设备名称
     private String[] deviceName;
+    //设备编号
+    private String[] deviceCode;//
     //设备位置
     private String[] deviceLocate;
     //设备参数名称
@@ -175,6 +179,7 @@ public class MsgStatus {
         for (int i = 0; i <this.getPackageNum() ; i++) {
             try {
                 bb.writeBytes(dataTool.getLengthBytesString(deviceName[i], deviceNameSize).getBytes("utf-8"));
+                bb.writeBytes(dataTool.getLengthBytesString(deviceCode[i], deviceCodeSize).getBytes("utf-8"));
                 bb.writeBytes(dataTool.getLengthBytesString(deviceLocate[i], deviceLocateSize).getBytes("utf-8"));
                 bb.writeBytes(dataTool.getLengthBytesString(devicePara[i], deviceParaSize).getBytes("utf-8"));
                 bb.writeBytes(dataTool.getLengthBytesString(status1[i],statusSize).getBytes("utf-8"));
@@ -203,4 +208,11 @@ public class MsgStatus {
         return dataTool.getBytesFromByteBuf(bb);
     }
 
+    public String[] getDeviceCode() {
+        return deviceCode;
+    }
+
+    public void setDeviceCode(String[] deviceCode) {
+        this.deviceCode = deviceCode;
+    }
 }
