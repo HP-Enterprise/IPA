@@ -60,8 +60,8 @@ public class IPAEngine {
         //加载工作线程
 
 //        UDPClient.init().start();
-//        TCPClient.getInstance().start();
-        ModbusClient.init().start();
+        TCPClient.getInstance().start();
+//        ModbusClient.init().start();
         NettyClient.init().connect();
 //        TCPClient.getInstance().connect();
 
