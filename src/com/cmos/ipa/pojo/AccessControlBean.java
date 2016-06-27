@@ -15,7 +15,7 @@ public class AccessControlBean {
     //报文起始符
     private String startCode;
     //包长度
-    private int packageLength;
+    private String packageLength;
     //门禁控制器IP
     private String controllerIp;
     //门禁控制器面板接口位置 0~31
@@ -61,11 +61,11 @@ public class AccessControlBean {
         this.startCode = startCode;
     }
 
-    public int getPackageLength() {
+    public String getPackageLength() {
         return packageLength;
     }
 
-    public void setPackageLength(int packageLength) {
+    public void setPackageLength(String packageLength) {
         this.packageLength = packageLength;
     }
 
@@ -215,7 +215,7 @@ public class AccessControlBean {
         ByteBuf bb = buffer(BUFFER_SIZE);
         bb.writeBytes(data);
         acb.setStartCode(String.valueOf(bb.readByte()));
-        acb.setPackageLength(Integer.valueOf(bb.readByte()));
+        acb.setPackageLength(String.valueOf(bb.readByte()));
         acb.setControllerIp(String.valueOf(bb.readByte()));
         acb.setInterfaceAddr(String.valueOf(bb.readByte()));
         acb.setPanelDirection(String.valueOf(bb.readByte()));

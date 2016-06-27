@@ -78,14 +78,15 @@ public class TCPClientHandler extends ChannelInboundHandlerAdapter {
                     dataInfo = info.split(";");
                     if(dataInfo.length > 0) {
                         acb.setStartCode(dataInfo[num++]);
-                        acb.setPackageLength(Integer.valueOf(dataInfo[num++]));
+                        acb.setPackageLength(dataInfo[num++]);
                         acb.setControllerIp(dataInfo[num++]);
                         acb.setInterfaceAddr(dataInfo[num++]);
-                        acb.setPanelDirection(dataInfo[num++].equals("0")?"左":"右");
+                        acb.setPanelDirection(dataInfo[num++]);
                         acb.setTaskCode(dataInfo[num++]);
                         acb.setEventCode(dataInfo[num++]);
                         acb.setMsgTypeId(dataInfo[num++]);
                         String iolinkerNum = dataInfo[num++];
+                        System.err.print(iolinkerNum);
                         acb.setIolinkerNum(iolinkerNum);
                         acb.setDescription(DataPropertyUtil.getProperty(iolinkerNum));
                         acb.setEventTime(dataInfo[num++]);
@@ -97,17 +98,27 @@ public class TCPClientHandler extends ChannelInboundHandlerAdapter {
                         acb.setCardNum(dataInfo[num++]);
                         acb.setJobNum(dataInfo[num++]);
                         acb.setStaffName(dataInfo[num++]);
+                        System.err.print(acb.getIolinkerNum());
+                        if(acb.getIolinkerNum() != null && !acb.getIolinkerNum().trim().equals("")){
 
-                        if(acb.getIolinkerNum() == null && acb.getIolinkerNum().trim().equals("")){
-                            ma.setAlarmDeviceName(acb.getControllerName()+","+acb.getPanelName()+","+acb.getCardReaderName());
+                            ma.setAlarmDeviceName(acb.getControllerName());
+                            ma.setAlarmDeviceCode(DataPropertyUtil.getProperty(acb.getControllerIp() + "#" + acb.getInterfaceAddr() + "#" + acb.getPanelDirection()));
+                            ma.setAlarmDeviceLocate(acb.getPanelName() + "," + acb.getCardReaderName());
                             ma.setAlarmTitle("门禁报警");
-                            ma.setAlarmContent(acb.getIODescription()+acb.getDescription());
-                            ma.setAlarmLevel((byte)2);
+                            ma.setAlarmContent(2 + "#" +acb.getEventTime()+"#"+ acb.getIODescription());
+                            ma.setAlarmLevel((byte) 2);
                         }else{
-                            ma.setAlarmDeviceName(acb.getControllerName()+","+acb.getPanelName()+","+acb.getCardReaderName());
+                            ma.setAlarmDeviceName(acb.getControllerName());
+                            ma.setAlarmDeviceCode(DataPropertyUtil.getProperty(acb.getControllerIp()+"#"+acb.getInterfaceAddr()+"#"+acb.getPanelDirection()));
+                            ma.setAlarmDeviceLocate(acb.getPanelName()+","+acb.getCardReaderName());
                             ma.setAlarmTitle("门禁通行");
-                            ma.setAlarmContent("工号为："+acb.getJobNum()+"的员工"+acb.getStaffName()
-                                              +",卡号为："+acb.getCardNum()+"发生了如下事件："+acb.getEventName());
+                            ma.setAlarmContent(acb.getEventTime()+";"
+                                                +acb.getControllerName()+";"
+                                                +acb.getPanelName()+";"
+                                                +acb.getEventName()+";"
+                                                +acb.getCardNum()+";"
+                                                +acb.getJobNum()+";"
+                                                +acb.getStaffName());
                             ma.setAlarmLevel((byte)4);
                         }
                     }
