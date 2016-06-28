@@ -20,17 +20,25 @@ public class MsgAlarm {
 
     private Header header;//消息头
 
-    //告警设备名称长度 100
-    private static int alarmDeviceNameSize=100;
-    //告警标题 200
-    private static int alarmTitleSize=200;
-    //设备名称 500
-    private static int alarmContentSize=500;
-    //告警设备名称 100/4
+    //告警设备名称长度 10
+    private static int alarmDeviceNameSize=20;
+    //告警设备编号长度 20
+    private static int alarmDeviceCodeSize=20;
+    //告警设备位置长度 20
+    private static int alarmDeviceLocateSize=20;
+    //告警标题 50
+    private static int alarmTitleSize=50;
+    //设备名称 100
+    private static int alarmContentSize=100;
+    //告警设备名称 10/4
     private String alarmDeviceName;
-    //告警标题 200/4
+    //告警设备编号 20
+    private String alarmDeviceCode;//20/4
+    //告警设备位置 20
+    private String alarmDeviceLocate;//20/4
+    //告警标题 50/4
     private String alarmTitle;
-    //设备名称 500/4
+    //设备内容 100/4
     private String alarmContent;
     //告警级别 1 严重 2 重要 3 一般  4通知
     private Byte alarmLevel;
@@ -69,6 +77,22 @@ public class MsgAlarm {
 
     public void setAlarmDeviceName(String alarmDeviceName) {
         this.alarmDeviceName = alarmDeviceName;
+    }
+
+    public String getAlarmDeviceCode() {
+        return alarmDeviceCode;
+    }
+
+    public void setAlarmDeviceCode(String alarmDeviceCode) {
+        this.alarmDeviceCode = alarmDeviceCode;
+    }
+
+    public String getAlarmDeviceLocate() {
+        return alarmDeviceLocate;
+    }
+
+    public void setAlarmDeviceLocate(String alarmDeviceLocate) {
+        this.alarmDeviceLocate = alarmDeviceLocate;
     }
 
     public String getAlarmTitle() {
@@ -120,6 +144,8 @@ public class MsgAlarm {
 
         try {
             bb.writeBytes(dataTool.getLengthBytesString(this.getAlarmDeviceName(), alarmDeviceNameSize).getBytes("utf-8"));
+            bb.writeBytes(dataTool.getLengthBytesString(this.getAlarmDeviceCode(), alarmDeviceCodeSize).getBytes("UTF-8"));
+            bb.writeBytes(dataTool.getLengthBytesString(this.getAlarmDeviceLocate(), alarmDeviceLocateSize).getBytes("UTF-8"));
             bb.writeBytes(dataTool.getLengthBytesString(this.getAlarmTitle(), alarmTitleSize).getBytes("utf-8"));
             bb.writeBytes(dataTool.getLengthBytesString(this.getAlarmContent(), alarmContentSize).getBytes("utf-8"));
         } catch (UnsupportedEncodingException e) {
