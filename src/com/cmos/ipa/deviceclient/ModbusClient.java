@@ -179,6 +179,7 @@ public class ModbusClient{
         int count = 0;
         MsgStatus mstatus = new MsgStatus();
         String[] deviceName = new String[255];
+        String[] deviceCode = new String[255];
         String[] deviceLocate = new String[255];
         String[] devicePara = new String[255];
         String[]  status1 = new String[255];
@@ -196,6 +197,7 @@ public class ModbusClient{
                     if(s != null && s.length() > 0) {
                         String[] s1 = s.split("_");
                         deviceName[i] = s1[0];
+                        deviceCode[i] = s1[0];
                         String[] s2 = s1[1].split("#");
                         deviceLocate[i] = s2[0];
                         devicePara[i] = s2[1];

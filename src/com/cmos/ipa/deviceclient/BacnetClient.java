@@ -96,7 +96,7 @@ public class BacnetClient extends Thread{
         Global.print("try connect to deviceServer @" + deviceHost + ":" + devicePort);
         try {
             localDevice = new LocalDevice(deviceCode, deviceHost);
-            localDevice.setPort(devicePort+1);
+            localDevice.setPort(devicePort+10);
             localDevice.getEventHandler().addListener(new BacnetDeviceEventListenerImp(){
                 public void iAmReceived(RemoteDevice d) {
                     remoteDevices.add(d);
@@ -108,7 +108,7 @@ public class BacnetClient extends Thread{
             localDevice.initialize();
 
             try {
-                setLoopDevice(new LoopDevice(deviceHost, devicePort));
+                setLoopDevice(new LoopDevice(deviceHost, devicePort+1));
             }
             catch (RuntimeException e) {
                 localDevice.terminate();
@@ -141,7 +141,7 @@ public class BacnetClient extends Thread{
         // Who is
         log.log_info("Send Broadcast WhoIsRequest() ");
         // Send the broadcast to the correct port of the LoopDevice !!!
-        localDevice.sendBroadcast(loopDevice.getPort(), new WhoIsRequest(null, null));
+        localDevice.sendBroadcast(loopDevice.getPort()-1, new WhoIsRequest(null, null));
 
         // wait for notification in iAmReceived() Timeout 2 sec
         synchronized (this) {
