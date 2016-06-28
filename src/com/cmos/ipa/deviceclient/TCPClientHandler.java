@@ -86,7 +86,6 @@ public class TCPClientHandler extends ChannelInboundHandlerAdapter {
                         acb.setEventCode(dataInfo[num++]);
                         acb.setMsgTypeId(dataInfo[num++]);
                         String iolinkerNum = dataInfo[num++];
-                        System.err.print(iolinkerNum);
                         acb.setIolinkerNum(iolinkerNum);
                         acb.setDescription(DataPropertyUtil.getProperty(iolinkerNum));
                         acb.setEventTime(dataInfo[num++]);
@@ -98,7 +97,6 @@ public class TCPClientHandler extends ChannelInboundHandlerAdapter {
                         acb.setCardNum(dataInfo[num++]);
                         acb.setJobNum(dataInfo[num++]);
                         acb.setStaffName(dataInfo[num++]);
-                        System.err.print(acb.getIolinkerNum());
                         if(acb.getIolinkerNum() != null && !acb.getIolinkerNum().trim().equals("")){
 
                             ma.setAlarmDeviceName(acb.getControllerName());
