@@ -21,12 +21,12 @@ public class MsgStatus {
     private Header header;//消息头
 
     //设备名称最大长度为100
-    private static int deviceNameSize=100;
+    private static int deviceNameSize=20;
     //设备位置最大长度为200
-    private static int deviceLocateSize=200;
+    private static int deviceLocateSize=20;
 
     //设备编号
-    private static int deviceCodeSize=100;
+    private static int deviceCodeSize=20;
     //设备参数名称最大长度为100
     private static int deviceParaSize=100;
 

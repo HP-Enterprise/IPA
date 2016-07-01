@@ -148,7 +148,9 @@ public class ModbusClient{
 
                     //判断状态消息队列是否已经满额 满额先进行移除再添加
                     if(Global.StatusQueueIn <= Global.QUEUE_CACHE_NUM){
-                        enStatusQueue(mstatus);
+                    	if(mstatus.getPackageNum()>0){
+                    		enStatusQueue(mstatus);
+                    	}
                     }else{
                         try {
                             outStatusQueue();
@@ -159,7 +161,7 @@ public class ModbusClient{
                     }
 
                     try {
-                        Thread.sleep(Global.COLLETCONTAB * 10);
+                        Thread.sleep(Global.COLLETCONTAB);
                     } catch (InterruptedException e) {
                         log.log_error("ModbusClient>>start>>Thread>>InterruptedException>>", e);
                     }
@@ -188,7 +190,7 @@ public class ModbusClient{
         String[]  status4 = new String[255];
         String[]  status5 = new String[255];
 
-        for(int i=0;i<255;i++){
+        for(int i=0;i<20;i++){
             try {
                 //根据不同的点位得到不同的值
                 ModbusLocator loc = new ModbusLocator(1, RegisterRange.HOLDING_REGISTER, i, DataType.TWO_BYTE_INT_UNSIGNED);
@@ -218,6 +220,7 @@ public class ModbusClient{
         }
 
         mstatus.setDeviceName(deviceName);
+        mstatus.setDeviceCode(deviceCode);
         mstatus.setDeviceLocate(deviceLocate);
         mstatus.setPackageNum((byte) count);
         mstatus.setDevicePara(devicePara);

@@ -1,5 +1,6 @@
 package com.cmos.ipa.client;
 
+import com.cmos.ipa.deviceclient.BacnetClient;
 import com.cmos.ipa.deviceclient.TCPClient;
 import com.cmos.ipa.pojo.MsgHeart;
 import com.cmos.ipa.pojo.MsgOrder;

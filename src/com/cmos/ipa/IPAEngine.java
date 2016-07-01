@@ -1,6 +1,7 @@
 package com.cmos.ipa;
 
 import com.cmos.ipa.client.NettyClient;
+import com.cmos.ipa.deviceclient.BacnetClient;
 import com.cmos.ipa.deviceclient.ModbusClient;
 import com.cmos.ipa.deviceclient.TCPClient;
 import com.cmos.ipa.deviceclient.UDPClient;
@@ -60,8 +61,11 @@ public class IPAEngine {
         //加载工作线程
 
 //        UDPClient.init().start();
-        TCPClient.getInstance().start();
+//        TCPClient.getInstance().start();
 //        ModbusClient.init().start();
+        
+        //启动bacnet 协议
+        BacnetClient.getBacnetClient().start();
         NettyClient.init().connect();
 //        TCPClient.getInstance().connect();
 

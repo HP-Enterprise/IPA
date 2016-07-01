@@ -42,17 +42,18 @@ public class BacnetClient extends Thread{
     private int reConnection;
     private Logger log;
     private static BacnetClient bacnetClient;
+    private String threadGroupName = "bacnet";
     /**
      * 启动1秒后开始任务
      */
-    private static long readconfDelay = 1*1 * 1000;
+//    private static long readconfDelay = 1*1* 1000;
 
     /**
      * 上一个任务结束后1秒钟继续下一个任务
      */
-    private static long readconfperiod = 60 * 1 * 1000;
+    /*private static long readconfperiod = Global.COLLETCONTAB;//10 * 60 * 1000;
     private ScheduledExecutorService executor = Executors
-            .newSingleThreadScheduledExecutor();
+            .newSingleThreadScheduledExecutor();*/
 
     private BacnetClient(){
         this.deviceHost=Global.DeviceAddr;
@@ -79,14 +80,32 @@ public class BacnetClient extends Thread{
     /**
      * 初始化任务
      */
-    public void init(){
+    public void start(){
+    	/*
+    	 * 接收设备信息
+    	 */
         //上一个任务执行完 执行下一个
-        executor.scheduleWithFixedDelay(BacnetClient.getBacnetClient(), readconfDelay, readconfperiod, TimeUnit.MILLISECONDS);
+    	Global.print("请求数据时间间隔——"+Global.COLLETCONTAB);
+    	ThreadGroup tg = new ThreadGroup(threadGroupName);
+    	Thread threadDevice = new Thread(tg,"bacnetDevice"){
+	   		 @Override
+			    public void run(){
+	   			 while(true){
+	   				 connect();
+	   				 try {
+	   					 Thread.sleep(Global.COLLETCONTAB);
+	   				 } catch (InterruptedException e) {
+	   					 // TODO Auto-generated catch block
+	   					 e.printStackTrace();
+	   				 }
+	   			 }
+			    }
+		};
+		threadDevice.setPriority(Thread.MAX_PRIORITY);
+		threadDevice.start();
+//		executor.scheduleWithFixedDelay(BacnetClient.getBacnetClient(), readconfDelay, rate, TimeUnit.MILLISECONDS);
     }
-    @Override
-    public void run(){
-        connect();
-    }
+   
 
     /**
      * 与bacnet 服务器连接
@@ -95,6 +114,7 @@ public class BacnetClient extends Thread{
         log.log_info("try connect to deviceServer @" + deviceHost + ":"+devicePort);
         Global.print("try connect to deviceServer @" + deviceHost + ":" + devicePort);
         try {
+        	
             localDevice = new LocalDevice(deviceCode, deviceHost);
             localDevice.setPort(devicePort+10);
             localDevice.getEventHandler().addListener(new BacnetDeviceEventListenerImp(){
@@ -327,5 +347,17 @@ public class BacnetClient extends Thread{
     public void setLoopDevice(LoopDevice loopDevice) {
         this.loopDevice = loopDevice;
     }
-
+    /**
+     * 结束线程任务
+     */
+    public void destroy(){
+    /*	ThreadGroup tg = Thread.currentThread().getThreadGroup();
+    	if(tg!=null){
+    		if(tg.getName().equals(threadGroupName)){
+    			tg.destroy();
+    		}else{
+    			tg.getParent()
+    		}
+    	}*/
+    }
 }

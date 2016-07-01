@@ -204,7 +204,7 @@ public class UDPClient{
 
                     Global.print(Global.COLLETCONTAB+"");
                     try {
-                        Thread.sleep(Global.COLLETCONTAB * 10);
+                        Thread.sleep(Global.COLLETCONTAB);
                     } catch (InterruptedException e) {
                         log.log_error("UDPClient>>work>>Thread>>InterruptedException>>", e);
                     }
