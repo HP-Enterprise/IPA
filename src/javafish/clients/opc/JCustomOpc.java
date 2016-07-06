@@ -13,7 +13,7 @@ import javafish.clients.opc.exception.CoUninitializeException;
 import javafish.clients.opc.exception.ConnectivityException;
 import javafish.clients.opc.lang.Translate;
 import javafish.clients.opc.property.PropertyLoader;
-import sun.rmi.runtime.Log;
+//import sun.rmi.runtime.Log;
 
 /**
  * JCustomOpc Client<br>

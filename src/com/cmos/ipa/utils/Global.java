@@ -73,7 +73,7 @@ public class Global {
     /**
      * <code>从设备进行数据采集的周期，毫秒,默认10秒</code>
      */
-    public static int COLLETCONTAB = 1000;
+    public static int COLLETCONTAB = 10000;
 
     /**
      * <code>从设备进行数据采集的协议</code>
