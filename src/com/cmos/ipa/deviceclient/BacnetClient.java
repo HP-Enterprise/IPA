@@ -25,6 +25,7 @@ import com.cmos.ipa.utils.log.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -35,7 +36,7 @@ import java.util.concurrent.TimeUnit;
 public class BacnetClient extends Thread{
     private  LocalDevice localDevice;
     private LoopDevice loopDevice;
-    private List<RemoteDevice> remoteDevices = new ArrayList<RemoteDevice>();
+    private List<RemoteDevice> remoteDevices = new CopyOnWriteArrayList<RemoteDevice>();
     private String deviceHost;
     private int devicePort;
     private int deviceCode;
@@ -58,7 +59,7 @@ public class BacnetClient extends Thread{
     private BacnetClient(){
         this.deviceHost=Global.DeviceAddr;
         this.devicePort=Global.DevicePort;
-        this.deviceCode=Global.AgentNum;
+        this.deviceCode=1234;
         this.reConnection=Global.RECONNECTION;
         log= Logger.getInstance();
 
@@ -271,7 +272,7 @@ public class BacnetClient extends Thread{
             if(ms.getPackageNum()>0){
                 enStatusQueue(ms);
             }
-            Global.print("状态参数数量--" + ms.getPackageNum());
+            Global.print(deviceCode[0]+"状态参数数量--" + ms.getPackageNum());
         }
 
         log.log_info("Remote devices done...");

@@ -39,7 +39,7 @@ public class StatusHandler extends Thread {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println("开始执行状态任务。。。。");
+            System.out.println(Global.AgentNum+"开始执行状态任务。。。。"+Global.DeviceType);
             System.out.println(Global.statusQueue.size());
             MsgStatus ms;
 

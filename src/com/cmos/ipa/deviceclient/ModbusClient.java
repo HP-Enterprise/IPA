@@ -190,7 +190,7 @@ public class ModbusClient{
         String[]  status4 = new String[255];
         String[]  status5 = new String[255];
 
-        for(int i=0;i<20;i++){
+        for(int i=0;i<100;i++){
             try {
                 //根据不同的点位得到不同的值
                 ModbusLocator loc = new ModbusLocator(1, RegisterRange.HOLDING_REGISTER, i, DataType.TWO_BYTE_INT_UNSIGNED);
