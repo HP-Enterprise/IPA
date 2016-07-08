@@ -69,6 +69,7 @@ public class MsgStatus {
         this.header.setSendingTime(new DataTool().getCurrentSeconds());
         this.header.setEventId(new DataTool().getCurrentSeconds());
         this.header.setAgentNum((byte) Global.AgentNum);
+        this.header.setParkCode(Global.ParkCode);
         this.dataTool = new DataTool();
         this.log = Logger.getInstance();
     }
@@ -176,6 +177,11 @@ public class MsgStatus {
         bb.writeInt(this.header.getEventId());
         bb.writeByte(this.header.getAgentNum());
         bb.writeByte(this.getPackageNum());
+        try {
+			bb.writeBytes(dataTool.getLengthBytesString(this.header.getParkCode(),this.header.getParkCodeSize()).getBytes("utf-8"));
+		} catch (UnsupportedEncodingException e1) {
+			e1.printStackTrace();
+		}
         for (int i = 0; i <this.getPackageNum() ; i++) {
             try {
                 bb.writeBytes(dataTool.getLengthBytesString(deviceName[i], deviceNameSize).getBytes("utf-8"));

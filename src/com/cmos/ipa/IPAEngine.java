@@ -45,7 +45,7 @@ public class IPAEngine {
         //初始化设备编号
         Global.AgentNum = PropertyUtil.getPropertyInt("AgentNum");
         //初始化园区识别码
-        Global.ParkCode = PropertyUtil.getProperty("PackCode");
+        Global.ParkCode = PropertyUtil.getProperty("ParkCode");
 
         //初始化日志配置
         Global.LOG_LEVEL = PropertyUtil.getPropertyInt("LogLevel");
@@ -62,10 +62,10 @@ public class IPAEngine {
 
 //        UDPClient.init().start();
 //        TCPClient.getInstance().start();
-//        ModbusClient.init().start();
+        ModbusClient.init().start();
         
         //启动bacnet 协议
-        BacnetClient.getBacnetClient().start();
+//        BacnetClient.getBacnetClient().start();
         NettyClient.init().connect();
 //        TCPClient.getInstance().connect();
 
