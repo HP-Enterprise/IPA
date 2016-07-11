@@ -1,5 +1,8 @@
 package com.cmos.ipa.deviceclient;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.cmos.ipa.pojo.MsgAlarm;
 import com.cmos.ipa.pojo.MsgStatus;
 import com.cmos.ipa.protocol.modbus.ModbusFactory;
@@ -144,21 +147,25 @@ public class ModbusClient{
             public void run() {
                 while(true){
 
-                    MsgStatus mstatus = assembled();
+                    List<MsgStatus> mstatusList = assembled();
 
-                    //判断状态消息队列是否已经满额 满额先进行移除再添加
-                    if(Global.StatusQueueIn <= Global.QUEUE_CACHE_NUM){
-                    	if(mstatus.getPackageNum()>0){
-                    		enStatusQueue(mstatus);
-                    	}
-                    }else{
-                        try {
-                            outStatusQueue();
-                            enStatusQueue(mstatus);
-                        } catch (InterruptedException e) {
-                            log.log_error("ModbusClient>>start>>InterruptedException>>",e);
-                        }
-                    }
+                    if(mstatusList!=null&&mstatusList.size()>0){
+                		for(MsgStatus mstatus:mstatusList){
+                			if(mstatus.getPackageNum()>0){
+                				//判断状态消息队列是否已经满额 满额先进行移除再添加
+                				if(Global.StatusQueueIn <= Global.QUEUE_CACHE_NUM){
+                					enStatusQueue(mstatus);
+                				}else{
+                					try {
+                						outStatusQueue();
+                						enStatusQueue(mstatus);
+                					} catch (InterruptedException e) {
+                						log.log_error("ModbusClient>>start>>InterruptedException>>",e);
+                					}
+                				}
+                			}
+                		}
+                	}
 
                     try {
                         Thread.sleep(Global.COLLETCONTAB);
@@ -177,20 +184,33 @@ public class ModbusClient{
      * <code>根据设备返回信息，组装状态消息</code>
      * @return
      */
-    public MsgStatus assembled(){
-        int count = 0;
-        MsgStatus mstatus = new MsgStatus();
-        String[] deviceName = new String[255];
-        String[] deviceCode = new String[255];
-        String[] deviceLocate = new String[255];
-        String[] devicePara = new String[255];
-        String[]  status1 = new String[255];
-        String[]  status2 = new String[255];
-        String[]  status3 = new String[255];
-        String[]  status4 = new String[255];
-        String[]  status5 = new String[255];
-
+    public List<MsgStatus> assembled(){
+    	List<MsgStatus> msgStatusList = new ArrayList<MsgStatus>();
+    	 MsgStatus mstatus =null;
+    	  String[] deviceName = new String[255];
+	        String[] deviceCode = new String[255];
+	        String[] deviceLocate = new String[255];
+	        String[] devicePara = new String[255];
+	        String[]  status1 = new String[255];
+	        String[]  status2 = new String[255];
+	        String[]  status3 = new String[255];
+	        String[]  status4 = new String[255];
+	        String[]  status5 = new String[255];
+    	 int count = 0;
         for(int i=0;i<100;i++){
+        	if(i%14==0){
+        		mstatus =  new MsgStatus();
+    	        deviceName = new String[255];
+    	        deviceCode = new String[255];
+    	        deviceLocate = new String[255];
+    	        devicePara = new String[255];
+    	        status1 = new String[255];
+    	        status2 = new String[255];
+    	        status3 = new String[255];
+    	        status4 = new String[255];
+    	        status5 = new String[255];
+    	        count=0;
+        	}
             try {
                 //根据不同的点位得到不同的值
                 ModbusLocator loc = new ModbusLocator(1, RegisterRange.HOLDING_REGISTER, i, DataType.TWO_BYTE_INT_UNSIGNED);
@@ -198,17 +218,17 @@ public class ModbusClient{
                     String s = DataPropertyUtil.getProperty(String.valueOf(i));
                     if(s != null && s.length() > 0) {
                         String[] s1 = s.split("_");
-                        deviceName[i] = s1[0];
-                        deviceCode[i] = s1[0];
+                        deviceName[count] = s1[0];
+                        deviceCode[count] = s1[0];
                         String[] s2 = s1[1].split("#");
-                        deviceLocate[i] = s2[0];
-                        devicePara[i] = s2[1];
+                        deviceLocate[count] = s2[0];
+                        devicePara[count] = s2[1];
                         // Get the point value
-                        status1[i] = String.valueOf(master.getValue(loc));
-                        status2[i] = "0";
-                        status3[i] = "0";
-                        status4[i] = "0";
-                        status5[i] = "0";
+                        status1[count] = String.valueOf(master.getValue(loc));
+                        status2[count] = "0";
+                        status3[count] = "0";
+                        status4[count] = "0";
+                        status5[count] = "0";
                         count++;
                     }
                 }
@@ -217,18 +237,20 @@ public class ModbusClient{
             } catch (ErrorResponseException e) {
                 log.log_error("ModbusClient>>start>>Thread>>ErrorResponseException>>", e);
             }
+            if(i%14==13){
+            	  mstatus.setDeviceName(deviceName);
+                  mstatus.setDeviceCode(deviceCode);
+                  mstatus.setDeviceLocate(deviceLocate);
+                  mstatus.setPackageNum((byte) count);
+                  mstatus.setDevicePara(devicePara);
+                  mstatus.setStatus1(status1);
+                  mstatus.setStatus2(status2);
+                  mstatus.setStatus3(status3);
+                  mstatus.setStatus4(status4);
+                  mstatus.setStatus5(status5);
+                  msgStatusList.add(mstatus);
+        	}
         }
-
-        mstatus.setDeviceName(deviceName);
-        mstatus.setDeviceCode(deviceCode);
-        mstatus.setDeviceLocate(deviceLocate);
-        mstatus.setPackageNum((byte) count);
-        mstatus.setDevicePara(devicePara);
-        mstatus.setStatus1(status1);
-        mstatus.setStatus2(status2);
-        mstatus.setStatus3(status3);
-        mstatus.setStatus4(status4);
-        mstatus.setStatus5(status5);
-        return mstatus;
+        return msgStatusList;
     }
 }
