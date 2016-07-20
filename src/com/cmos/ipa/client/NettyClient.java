@@ -4,13 +4,17 @@ import com.cmos.ipa.utils.DataTool;
 import com.cmos.ipa.utils.Global;
 import com.cmos.ipa.utils.log.Logger;
 import io.netty.bootstrap.Bootstrap;
+import io.netty.buffer.ByteBuf;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 
+import static io.netty.buffer.Unpooled.buffer;
+
 import java.net.InetSocketAddress;
+import java.net.SocketAddress;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -67,12 +71,11 @@ public class NettyClient {
                             Global.ThreadStart = true;
                             ch.pipeline().addLast(new LengthFieldBasedFrameDecoder(1024, 2, 2, -4, 0));
                             ch.pipeline().addLast("NettyClientHandler", new NettyClientHandler());
-
                         }
                     });
             // 发起异步连接操作
             ChannelFuture future = b.connect(
-                    new InetSocketAddress(remoteWGHost, remoteWGPort)).sync();
+                    new InetSocketAddress(remoteWGHost, remoteWGPort),new InetSocketAddress(Global.AgentNum*100+Global.DeviceType)).sync();
             future.channel().closeFuture().sync();
         } catch (InterruptedException e) {
             Global.ThreadFlag = false;
