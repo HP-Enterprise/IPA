@@ -1,6 +1,8 @@
 package com.cmos.ipa.deviceclient;
 
 
+import java.io.UnsupportedEncodingException;
+
 import com.cmos.ipa.pojo.AccessControlBean;
 import com.cmos.ipa.pojo.MsgAlarm;
 import com.cmos.ipa.utils.*;
@@ -73,7 +75,12 @@ public class TCPClientHandler extends ChannelInboundHandlerAdapter {
                     int num = 0;
                     AccessControlBean acb = new AccessControlBean();
                     MsgAlarm ma = new MsgAlarm();
-                    String info = ByteUtil.decode(dataTool.bytes2hex(receiveData));
+					String info="";
+					try {
+						info = new String(receiveData,"GBK");
+					} catch (UnsupportedEncodingException e1) {
+						e1.printStackTrace();
+					}//ByteUtil.decode(dataTool.bytes2hex(receiveData));
                     log.log_info("门禁 response info>>" + info);
                     dataInfo = info.split(";");
                     if(dataInfo.length > 0) {
