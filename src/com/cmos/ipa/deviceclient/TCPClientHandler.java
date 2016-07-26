@@ -84,26 +84,65 @@ public class TCPClientHandler extends ChannelInboundHandlerAdapter {
                     log.log_info("门禁 response info>>" + info);
                     dataInfo = info.split(";");
                     if(dataInfo.length > 0) {
-                        acb.setStartCode(dataInfo[num++]);
-                        acb.setPackageLength(dataInfo[num++]);
-                        acb.setControllerIp(dataInfo[num++]);
-                        acb.setInterfaceAddr(dataInfo[num++]);
-                        acb.setPanelDirection(dataInfo[num++]);
-                        acb.setTaskCode(dataInfo[num++]);
-                        acb.setEventCode(dataInfo[num++]);
-                        acb.setMsgTypeId(dataInfo[num++]);
-                        String iolinkerNum = dataInfo[num++];
-                        acb.setIolinkerNum(iolinkerNum);
-                        acb.setDescription(DataPropertyUtil.getProperty(iolinkerNum));
-                        acb.setEventTime(dataInfo[num++]);
-                        acb.setControllerName(dataInfo[num++]);
-                        acb.setPanelName(dataInfo[num++]);
-                        acb.setCardReaderName(dataInfo[num++]);
-                        acb.setEventName(dataInfo[num++]);
-                        acb.setIODescription(dataInfo[num++]);
-                        acb.setCardNum(dataInfo[num++]);
-                        acb.setJobNum(dataInfo[num++]);
+                        if(dataInfo.length>num) {
+                            acb.setStartCode(dataInfo[num++]);
+                        }
+                        if(dataInfo.length>num) {
+                            acb.setPackageLength(dataInfo[num++]);
+                        }
+                        if(dataInfo.length>num) {
+                            acb.setControllerIp(dataInfo[num++]);
+                        }
+                        if(dataInfo.length>num) {
+                            acb.setInterfaceAddr(dataInfo[num++]);
+                        }
+                        if(dataInfo.length>num) {
+                            acb.setPanelDirection(dataInfo[num++]);
+                        }
+                        if(dataInfo.length>num) {
+                            acb.setTaskCode(dataInfo[num++]);
+                        }
+                        if(dataInfo.length>num) {
+                            acb.setEventCode(dataInfo[num++]);
+                        }
+                        if(dataInfo.length>num) {
+                            acb.setMsgTypeId(dataInfo[num++]);
+                        }
+                            String iolinkerNum = dataInfo[num++];
+                        if(dataInfo.length>num) {
+                            acb.setIolinkerNum(iolinkerNum);
+                        }
+                        if(dataInfo.length>num) {
+                            acb.setDescription(DataPropertyUtil.getProperty(iolinkerNum));
+                        }
+                        if(dataInfo.length>num) {
+                            acb.setEventTime(dataInfo[num++]);
+                        }
+                        if(dataInfo.length>num) {
+                            acb.setControllerName(dataInfo[num++]);
+                        }
+                        if(dataInfo.length>num) {
+                            acb.setPanelName(dataInfo[num++]);
+                        }
+                        if(dataInfo.length>num) {
+                            acb.setCardReaderName(dataInfo[num++]);
+                        }
+                        if(dataInfo.length>num) {
+                            acb.setEventName(dataInfo[num++]);
+                        }
+                        if(dataInfo.length>num) {
+                            acb.setIODescription(dataInfo[num++]);
+                        }
+                        if(dataInfo.length>num) {
+                            acb.setCardNum(dataInfo[num++]);
+                        }
+                        if(dataInfo.length>num) {
+                            acb.setJobNum(dataInfo[num++]);
+                        }
+                        if(dataInfo.length>num){
                         acb.setStaffName(dataInfo[num++]);
+                        }
+
                         if(acb.getIolinkerNum() != null && !acb.getIolinkerNum().trim().equals("")){
 
                             ma.setAlarmDeviceName(acb.getControllerName());
