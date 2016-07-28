@@ -28,7 +28,7 @@ public class MsgStatus {
     //设备编号
     private static int deviceCodeSize=20;
     //设备参数名称最大长度为100
-    private static int deviceParaSize=100;
+    private static int deviceParaSize=200;
 
     //设备参数状态（值）固定长度10 用空格填充
     private static int statusSize=10;

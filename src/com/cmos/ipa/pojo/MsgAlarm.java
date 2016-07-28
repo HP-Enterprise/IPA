@@ -59,6 +59,7 @@ public class MsgAlarm {
         this.header.setSendingTime(new DataTool().getCurrentSeconds());
         this.header.setEventId(new DataTool().getCurrentSeconds());
         this.header.setAgentNum((byte) Global.AgentNum);
+        this.header.setParkCode(Global.ParkCode);
         this.dataTool = new DataTool();
         this.log = Logger.getInstance();
     }
@@ -141,7 +142,11 @@ public class MsgAlarm {
         bb.writeInt(this.header.getSendingTime());
         bb.writeInt(this.header.getEventId());
         bb.writeByte(this.header.getAgentNum());
-
+        try {
+     			bb.writeBytes(dataTool.getLengthBytesString(this.header.getParkCode(),this.header.getParkCodeSize()).getBytes("utf-8"));
+     		} catch (UnsupportedEncodingException e1) {
+     			e1.printStackTrace();
+     		}
         try {
             bb.writeBytes(dataTool.getLengthBytesString(this.getAlarmDeviceName(), alarmDeviceNameSize).getBytes("utf-8"));
             bb.writeBytes(dataTool.getLengthBytesString(this.getAlarmDeviceCode(), alarmDeviceCodeSize).getBytes("UTF-8"));
