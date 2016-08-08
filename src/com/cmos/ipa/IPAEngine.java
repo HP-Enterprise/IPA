@@ -57,17 +57,24 @@ public class IPAEngine {
         //开启日志报告
         Logger log = Logger.getInstance();
         log.turnOn();
-
         //加载工作线程
-
+        if( Global.DeviceType==1){
+//        启动TCP 协议
+        	TCPClient.getInstance().start();
+        	
+        }else if(Global.DeviceType==2){
+//        启动bacnet 协议
+        	BacnetClient.getBacnetClient().start();
+        	
+        }else if(Global.DeviceType==4){
+//        启动modbus 协议
+        	ModbusClient.init().start();
+        }else{
+//        启动UDP 协议
 //        UDPClient.init().start();
-//        TCPClient.getInstance().start();
-        ModbusClient.init().start();
-        
-        //启动bacnet 协议
-//        BacnetClient.getBacnetClient().start();
+        }
+        //启动netty连接
         NettyClient.init().connect();
-//        TCPClient.getInstance().connect();
 
 
     }

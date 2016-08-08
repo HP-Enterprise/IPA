@@ -104,7 +104,7 @@ public class Global {
      */
     public static int StatusQueueIn;
     /**
-     * <code>#设备类型 1 门禁 2 楼宇 3 视频监控</code>
+     * <code>#设备类型   1 门禁 ，2 楼宇， 3 视频监控，4 能耗</code>
      */
     public static int DeviceType;
     /**
