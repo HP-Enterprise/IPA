@@ -83,6 +83,7 @@ public class TCPClient extends  Thread{
             future.channel().closeFuture().sync();
         } catch (InterruptedException e) {
             connect();// 发起重连操作
+            Thread.currentThread().interrupt();
         } finally {
             // 所有资源释放完成之后，清空资源，再次发起重连操作
             executor.execute(new Runnable() {
@@ -95,6 +96,8 @@ public class TCPClient extends  Thread{
                         } catch (Exception e) {
                         }
                     } catch (InterruptedException e) {
+                    	e.printStackTrace();
+                    	Thread.currentThread().interrupt();
                     }
                 }
             });

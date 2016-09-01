@@ -34,10 +34,10 @@ public class LoggerConn implements Serializable {
      */
     private String logDir;
     
-    private PrintWriter writer;
+    private transient PrintWriter writer;
 
     
-    private Object writeMutex = new Serializable() {
+    private transient Object writeMutex = new Serializable() {
         /**
          * Comment for <code>serialVersionUID</code>.
          */

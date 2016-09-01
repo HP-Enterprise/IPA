@@ -80,6 +80,7 @@ public class NettyClient {
         } catch (InterruptedException e) {
             Global.ThreadFlag = false;
             connect();// 发起重连操作
+            Thread.currentThread().interrupt();
         } finally {
             // 所有资源释放完成之后，清空资源，再次发起重连操作
             executor.execute(new Runnable() {
@@ -94,6 +95,7 @@ public class NettyClient {
                         }
                     } catch (InterruptedException e) {
                         Global.ThreadFlag = false;
+                        Thread.currentThread().interrupt();
                     }
                 }
             });

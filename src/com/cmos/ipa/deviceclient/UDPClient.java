@@ -164,6 +164,7 @@ public class UDPClient{
                             enAlarmQueue(ma);
                         } catch (InterruptedException e) {
                             log.log_error("UDPClient>>work>>InterruptedException>>",e);
+                            Thread.currentThread().interrupt();
                         }
                     }
 
@@ -199,6 +200,7 @@ public class UDPClient{
                             enStatusQueue(mstatus);
                         } catch (InterruptedException e) {
                             log.log_error("UDPClient>>work>>InterruptedException>>",e);
+                            Thread.currentThread().interrupt();
                         }
                     }
 
@@ -206,7 +208,9 @@ public class UDPClient{
                     try {
                         Thread.sleep(Global.COLLETCONTAB);
                     } catch (InterruptedException e) {
-                        log.log_error("UDPClient>>work>>Thread>>InterruptedException>>", e);
+                       
+                    	log.log_error("UDPClient>>work>>Thread>>InterruptedException>>", e);
+                    	Thread.currentThread().interrupt();
                     }
 
                     Global.print(DateTimeUtil.getCurDateTime());

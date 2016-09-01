@@ -20,8 +20,8 @@ public class IPAEngine {
 
     public static void main(String[] args) {
         //版本号
-        String VERSION = "1.0";
-        Global.print("Agent Engine Version : " + VERSION);
+        String  vsrsion = "1.0";
+        Global.print("Agent Engine Version : " + vsrsion);
         Global.print("Agent Engine Initialize Begin!");
 
         //初始化网关地址，端口
@@ -73,6 +73,7 @@ public class IPAEngine {
 //        启动UDP 协议
 //        UDPClient.init().start();
         }
+        
         //启动netty连接
         NettyClient.init().connect();
 

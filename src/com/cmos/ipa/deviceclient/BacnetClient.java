@@ -7,8 +7,6 @@ import com.cmos.ipa.protocol.bacnet.RemoteObject;
 import com.cmos.ipa.protocol.bacnet.event.DeviceEventListener;
 import com.cmos.ipa.protocol.bacnet.exception.BACnetException;
 import com.cmos.ipa.protocol.bacnet.obj.BACnetObject;
-import com.cmos.ipa.protocol.bacnet.service.acknowledgement.ReadPropertyAck;
-import com.cmos.ipa.protocol.bacnet.service.confirmed.ReadPropertyRequest;
 import com.cmos.ipa.protocol.bacnet.service.confirmed.ReinitializeDeviceRequest;
 import com.cmos.ipa.protocol.bacnet.service.unconfirmed.WhoIsRequest;
 import com.cmos.ipa.protocol.bacnet.LoopDevice;
@@ -43,7 +41,6 @@ public class BacnetClient extends Thread{
     private int devicePort;
     private int deviceCode;
     private int reConnection;
-    private static RemoteObject remoteObject;
     private Logger log;
     private static BacnetClient bacnetClient;
     private String threadGroupName = "bacnet";
@@ -88,51 +85,26 @@ public class BacnetClient extends Thread{
     	/*
     	 * 接收设备信息
     	 */
+        //上一个任务执行完 执行下一个
     	Global.print("请求数据时间间隔——"+Global.COLLETCONTAB);
     	ThreadGroup tg = new ThreadGroup(threadGroupName);
     	Thread threadDevice = new Thread(tg,"bacnetDevice"){
 	   		 @Override
 			    public void run(){
 	   			 while(true){
-	   				connect();
+	   				 connect();
 	   				 try {
 	   					 Thread.sleep(Global.COLLETCONTAB);
 	   				 } catch (InterruptedException e) {
 	   					 // TODO Auto-generated catch block
 	   					 e.printStackTrace();
+	   					Thread.currentThread().interrupt();
 	   				 }
 	   			 }
 			    }
 		};
 		threadDevice.setPriority(Thread.MAX_PRIORITY);
 		threadDevice.start();
-		/*
-		 * 向设备发送指令
-		 */
-		Thread threadDeviceSend = new Thread(tg,"bacnetDeviceSend"){
-			@Override
-			public void run(){
-				while(true){
-	   				 ReadPropertyRequest rpr = new ReadPropertyRequest(remoteObject.getObjectIdentifier(),
-	   		                PropertyIdentifier.presentValue);
-	   		        try {
-	   		        	//像设备发送指令
-						ReadPropertyAck ack = (ReadPropertyAck)localDevice.send(remoteDevices.get(0), rpr);
-					} catch (BACnetException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-					try {
-						Thread.sleep(Global.COLLETCONTAB);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				}
-			}
-		};
-		threadDeviceSend.setPriority(Thread.MAX_PRIORITY);
-		threadDeviceSend.start();
 //		executor.scheduleWithFixedDelay(BacnetClient.getBacnetClient(), readconfDelay, rate, TimeUnit.MILLISECONDS);
     }
    
@@ -151,7 +123,7 @@ public class BacnetClient extends Thread{
                 public void iAmReceived(RemoteDevice d) {
                     remoteDevices.add(d);
                     synchronized (BacnetClient.this) {
-                        BacnetClient.this.notifyAll();
+                        notifyAll();
                     }
                 }
             });
@@ -196,7 +168,7 @@ public class BacnetClient extends Thread{
         // wait for notification in iAmReceived() Timeout 2 sec
         synchronized (this) {
             final long start = System.currentTimeMillis();
-            this.wait(2000);
+//            this.wait(2000);
             log.log_info(" waited for iAmReceived: " + (System.currentTimeMillis() - start) + " ms");
         }
 
@@ -338,6 +310,7 @@ public class BacnetClient extends Thread{
                 result = Global.statusQueue.add(ms);
             } catch (InterruptedException e) {
                 log.log_error("TCPClientHandler>>channelRead>>InterruptedException>>",e);
+                Thread.currentThread().interrupt();
             }
         }
         if(result){

@@ -37,7 +37,8 @@ public class AlarmHandler extends Thread {
             try {
                 Thread.sleep(5000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+            	e.printStackTrace();
+            	Thread.currentThread().interrupt();
             }
 
             MsgAlarm msgAlarm;
@@ -50,7 +51,8 @@ public class AlarmHandler extends Thread {
                 } catch (InterruptedException e) {
                     log.log_error("AlarmHandler>>run>>InterruptedException",e);
                     Global.ThreadFlag = false;
-                    continue;
+                    Thread.currentThread().interrupt();
+//                    continue;
                 }
             }
         }

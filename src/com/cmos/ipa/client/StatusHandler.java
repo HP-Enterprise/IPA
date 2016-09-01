@@ -38,9 +38,10 @@ public class StatusHandler extends Thread {
                 Thread.sleep(5000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
+                Thread.currentThread().interrupt();
             }
-            System.out.println(Global.AgentNum+"开始执行状态任务。。。。"+Global.DeviceType);
-            System.out.println(Global.statusQueue.size());
+//            System.out.println(Global.AgentNum+"开始执行状态任务。。。。"+Global.DeviceType);
+//            System.out.println(Global.statusQueue.size());
             MsgStatus ms;
 
             if(!Global.statusQueue.isEmpty()){
@@ -51,7 +52,8 @@ public class StatusHandler extends Thread {
                 } catch (InterruptedException e) {
                     log.log_error("AlarmHandler>>run>>InterruptedException",e);
                     Global.ThreadFlag = false;
-                    continue;
+//                    Thread.currentThread().interrupt();
+//                    continue;
                 }
             }
         }

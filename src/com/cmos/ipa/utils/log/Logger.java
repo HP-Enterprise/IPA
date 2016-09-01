@@ -46,13 +46,13 @@ public class Logger implements Serializable, LogLevel {
     /**
      * Comment for <code>DATE_FORMATTER</code>.
      */
-    final static SimpleDateFormat MS_FORMATTER =  new SimpleDateFormat ("MM-dd HH:mm:ss.SSS");
+    final  SimpleDateFormat MS_FORMATTER =  new SimpleDateFormat ("MM-dd HH:mm:ss.SSS");
     /**
      * Comment for <code>FILE_NAME_FORMATTER</code>.
      */
-    final static SimpleDateFormat HH_FORMATTER =  new SimpleDateFormat ("HHmmss");
+    final  SimpleDateFormat HH_FORMATTER =  new SimpleDateFormat ("HHmmss");
 
-    final static SimpleDateFormat YY_FORMATTER = new SimpleDateFormat("yyyyMMdd");
+    final  SimpleDateFormat YY_FORMATTER = new SimpleDateFormat("yyyyMMdd");
     
       
 
@@ -84,11 +84,11 @@ public class Logger implements Serializable, LogLevel {
 
     private File file;
     private long switchTime = System.currentTimeMillis() / DAY_MS * DAY_MS;
-    private PrintWriter writer;
+    private transient PrintWriter writer;
 
     private BlockingDeque<StringBuffer> queue = new LinkedBlockingDeque<StringBuffer>();
     
-    private Object writeMutex = new Serializable() {
+    private transient Object writeMutex = new Serializable() {
         /**
          * Comment for <code>serialVersionUID</code>.
          */
@@ -514,10 +514,12 @@ public class Logger implements Serializable, LogLevel {
                     w.flush();
                     w.close();
                 } catch (IOException ex) {
-                    writer.println("###############################################################");
-                    writer.println("RENAME ERROR");
+                	if(writer!=null){
+                		writer.println("###############################################################");
+                		writer.println("RENAME ERROR");
+                		writer.println("###############################################################");
+                	}
                     ex.printStackTrace(writer);
-                    writer.println("###############################################################");
                 }
             }
         }

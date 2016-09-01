@@ -22,7 +22,7 @@ public class LogJob implements Job{
 
     Logger log =  Logger.getInstance();
 
-    final static SimpleDateFormat YY_FORMATTER = new SimpleDateFormat("yyyyMMdd");
+//    final SimpleDateFormat YY_FORMATTER = new SimpleDateFormat("yyyyMMdd");
 
     private int fewMonth = 0;
 
@@ -52,10 +52,11 @@ public class LogJob implements Job{
      * @return
      */
     public static int getFewMonth(int month){
+    	SimpleDateFormat yy_formatter = new SimpleDateFormat("yyyyMMdd");
         int aFewMonthAgo = 0 ;
         Calendar c = Calendar.getInstance();
         c.add(Calendar.MONTH, -month);
-        aFewMonthAgo = Integer.parseInt(YY_FORMATTER.format(c.getTime()));
+        aFewMonthAgo = Integer.parseInt(yy_formatter.format(c.getTime()));
         return aFewMonthAgo;
     }
 

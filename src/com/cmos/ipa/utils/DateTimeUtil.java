@@ -13,13 +13,13 @@ import java.util.Date;
  */
 public class DateTimeUtil {
 	
-	public static String DEFAULTFORMAT = "yyyy-MM-dd HH:mm:ss";
+	public static final String DEFAULTFORMAT = "yyyy-MM-dd HH:mm:ss";
 
-    public static String DEFAULTFORMAT_ONE = "1970-01 00:00";
+    public static final String DEFAULTFORMAT_ONE = "1970-01 00:00";
 
-    public static String DEFAULTFORMAT_TWO = "yyyy/MM hh:mm";
+    public static final String DEFAULTFORMAT_TWO = "yyyy/MM hh:mm";
 
-    public static SimpleDateFormat sdf = new SimpleDateFormat(DEFAULTFORMAT_TWO);
+    public  final SimpleDateFormat sdf = new SimpleDateFormat(DEFAULTFORMAT_TWO);
 	
 	public static String getCurDateTime() {
 		return getCurDateTime(DEFAULTFORMAT);
@@ -44,22 +44,25 @@ public class DateTimeUtil {
 	}
 	
 	public static Date parseDate(String date) throws ParseException{
-		if("".equals(StringUtil.checkBlankString(date)))
-		return null;
+		if("".equals(StringUtil.checkBlankString(date))){
+			return null;
+		}
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		return  sdf.parse(date);
 	}
 	
 	public static Date parseDate(String date, String pattern) throws ParseException{
-		if("".equals(StringUtil.checkBlankString(date)))
-		return null;
+		if("".equals(StringUtil.checkBlankString(date))){
+			return null;
+		}
 		SimpleDateFormat sdf = new SimpleDateFormat(pattern);
 		return  sdf.parse(date);
 	}
 	
 	public static String formatDate(Date date, String pattern){
-		if(date==null)
-		return "";
+		if(date==null){
+			return "";
+		}
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(date);
 		return formatCalendar(calendar,pattern);
@@ -89,7 +92,7 @@ public class DateTimeUtil {
         long time_two;
         long time = 0;
         try {
-            time_one = sdf.parse(DEFAULTFORMAT_ONE).getTime();
+            time_one = new DateTimeUtil().sdf.parse(DEFAULTFORMAT_ONE).getTime();
             Date date = new Date();
             time_two = date.getTime();
             time = (time_two - time_one) / 1000;

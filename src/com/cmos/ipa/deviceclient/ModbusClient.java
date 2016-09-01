@@ -161,6 +161,7 @@ public class ModbusClient{
                 						enStatusQueue(mstatus);
                 					} catch (InterruptedException e) {
                 						log.log_error("ModbusClient>>start>>InterruptedException>>",e);
+                						Thread.currentThread().interrupt();
                 					}
                 				}
                 			}
@@ -171,6 +172,7 @@ public class ModbusClient{
                         Thread.sleep(Global.COLLETCONTAB);
                     } catch (InterruptedException e) {
                         log.log_error("ModbusClient>>start>>Thread>>InterruptedException>>", e);
+                        Thread.currentThread().interrupt();
                     }
                 }
             }

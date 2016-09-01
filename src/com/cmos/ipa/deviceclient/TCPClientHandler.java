@@ -177,6 +177,7 @@ public class TCPClientHandler extends ChannelInboundHandlerAdapter {
                             enAlarmQueue(ma);
                         } catch (InterruptedException e) {
                             log.log_error("TCPClientHandler>>channelRead>>InterruptedException>>",e);
+                            Thread.currentThread().interrupt();
                         }
                     }
 
